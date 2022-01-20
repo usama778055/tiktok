@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FE2C55;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2,.st3,.st4{fill:#FFFFFF;}
+	.st3{opacity: 1;animation: fadeOut 1s;animation-delay: 2s;animation-fill-mode: forwards;}
+	@keyframes fadeOut {
+	  from {opacity: 1;}
+	  to   {opacity: 0;}
+	}
+	.st4{opacity: 0;animation: fadeIn 1s;animation-delay: 3s;animation-fill-mode: forwards;position:absolute;transform-origin: center;}
+	@keyframes fadeIn {
+	  from {opacity: 0;transform: scale(.2);}
+	  to   {opacity: 1;transform: scale(1.0);}
+	}
+
+</style>
+<path class="st0" d="M46,54.9H14c-4.9,0-8.9-4-8.9-8.9V14c0-4.9,4-8.9,8.9-8.9h32c4.9,0,8.9,4,8.9,8.9v32  C54.9,50.9,50.9,54.9,46,54.9z"/>
+<g>
+	<circle class="st3" cx="45" cy="20.5" r="4.7"/>
+	<circle class="st4" cx="30" cy="30" r="25"/><g>
+		<polygon class="st1" points="41.5,33.7 24.1,33.7 19.8,20.6 46.6,20.6   "/>
+		<path class="st1" d="M10.6,15.5H18l5.6,17.1c0.2,0.7,0.2,1.5-0.2,2.1l-1.7,3.2h21.8"/>
+		
+		<circle class="st2" cx="39.8" cy="44.5" r="3.7"/>
+		<circle class="st2" cx="25.8" cy="44.5" r="3.7"/>
+	</g>
+</g>
+</svg>

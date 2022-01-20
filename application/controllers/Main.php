@@ -102,8 +102,6 @@ class Main extends CI_Controller
         $name = $_POST['name'];
         $this->load->library('instapi');
         $packages = $this->instapi->get_tiktok_user($name);
-        print_r($packages);
-        exit;
          echo json_encode($packages['data']);
         /*
         $this->load->view('package/package',$data);*/

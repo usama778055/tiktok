@@ -183,8 +183,7 @@ function from_get_api() {
             url : base_url+"get_tiktokuser_data",
             data : { "name": get_value },
             success : function(response){
-                console.log(response);
-                return;
+                
                 var result= $.parseJSON(response);
                 var images = result.post_links;
                 var html = '';

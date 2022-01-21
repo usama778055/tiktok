@@ -116,7 +116,7 @@
 				</div>
 				<div class="uk-width-1-2@s img-end">
 					<div class="uk-card">
-						<img src="<?php echo base_url('assets/images/screen1.PNG') ?>" alt="">
+						<img src="<?php echo base_url('assets/images/image1.PNG') ?>" alt="">
 					</div>
 				</div>
 			</div>
@@ -127,7 +127,7 @@
 			<div class="services uk-section" uk-grid>
 				<div class="uk-width-1-2@s img-center">
 					<div class="uk-card">
-						<img src="<?php echo base_url('assets/images/Laptop3.PNG') ?>" alt="">
+						<img src="<?php echo base_url('assets/images/image2.PNG') ?>" alt="">
 					</div>
 				</div>
 				<div class="uk-width-1-2@s">
@@ -177,7 +177,7 @@
 				</div>
 				<div class="uk-width-1-2@s img-end">
 					<div class="uk-card">
-						<img src="<?php echo base_url('assets/images/Group162.PNG') ?>" alt="">
+						<img src="<?php echo base_url('assets/images/image3.PNG') ?>" alt="">
 					</div>
 				</div>
 			</div>

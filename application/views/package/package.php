@@ -10,11 +10,11 @@
 		<div class="uk-margin-top">
 			<ul class="uk-list uk-flex uk-flex-center pakages-banner-btn">
 				<li>
-					<a class="serv-btn" href="#"><span class="spanbtn">Real Likes</span></a>
+					<a class="serv-btn" href="buy-tiktok-reellikes"><span class="spanbtn">Real Likes</span></a>
 					<!-- <a href="#">Buy Tiktok Likes</a> -->
 				</li>
 				<li>
-					<a class="serv-btn" href="#"><span class="spanbtn">Premium Likes</span></a>
+					<a class="serv-btn" href="buy-tiktok-premiumlikes"><span class="spanbtn">Premium Likes</span></a>
 				</li>
 			</ul>
 		</div>

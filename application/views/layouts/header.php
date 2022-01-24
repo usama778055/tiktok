@@ -7,6 +7,8 @@
   <link rel="icon" href="<?php echo base_url('favicon')?>" />
   <link rel="stylesheet" href="<?php echo base_url('assets/css/uikit.min.css') ?>" />
   <link href="<?php echo base_url('assets/css/main.css'); ?>" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 
 <body>

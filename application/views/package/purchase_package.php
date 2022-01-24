@@ -3,7 +3,7 @@
 	<div class="uk-section feed-banner custom-padding-top">
 		<div class="uk-container">
 			<h6>Checkout</h6>
-			<h3>Buy 1000 Tiktok Likes</h3>
+			<h3>Buy <?php echo $user_data[0]->packageQty.' '.'TikTok'.' '.$user_data[0]->serviceType; ?></h3>
 		</div>
 	</div>
 
@@ -24,18 +24,18 @@
 									</div>
 								</div>
 								<div class="uk-width-1-2@m custom-selected" uk-form-custom="target: > * > span:first-child">
-									<label for="" class="uk-form-label">Package Selected</label>			<select>
+									<label for="" class="uk-form-label">Package Selected</label>			<select class="js-example-basic-single" onchange="myFunction()">
 										<?php foreach($alldata as $values){
 
 											if($user_data[0]->id == $values->id){
-												$att = 'disabled selected';
+												$att = 'selected';
 											}
 											else{
 												$att = '';
 											}
 											?>
 
-											<option class="" value="1" <?php echo $att; ?>><?php echo $values->packageQty.' '.$values->packageTitle; ?></option>
+											<option value="<?php echo base_url('buy-'.$values->packageQty.'-tiktok-'.$values->serviceType) ?>" class="" <?php echo $att; ?>><?php echo $values->packageQty.' '.$values->packageTitle; ?></option>
 										<?php } ?>
 									</select>
 									<button class="uk-button uk-button-default" type="button" tabindex="-1">

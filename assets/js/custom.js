@@ -189,6 +189,11 @@ function from_get_api() {
     });
 }
 
+function myFunction() {
+  var x = $('.js-example-basic-single').val();
+  window.location.href = x
+  console.log(x);
+}
 
 
 

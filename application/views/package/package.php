@@ -38,8 +38,8 @@
 								$class = '';
 							}
 
-						?>
-						<li> <span class="<?php echo $class; ?> package_button" data_id = "<?php echo $value->id; ?>"><?php echo $value->packageQty; ?><br> <?php echo $value->serviceType; ?></span> </li>
+							?>
+							<li> <span class="<?php echo $class; ?> package_button" data_id = "<?php echo $value->id; ?>"><?php echo $value->packageQty; ?><br> <?php echo $value->serviceType; ?></span> </li>
 						<?php } ?>
 						
 					</ul>
@@ -92,36 +92,25 @@
 	<div class="gradientBg">
 		<div class="uk-width-3-4@s wanted-pakages-article">
 			<div class="uk-child-width-expand@s" uk-grid>
-				<div>
-					<div class="uk-card uk-card-default">
-						<p>Followers</p>
-						<h3>Buy 1000 Tiktok <br>Followers</h3>
-						<h4>£ 3<sup>.12</sup></h4>
-						<div class="wanted-pakages-btn">
-							<a class="serv-btn" href="#"><span class="spanbtn">Buy Now</span></a>
+				<?php foreach ($featured as $key => $value) {// code...
+					$parts = explode('.', $value->packagePrice);
+					?>
+					<div>
+						<div class="uk-card uk-card-default">
+							<p><?php echo $value->serviceType; ?></p>
+							<h3>Buy <?php echo $value->packageQty ?> Tiktok <br><?php echo $value->serviceType; ?></h3>
+							<h4><?php echo $value->priceUnit.' '.$parts[0]; ?><sup><?php if(!empty($parts[1])){
+								echo $parts[1];
+							}
+							else{
+
+							}  ?></sup></h4>
+							<div class="wanted-pakages-btn">
+								<a class="serv-btn" href="<?php echo base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType); ?>"><span class="spanbtn">Buy Now</span></a>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div>
-					<div class="uk-card uk-card-default">
-						<p>Auto Likes</p>
-						<h3>Buy 2500 Tiktok <br>Auto Likes</h3>
-						<h4>£ 10<sup>.69</sup></h4>
-						<div class="wanted-pakages-btn">
-							<a class="serv-btn" href="#"><span class="spanbtn">Buy Now</span></a>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="uk-card uk-card-default">
-						<p>Comments</p>
-						<h3>Buy 1500 Tiktok <br>Comments</h3>
-						<h4>£ 16<sup>.30</sup></h4>
-						<div class="wanted-pakages-btn">
-							<a class="serv-btn" href="#"><span class="spanbtn">Buy Now</span></a>
-						</div>
-					</div>
-				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

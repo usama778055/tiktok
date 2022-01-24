@@ -55,6 +55,8 @@ class Main extends CI_Controller
 
         $record_packages['single_data'] = $this->genral_model->get_records('ig_service_description','igservices','packageId','id' ,$single_id);
         $record_packages['category'] = $packages;
+         $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','displayQty' ,1);
+         
         //         echo "<Pre>";
         // print_r($record_packages);
         // exit;
@@ -84,6 +86,7 @@ class Main extends CI_Controller
             show_404();
         }
         $record_packages['alldata'] = $this->genral_model->select_all_data('serviceType',$stype,'igservices');
+        $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','displayQty' ,1);
         
         $this->load->view('package/purchase_package',$record_packages);
             /*$get_title = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$id);

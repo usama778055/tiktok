@@ -190,8 +190,8 @@ function from_get_api() {
 }
 
 function myFunction() {
-  var x = $('.js-example-basic-single').val();
-  window.location.href = x
+  var load = $('.js-example-basic-single').val();
+  window.location.href = load;
   console.log(x);
 }
 

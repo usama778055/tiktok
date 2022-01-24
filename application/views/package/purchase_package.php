@@ -102,45 +102,28 @@
 				<h6>Add on</h6>
 				<h4>Take a look at these amazing packages</h4>
 				<ul class="uk-list packages-article">
+					<?php foreach ($featured as $key => $value) {// code...
+					$parts = explode('.', $value->packagePrice);
+					?>
 					<li class="feed-box">
 						<div class="amazing-package">
-							<h5>Buy 1500 Tiktok Comments</h5>
-							<small>£ 16<sup>.30</sup></small>
+							<h5>Buy <?php echo $value->packageQty ?> Tiktok <?php echo $value->serviceType; ?></h5>
+							<small><?php echo $value->priceUnit.' '.$parts[0]; ?><sup><?php if(!empty($parts[1])){
+								echo $parts[1];
+							}
+							else{
+
+							}?></sup></small>
 							<ul class="uk-list">
 								<li>High Quality</li>
 								<li>Active and Real Users </li>
 								<li>Instant Delivery</li>
 								<li>24/7 Support</li>
 							</ul>
-							<a class="serv-btn" href="#"><span class="spanbtn">Purchase</span></a>
+							<a class="serv-btn" href="<?php echo base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType); ?>"><span class="spanbtn">Purchase</span></a>
 						</div>
 					</li>
-					<li class="feed-box">
-						<div class="amazing-package">
-							<h5>Buy 1500 Tiktok Comments</h5>
-							<small>£ 16<sup>.30</sup></small>
-							<ul class="uk-list">
-								<li>High Quality</li>
-								<li>Active and Real Users </li>
-								<li>Instant Delivery</li>
-								<li>24/7 Support</li>
-							</ul>
-							<a class="serv-btn" href="#"><span class="spanbtn">Purchase</span></a>
-						</div>
-					</li>
-					<li class="feed-box">
-						<div class="amazing-package">
-							<h5>Buy 1500 Tiktok Comments</h5>
-							<small>£ 16<sup>.30</sup></small>
-							<ul class="uk-list">
-								<li>High Quality</li>
-								<li>Active and Real Users </li>
-								<li>Instant Delivery</li>
-								<li>24/7 Support</li>
-							</ul>
-							<a class="serv-btn" href="#"><span class="spanbtn">Purchase</span></a>
-						</div>
-					</li>
+				<?php } ?>
 				</ul>
 			</div>
 		</div>

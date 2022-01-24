@@ -162,13 +162,24 @@ class Genral_model extends CI_Model
 	// 	return $this->db->get($table)->row();
 	// }
 
-	function get_records($table1,$table2,$user_id,$id, $where)
+	function get_records($table1,$table2,$user_id,$any, $where)
 	{
 		$this->db->select('*');
 		$this->db->from($table1);
-		$this->db->join($table2, "ON ".$table2.".".$id." = ".$table1.".".$user_id);
+		$this->db->join($table2, "ON ".$table2.".".$any." = ".$table1.".".$user_id);
 
-		$this->db->where($table2.".".$id. " = " , $where);
+		$this->db->where($table2.".".$any. " = " , $where);
+		
+		return $this->db->get()->result();
+	}
+
+	function get_packagerecords($table1,$table2,$user_id,$any, $where)
+	{
+		$this->db->select('*');
+		$this->db->from($table1);
+		$this->db->join($table2, "ON ".$table2.".id = ".$table1.".".$user_id);
+
+		$this->db->where($table2.".".$any. " = " , $where);
 		
 		return $this->db->get()->result();
 	}

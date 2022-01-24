@@ -87,6 +87,16 @@ class Users extends CI_Model
 		return $this->db->get()->result();
 	}
 
+	public function feature_packagebuy() {
+		$this->db->select('*');
+		$this->db->from('posts');
+		$query = $this->db->join('users','ON posts.user_id = users.id ')->join('categories','ON posts.category_id = categories.id ','left');
+		$this->db->where("posts.feature = 1");
+		$this->db->limit(3);
+		
+		return $this->db->get()->result();
+	}
+
 	public function get_id($table, $value)
 	{
 		$this->db->select('*');

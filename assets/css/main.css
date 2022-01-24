@@ -1583,6 +1583,12 @@ padding-right: 40px;
   font-size: 20px;
   margin: 10px 0;
 }
+.single-blog-text h2{
+   color: #fff;
+  font-family: 'Lato-Bold';
+  font-size: 20px;
+  margin: 10px 0;
+}
 .single-blog-text{
   padding-top: 20px;
 }
@@ -1922,7 +1928,7 @@ padding-right: 40px;
     font-size: 34px;
   }
   .content h3,.feature-heading h3,.statisfied-sec-heading h3,.checkout-banner h6,.testimonial-heading h3,.pakages-banner-content h3
-  ,.feed-banner h3,.blog-banner-content h3,.blog-sec h3 ,.about-sec h4,.count-box h4{
+  ,.feed-banner h3,.blog-banner-content h3,.blog-sec h3 ,.about-sec h4,.count-box h4 {
     font-size: 30px;
     line-height: 1;
   }

@@ -92,6 +92,9 @@ public function index(){
     public function categoryData($name){
         $data['cat_name'] = $name;
         $getData = $this->users->getByColumn($data);
+        if(empty($getData)){
+            show_404();
+        }
         $pageall=count($getData);
         $config = array();
         $config["uri_segment"] = 3;

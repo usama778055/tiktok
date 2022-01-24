@@ -26,9 +26,9 @@
           <div class="">
             <h4>Tiktok live stream</h4>
             <ul class="uk-list">
-              <li><a href="<?php echo base_url('buy-live-stream-views'); ?>">Live stream views</a></li>
-              <li><a href="<?php echo base_url('buy-post-shares'); ?>">Posts shares</a></li>
-              <li><a href="<?php echo base_url('buy-video-shares'); ?>">Video shares</a></li>
+              <li><a href="<?php echo base_url('tiktok-livestreaming-views'); ?>">Live stream views</a></li>
+              <li><a href="<?php echo base_url('tiktok-postshares'); ?>">Posts shares</a></li>
+              <li><a href="<?php echo base_url('tiktok-videoshares'); ?>">Video shares</a></li>
             </ul>
           </div>
         </div>
@@ -78,7 +78,9 @@
     <div class="uk-container">
       <div class="uk-child-width-1-3@s uk-child-width-1-3@m" uk-grid style="align-items: baseline; ">
         <div class="footer-logo">
-          <img width="160" src="<?php echo base_url('assets/images/new-logo.png') ?>">
+          <a class="" href="http://localhost/tiktok/">
+            <img width="160" src="<?php echo base_url('assets/images/new-logo.png') ?>">
+          </a>
         </div>
         <div class="rights-reserved">
           <p>All rights reserved | 2020-2021</p>

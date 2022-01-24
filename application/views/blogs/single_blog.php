@@ -40,14 +40,14 @@
 			<ul class="uk-list">
 				<li>
 					<?php if($prev_slug != ""){ ?>
-						<a class="btn btn-secondary" href="<?php echo base_url('slugdata/'.$prev_slug); ?>">previous</a>
+						<a class="btn btn-secondary" href="<?php echo base_url('blogs/'.$prev_slug); ?>">previous</a>
 					<?php }else{
 						echo '';
 					} ?>
 				</li>
 				<li>
 					<?php if($next_slug != ""){ ?>
-						<a class="btn btn-primary" href="<?php echo base_url('slugdata/'.$next_slug); ?>">Next</a>
+						<a class="btn btn-primary" href="<?php echo base_url('blogs/'.$next_slug); ?>">Next</a>
 					<?php }else{
 						echo "";
 					} ?>
@@ -73,7 +73,7 @@
 					<div class="single-blog-text">
 						<div class="blog-published">
 							<a href="<?= base_url("category/{$value->cat_name}/1") ?>"><?php echo $value->cat_name; ?></a>
-							<p><?php echo date('d/m/Y',strtotime($value->created_at)); ?></p>
+							<p><?php echo date('F j, Y',strtotime($value->created_at)); ?></p>
 						</div>
 						<small><?php echo $value->name; ?></small>
 						<div class=""><p><?php echo $body; ?></p></div>
@@ -113,17 +113,17 @@
 					?>
 					<div>
 						<div class="blog-image">
-							<a class="uk-link-heading" href="<?= base_url("slugdata/{$val->slug}") ?>">
+							<a class="uk-link-heading" href="<?= base_url("blog/{$val->slug}") ?>">
 								<img src="<?php echo base_url('assets/images/blog1.PNG'); ?>">
 							</a>
 						</div>
 						<div class="blog-text">
 							<div class="blog-published">
 								<a href="<?= base_url("category/{$val->cat_name}/1") ?>"><?php echo $val->cat_name; ?></a>
-								<p><?php echo date('d/m/Y',strtotime($val->created_at)); ?></p>
+								<p><?php echo date('F j, Y',strtotime($val->created_at)); ?></p>
 							</div>
-							<a class="uk-link-heading" href="<?= base_url("slugdata/{$val->slug}") ?>"><h4><?php echo $title; ?></h4></a>
-							<a class="uk-link-heading" href="<?= base_url("slugdata/{$slug}") ?>"><p><?php echo substr(strip_tags($body), 0, 25) . '...'?></p></a>
+							<a class="uk-link-heading" href="<?= base_url("blogs/{$val->slug}") ?>"><h4><?php echo $title; ?></h4></a>
+							<a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>"><p><?php echo substr(strip_tags($body), 0, 25) . '...'?></p></a>
 							<span><?php echo $name; ?></span>
 						</div>
 					</div>

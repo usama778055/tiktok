@@ -25,9 +25,9 @@
               <a href="#">Tiktok<span uk-icon="chevron-down"></span></a>
               <div class="uk-navbar-dropdown">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                  <li><a href="#">A</a></li>
-                  <li><a href="#">B</a></li>
-                  <li><a href="#">C</a></li>
+                  <li><a href="<?php echo base_url('buy-tiktok-followers'); ?>">TikTok Followers</a></li>
+                  <li><a href="<?php echo base_url('buy-tiktok-likes'); ?>">Buy TikTok Likes</a></li>
+                  <li><a href="<?php echo base_url('buy-tiktok-views'); ?>">Buy TikTok Views</a></li>
                 </ul>
               </div>
             </li>
@@ -35,8 +35,8 @@
               <a href="<?php echo base_url('blogs') ?>">blogs</a>
             </li>
             <li><a href="<?php echo base_url('faqs') ?>">faqs</a></li>
-            <li><a href="#">about us</a></li>
-            <li><a href="#">contact us</a></li>
+            <li><a href="<?php echo base_url('about-us'); ?>">about us</a></li>
+            <li><a href="<?php echo base_url('contact-us'); ?>">contact us</a></li>
           </ul>
         </div>
 

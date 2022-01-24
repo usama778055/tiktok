@@ -139,13 +139,13 @@
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
 							<ul class="uk-list uk-flex tiktok-serve live-streaming-sec">
 								<li>
-									<a class="serv-btn" href="#"><span class="spanbtn">buy live streaming views</span></a>
+									<a class="serv-btn" href="<?php echo base_url('tiktok-livestreaming-views') ?>"><span class="spanbtn">buy live streaming views</span></a>
 								</li>
 								<li>
-									<a class="serv-btn" href="#"><span class="spanbtn">buy video shares</span></a>
+									<a class="serv-btn" href="<?php echo base_url('tiktok-videoshares') ?>"><span class="spanbtn">buy video shares</span></a>
 								</li>
 								<li>
-									<a class="serv-btn" href="#"><span class="spanbtn">buy post shares</span></a>
+									<a class="serv-btn" href="<?php echo base_url('tiktok-postshare') ?>"><span class="spanbtn">buy post shares</span></a>
 								</li>
 							</ul>
 						</div>

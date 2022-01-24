@@ -38,7 +38,7 @@
               <div class="blog-content">
                 <div class="blog-published">
                   <a href="<?= base_url("category/{$value->cat_name}/1") ?>"><?php echo $value->cat_name; ?> </a>
-                  <p><?php echo date('d/m/Y',strtotime($value->created_at)); ?></p>
+                  <p><?php echo date('F j, Y',strtotime($value->created_at)); ?></p>
                 </div>
                 <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>"><h4><?php echo $value->title; ?></h4></a>
                 <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>"><p><?php echo substr(strip_tags($body), 0, 80) . '...'?></p></a>
@@ -72,7 +72,7 @@
               <div class="blog-text">
                 <div class="blog-published">
                   <a href="<?= base_url("category/{$value->cat_name}/1") ?>"><?php echo $value->cat_name; ?></a>
-                  <p><?php echo date('d/m/Y',strtotime($value->created_at)); ?></p>
+                  <p><?php echo date('F j, Y',strtotime($value->created_at)); ?></p>
                 </div>
                 <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>"><h4><?php echo $title; ?></h4></a>
                 <a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>"><p><?php echo substr(strip_tags($body), 0, 40) . '...'?> </p></a>

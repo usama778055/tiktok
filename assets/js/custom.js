@@ -30,31 +30,7 @@ window.onclick = function(event) {
 }
 
 // Gallery 
-$(function () {
-  "use strict";
-  $('.gallery-image').slice(0, 12).show();
-  $('#loadmore').on('click', function (e) {
-    e.preventDefault();
-    $('.gallery-image:hidden').slice(0, 4).slideDown();
-    if ($('.gallery-image:hidden').length === 0) {
-        $('#loadmore').replaceWith("<a id='nomore-image' class='serv-btn' href=''><span class='spanbtn'>No More</span></a>");
-    }
-});
-    // $('#top').on('click', function (e) {
-    //     e.preventDefault();
-    //     $('html, body').animate({
-    //         scrollTop: 0
-    //     }, 600);
-    //     return false;
-    // });
-    // $(window).scroll(function () {
-    //     if ($(this).scrollTop() > 50) {
-    //         $('#top a').fadeIn();
-    //     } else {
-    //         $('#top a').fadeOut();
-    //     }
-    // });
-});
+
 
 
 // Blog
@@ -91,7 +67,7 @@ $('.package_button').bind("click",function () {
 
     $.ajax({
         method:"post",
-        url : "package_data",
+        url : base_url+"package_data",
         data : {
             "id": id,
                 //"bread_name": "australian"
@@ -168,26 +144,26 @@ $('.selected_div').on("click",function () {
 
 function from_get_api() {
     $(this).keypress(function (event) {
-                if (event.keyCode == 13) {
-                    event.preventDefault();
-                }
-            });
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
     var get_value = $('.user_name').val();
     if(get_value === ''){
         console.log('usama');
         UIkit.notification({message: 'Field empty', pos: 'top-right',status:'danger'});
         return false;
     }
-        $.ajax({
-            method:"post",
-            url : base_url+"get_tiktokuser_data",
-            data : { "name": get_value },
-            success : function(response){
-                
-                var result= $.parseJSON(response);
-                var images = result.post_links;
-                var html = '';
-                $.each(images , function( index, value ) {
+    $.ajax({
+        method:"post",
+        url : base_url+"get_tiktokuser_data",
+        data : { "name": get_value },
+        success : function(response){
+
+            var result= $.parseJSON(response);
+            var images = result.post_links;
+            var html = '';
+            $.each(images , function( index, value ) {
                 html += "<div>"+
                 "<div class='gallery-image uk-transition-toggle selected_div' tabindex='0'>"+
                 "<img class='uk-transition-scale-up uk-transition-opaque' src='"+value+"'>"+
@@ -196,13 +172,22 @@ function from_get_api() {
                 "</div>"+
                 "</div>"+
                 "</div>"; 
-                $('.custom_image_class').append(html);
+                $('.custom_image_class').prepend(html);
+                
+            });
+            $('.gallery-image').slice(0, 10).show();
+                $('#loadmore').on('click', function (e) {
+                    e.preventDefault();
+                    $('.gallery-image:hidden').slice(0, 4).slideDown();
+                    if ($('.gallery-image:hidden').length === 0) {
+                        $('#loadmore').replaceWith("<a id='nomore-image' class='serv-btn' href=''><span class='spanbtn'>No More</span></a>");
+                    }
                 });
-               
 
-            }
-        });
-    }
+
+        }
+    });
+}
 
 
 

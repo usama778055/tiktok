@@ -14,7 +14,7 @@
       <nav class="uk-container custom-navbar" uk-navbar>
         <div class="uk-navbar">
           <a class="uk-navbar-item uk-logo" href="<?php echo base_url(); ?>">
-            <img width="180" src="<?php echo base_url('assets/images/new-logo.png') ?>"/>
+            <img width="180" src="<?php echo base_url('assets/images/new-logo.png'); ?>"/>
           </a>
         </div>
         <div class="uk-navbar custom-margin">
@@ -34,7 +34,7 @@
             <li>
               <a href="<?php echo base_url('blogs') ?>">blogs</a>
             </li>
-            <li><a href="<?php echo base_url('faq') ?>">faqs</a></li>
+            <li><a href="<?php echo base_url('faqs') ?>">faqs</a></li>
             <li><a href="#">about us</a></li>
             <li><a href="#">contact us</a></li>
           </ul>

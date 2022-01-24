@@ -643,7 +643,7 @@ header{
   position: relative;
   z-index: 999;
 }
-.footer .uk-container{
+.footer .uk-container,.site-info{
   position: relative;
   z-index: 999;
 }
@@ -1577,10 +1577,16 @@ padding-right: 40px;
   font-size: 18px;
   margin: 10px 0;
 }
+.single-blog-text h3{
+   color: #fff;
+  font-family: 'Lato-Bold';
+  font-size: 20px;
+  margin: 10px 0;
+}
 .single-blog-text{
   padding-top: 20px;
 }
-.single-blog-text p,.single-blog-text li{
+.single-blog-text p,.single-blog-text li,.single-blog-text{
   color: #fff;
   margin: 0;
   font-family: Helvetica;
@@ -2222,7 +2228,7 @@ padding-right: 40px;
   width: 104px;
   position: fixed;
   left: -65px;
-  z-index: 1000;
+  z-index: 999;
   -webkit-transition: all .25s ease;
   -moz-transition: all .25s ease;
   -ms-transition: all .25s ease;

@@ -46,7 +46,7 @@
           <div class="row">
             <div class="col">
               <?php if($prev_slug != ""){ ?>
-                <a class="btn btn-secondary" href="<?php echo base_url('slugdata/'.$prev_slug); ?>">previous</a>
+                <a class="btn btn-secondary" href="<?php echo base_url('blogs/'.$prev_slug); ?>">previous</a>
               <?php }else{
                 echo '';
               } ?>
@@ -54,7 +54,7 @@
             </div>
             <div>
               <?php if($next_slug != ""){ ?>
-                <a class="btn btn-primary" href="<?php echo base_url('slugdata/'.$next_slug); ?>">Next</a>
+                <a class="btn btn-primary" href="<?php echo base_url('blogs/'.$next_slug); ?>">Next</a>
               <?php }else{
                 echo "";
               } ?>
@@ -80,15 +80,15 @@
             <div class="mb-3" style="width: 26rem;">
               <div class="row g-0">
                 <div class="col-sm-5">
-                  <a class="text-decoration-none" href="<?php echo base_url('slugdata/'.$slug); ?>"><small><img style="" src="<?php echo base_url('assets/images/blog2.JPG');?>" class="img-thumbnail" alt="Responsive image"></small></a>
+                  <a class="text-decoration-none" href="<?php echo base_url('blogs/'.$slug); ?>"><small><img style="" src="<?php echo base_url('assets/images/blog2.JPG');?>" class="img-thumbnail" alt="Responsive image"></small></a>
                 </div>
                 <div class="col ">
                   <div class="">
-                    <a class="text-decoration-none" href="<?php echo base_url('slugdata/'.$slug); ?>"><div class="h6 card-title text-dark"><?php echo substr(strip_tags($title), 0, 50) . '...'; ?></div></a>
+                    <a class="text-decoration-none" href="<?php echo base_url('blogs/'.$slug); ?>"><div class="h6 card-title text-dark"><?php echo substr(strip_tags($title), 0, 50) . '...'; ?></div></a>
                   </div>
                   <div class="">
                     <div><small><?php echo $name; ?></small></div>
-                    <div class=""><a class="text-decoration-none" href="<?php echo base_url('slugdata/'.$slug); ?>"><p class="text-dark">Detail</p></a></div>
+                    <div class=""><a class="text-decoration-none" href="<?php echo base_url('blogs/'.$slug); ?>"><p class="text-dark">Detail</p></a></div>
 
                   </div>
                 </div>

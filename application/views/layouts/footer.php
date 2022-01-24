@@ -13,12 +13,12 @@
           <div class="">
             <h4>Tiktok</h4>
             <ul class="uk-list">
-              <li><a href="">Likes</a></li>
-              <li><a href="">Followers</a></li>
-              <li><a href="">Comments</a></li>
-              <li><a href="">Views</a></li>
-              <li><a href="">Tiktok auto Likes</a></li>
-              <li><a href="">Tiktok auto Views</a></li>
+              <li><a href="<?php echo base_url('buy-tiktok-likes'); ?>">Likes</a></li>
+              <li><a href="<?php echo base_url('buy-tiktok-followers'); ?>">Followers</a></li>
+              <li><a href="<?php echo base_url('buy-tiktok-comments'); ?>">Comments</a></li>
+              <li><a href="<?php echo base_url('buy-tiktok-views'); ?>">Views</a></li>
+              <li><a href="<?php echo base_url('buy-tiktok-autolikes'); ?>">Tiktok auto Likes</a></li>
+              <li><a href="<?php echo base_url('buy-tiktok-autoviews'); ?>">Tiktok auto Views</a></li>
             </ul>
           </div>
         </div>
@@ -26,9 +26,9 @@
           <div class="">
             <h4>Tiktok live stream</h4>
             <ul class="uk-list">
-              <li><a href="">Live stream views</a></li>
-              <li><a href="">Posts shares</a></li>
-              <li><a href="">Video shares</a></li>
+              <li><a href="<?php echo base_url('buy-live-stream-views'); ?>">Live stream views</a></li>
+              <li><a href="<?php echo base_url('buy-post-shares'); ?>">Posts shares</a></li>
+              <li><a href="<?php echo base_url('buy-video-shares'); ?>">Video shares</a></li>
             </ul>
           </div>
         </div>
@@ -37,9 +37,9 @@
             <h4>Company</h4>
             <ul class="uk-list">
               <li><a href="<?php echo base_url('blogs'); ?>">Blogs</a></li>
-              <li><a href="<?php echo base_url('faq'); ?>">Faq's</a></li>
-              <li><a href="">About us</a></li>
-              <li><a href="">Contact us</a></li>
+              <li><a href="<?php echo base_url('faqs'); ?>">FAQs</a></li>
+              <li><a href="<?php echo base_url('about-us'); ?>">About us</a></li>
+              <li><a href="<?php echo base_url('contact-us'); ?>">Contact us</a></li>
             </ul>
           </div>
         </div>
@@ -49,7 +49,7 @@
             <ul class="uk-list custom-icons">
               <li><a href=""><img src="<?php echo base_url('assets/images/Group91.PNG') ?>"> Instagram</a></li>
               <li><a href=""><img src="<?php echo base_url('assets/images/Group159.PNG') ?>">Facebook</a></li>
-              <li><a href=""> <img src="<?php echo base_url('assets/images/Group89.PNG') ?>"> Twitter</a></li>
+              <li><a href="https://twitter.com/socialfollowe12"> <img src="<?php echo base_url('assets/images/Group89.PNG') ?>"> Twitter</a></li>
               <li><a href=""><img src="<?php echo base_url('assets/images/Group88.PNG') ?>"> Linkdin</a></li>
             </ul>
           </div>

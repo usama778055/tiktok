@@ -19,7 +19,28 @@ class Users extends CI_Model
 		return $query->result();
 	}
 
-	function GetAllService(){
+	function selectlimitedjoin() {
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->join('posts','posts.user_id = users.id');
+		$this->db->join('categories','ON posts.category_id = categories.id ','left');
+		$this->db->limit(3);
+		$query = $this->db->get();
+
+		return $query->result();
+	}
+
+	function GetNextBlogs($slug){
+		/*$this->db->select('*');
+		$this->db->from('users');
+		$this->db->join('posts','posts.user_id = users.id');
+		$this->db->join('categories','ON posts.category_id = categories.id ','left'); 
+		$this->db->where("slug > posts.slug ORDER BY id");
+		$this->db->where('slug',$slug);
+		$this->db->limit(3);*/
+		/*return $this->db->get()->result();*/
+		$sql = "SELECT slug FROM posts WHERE id > posts.id ORDER BY id ASC LIMIT 1 as next_slug FROM posts JOIN users ON posts.user_id = users.id left join categories posts.category_id = categories.id WHERE slug = '".$slug."'";
+		return $this->db->query($sql)->result();
 		
 	}
 

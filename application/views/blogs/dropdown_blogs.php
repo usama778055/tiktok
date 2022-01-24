@@ -9,7 +9,7 @@
 				<div class="" uk-grid>
 					<div class="uk-width-1-4@m">
 						<div class="">
-							<a class="uk-link-heading" href="<?= base_url("slugdata/{$value->slug}") ?>">
+							<a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
 								<div class="blog-image">
 									<img src="<?php echo base_url('assets/images/blog1.PNG') ?>">
 								</div>
@@ -23,8 +23,8 @@
 									<a href="<?= base_url("category/{$value->cat_name}/1") ?>"><?php echo $value->cat_name; ?></a>
 									<p><?php echo date('d/m/Y',strtotime($value->created_at)); ?></p>
 								</div>
-								<a class="uk-link-heading" href="<?= base_url("slugdata/{$value->slug}") ?>"><h4><?php echo $value->title; ?></h4></a>
-								<a class="inside_single_page uk-link-heading" href="<?= base_url("slugdata/{$value->slug}") ?>"><p><?php echo substr(strip_tags($body), 0, 80) . '...'?></p></a>
+								<a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>"><h4><?php echo $value->title; ?></h4></a>
+								<a class="inside_single_page uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>"><p><?php echo substr(strip_tags($body), 0, 80) . '...'?></p></a>
 								<span><?php echo $value->name; ?></span>
 							</div>
 						</div>

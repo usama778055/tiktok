@@ -51,8 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'main';
 
-$route['slugdata/(:any)'] = 'blog/slugData/$1';
-$route['category/(:any)/(:any)'] = 'blog/categoryData/$1/$1';
+$route['blogs/(:any)'] = 'blog/slugData/$1';
+$route['category/(:any)/(:num)'] = 'blog/categoryData/$1/$2';
+$route['category/(:any)'] = 'blog/categoryData/$1';
 $route['testing'] = 'blog/testing';
 $route['privious'] = 'blog/previosData';
 $route['blogs'] = "blog/index";
@@ -61,7 +62,7 @@ $route['blogs'] = "blog/index";
 
 // Faq
 
-$route['faq'] = 'main/faq';
+$route['faqs'] = 'main/faq';
 
 // package
 

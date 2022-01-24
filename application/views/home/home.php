@@ -202,7 +202,7 @@
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
 				</div>
 			</div>
-			<div class="uk-child-width-1-3@s uk-child-width-1-5@m uk-text-center" uk-grid>
+			<div class="uk-child-width-1-3@s uk-child-width-1-5@m uk-text-center uk-flex-center" uk-grid>
 				<?php foreach($feature_data as $val){ ?>
 				<div>
 					<div class="uk-card feature-content">

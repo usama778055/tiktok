@@ -128,12 +128,12 @@ public function index(){
         
         $tot_pages = ceil($pageall / $config["per_page"]);
 
-        if($this->uri->segment(3) < 1 || $this->uri->segment(3) > $tot_pages)
+        if(empty($this->uri->segment(3)) || $this->uri->segment(3) < 1 || $this->uri->segment(3) > $tot_pages)
             return redirect(base_url('category/'.$name.'/1'));
 
 
         $this->pagination->initialize($config);
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 1;
+        $page = (!empty($this->uri->segment(3))) ? $this->uri->segment(3) : 1;
         
         
         $offset = ($page == 0  ? 0 : ($page - 1) * $config["per_page"]);

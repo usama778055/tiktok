@@ -180,7 +180,7 @@ class Genral_model extends CI_Model
 		$this->db->join($table2, "ON ".$table2.".id = ".$table1.".".$user_id);
 
 		$this->db->where($table2.".".$any. " = " , $where);
-		
+		$this->db->limit(4);
 		return $this->db->get()->result();
 	}
 

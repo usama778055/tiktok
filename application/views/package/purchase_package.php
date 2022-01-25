@@ -97,11 +97,11 @@
 
 	<!------------------feed-sec-packages--------------->
 	<div class="feed-sec-packages uk-section">
-		<div class="uk-container">
-			<div class="packages-list uk-width-3-4@m">
+		<div class="uk-container uk-width-4-5@s"uk-slider>
+			<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 				<h6>Add on</h6>
 				<h4>Take a look at these amazing packages</h4>
-				<ul class="uk-list packages-article">
+				<ul class="uk-slider-items uk-child-width-1-3@m uk-child-width-1-2@s uk-grid">
 					<?php foreach ($featured as $key => $value) {// code...
 					$parts = explode('.', $value->packagePrice);
 					?>
@@ -126,6 +126,7 @@
 				<?php } ?>
 				</ul>
 			</div>
+			<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 		</div>
 	</div>
 	<!-------------------------------------------------->

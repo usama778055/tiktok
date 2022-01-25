@@ -121,8 +121,8 @@ function from_get_api() {
             var html = '';
             $.each(images , function( index, value ) {
                 html += "<div>"+
-                "<div class='gallery-image uk-transition-toggle' tabindex='0'>"+
-                "<img class='uk-transition-scale-up uk-transition-opaque selected_div' src='"+value+"'>"+
+                "<div class='gallery-image uk-transition-toggle selected_div' tabindex='0'>"+
+                "<img class='uk-transition-scale-up uk-transition-opaque' src='"+value+"'>"+
                 "<div class='uk-position-bottom uk-overlay-default get_select' style='display: none;' data_id='get_select'>"+
                 "<p class='uk-h4 uk-margin-remove'>200</p>"+
                 "</div>"+
@@ -145,9 +145,9 @@ function from_get_api() {
     });
 }
 
-$(".selected_div").on('click' ,function () {
-    console.log('usama');
-    /*return false;
+
+
+$(document).on('click', ".selected_div", function () {
     if($(this).hasClass("selected"))
     {
         $(this).removeClass("selected");
@@ -158,7 +158,7 @@ $(".selected_div").on('click' ,function () {
     $('.selected_div').addClass("selected");
     $(this).find('.get_select').show();
     return false;
-    }*/
+    }
 
     
 });
@@ -167,7 +167,6 @@ $(".selected_div").on('click' ,function () {
 function myFunction() {
   var load = $('.js-example-basic-single').val();
   window.location.href = load;
-  console.log(x);
 }
 
 

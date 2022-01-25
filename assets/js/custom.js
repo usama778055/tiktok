@@ -96,51 +96,7 @@ $('.package_button').bind("click",function () {
         });
 });
 
-$('.selected_div').on("click",function () {
 
-    if($(this).hasClass("selected"))
-    {
-        $(this).removeClass("selected");
-        $(this).find('.get_select').hide();
-        return false;
-    }
-
-    /*$(this).addClass("selected");
-    $(this).find('.get_select').show()
-
-    return false;
-
-    $.ajax({
-        method:"post",
-        url : "package_data",
-        data : {
-            "id": id,
-                //"bread_name": "australian"
-            },
-            success : function(response){
-
-                var result= $.parseJSON(response); 
-                var url = window.location.origin;
-                var html = `<small><a href="#">Home</a>/<a class="active" href="#">Tiktok ${result.serviceType}</a></small>
-                <h3>Buy ${result.packageQty} ${result.packageTitle}</h3>
-                <strong>${result.priceUnit} ${result.packagePrice}</strong>
-                <p>${result.package_description}</p>
-                <ul class="uk-list">
-                <li>High Quality</li>
-                <li>Active and Real Users </li>
-                <li>Instant Delivery</li>
-                <li>24/7 Support</li>
-                </ul>
-                <div class="purchase-btn">
-                <a class="serv-btn" href='purchase/${result.id}'><span class="spanbtn">Purchase</span></a>
-                </div>`;
-                $('.pakage-details').html(html);
-                
-                
-
-            }
-        });*/
-    });
 
 function from_get_api() {
     $(this).keypress(function (event) {
@@ -165,8 +121,8 @@ function from_get_api() {
             var html = '';
             $.each(images , function( index, value ) {
                 html += "<div>"+
-                "<div class='gallery-image uk-transition-toggle selected_div' tabindex='0'>"+
-                "<img class='uk-transition-scale-up uk-transition-opaque' src='"+value+"'>"+
+                "<div class='gallery-image uk-transition-toggle' tabindex='0'>"+
+                "<img class='uk-transition-scale-up uk-transition-opaque selected_div' src='"+value+"'>"+
                 "<div class='uk-position-bottom uk-overlay-default get_select' style='display: none;' data_id='get_select'>"+
                 "<p class='uk-h4 uk-margin-remove'>200</p>"+
                 "</div>"+
@@ -188,6 +144,25 @@ function from_get_api() {
         }
     });
 }
+
+$(".selected_div").on('click' ,function () {
+    console.log('usama');
+    /*return false;
+    if($(this).hasClass("selected"))
+    {
+        $(this).removeClass("selected");
+        $(this).find('.get_select').hide();
+        return false;
+    }
+    else{
+    $('.selected_div').addClass("selected");
+    $(this).find('.get_select').show();
+    return false;
+    }*/
+
+    
+});
+
 
 function myFunction() {
   var load = $('.js-example-basic-single').val();

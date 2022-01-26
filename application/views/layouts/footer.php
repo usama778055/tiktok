@@ -39,7 +39,7 @@
               <li><a href="<?php echo base_url('blogs'); ?>">Blogs</a></li>
               <li><a href="<?php echo base_url('faqs'); ?>">FAQs</a></li>
               <li><a href="<?php echo base_url('about-us'); ?>">About us</a></li>
-              <li><a href="<?php echo base_url('contact-us'); ?>">Contact us</a></li>
+              <li><a href="<?php echo base_url('about-us#contact_sec'); ?>">Contact us</a></li>
             </ul>
           </div>
         </div>

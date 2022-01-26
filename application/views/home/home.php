@@ -127,7 +127,7 @@
 			<div class="services uk-section" uk-grid>
 				<div class="uk-width-1-2@s img-center">
 					<div class="uk-card">
-						<img src="<?php echo base_url('assets/images/image2.PNG') ?>" alt="">
+						<img src="<?php echo base_url('assets/images/Group359.png') ?>" alt="">
 					</div>
 				</div>
 				<div class="uk-width-1-2@s">
@@ -263,7 +263,7 @@
 									<h3 class=""><?php echo $author_name; ?></h3>
 									<ul class="uk-list">
 										<li><?php for($i = 1; $i <= $rating; $i++){ ?>
-											<span uk-icon="star"></span>
+											<span class="svg_star" uk-icon="star"></span>
 											<?php } ?>
 										</li>
 										<li><span>19-02-2021</span></li>

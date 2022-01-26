@@ -1252,7 +1252,7 @@ header{
   background: rgb(0, 0, 0, .9);
 }
 .feed-box{
-  width: 31.333%;
+  width: 33.333%;
 }
 .feed-sec-packages h6{
   margin: 0;
@@ -2304,3 +2304,7 @@ padding-right: 40px;
   top: 440px;
 }
 
+.svg_star polygon{
+  color: #FFFF00;
+  fill: #FFFF00;
+}

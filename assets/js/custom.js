@@ -99,6 +99,9 @@ $('.package_button').bind("click",function () {
 
 
 function from_get_api() {
+    var option = $(this).find('selected');
+    console.log(option);
+    return;
     $(this).keypress(function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
@@ -154,12 +157,9 @@ $(document).on('click', ".selected_div", function () {
         $(this).find('.get_select').hide();
         return false;
     }
-    else{
+
     $('.selected_div').addClass("selected");
     $(this).find('.get_select').show();
-    return false;
-    }
-
     
 });
 
@@ -168,6 +168,22 @@ function myFunction() {
   var load = $('.js-example-basic-single').val();
   window.location.href = load;
 }
+
+/*$(document).on('click', ".aboutus", function () {
+  $.ajax({
+        method:"post",
+        url : base_url+"about-us",
+        data : {
+            },
+            success : function(response){
+                
+               window.location.href = '';
+               window.scrollTo(0,document.body.scrollHeight); 
+                
+
+            }
+        });
+});*/
 
 
 

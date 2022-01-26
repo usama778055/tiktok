@@ -36,8 +36,8 @@
               <a href="<?php echo base_url('blogs') ?>">blogs</a>
             </li>
             <li><a href="<?php echo base_url('faqs') ?>">faqs</a></li>
-            <li><a href="<?php echo base_url('about-us'); ?>">about us</a></li>
-            <li><a href="<?php echo base_url('contact-us'); ?>">contact us</a></li>
+            <li><a class="aboutus" href="<?php echo base_url('about-us'); ?>">about us</a></li>
+            <li><a href="<?php echo base_url('about-us#contact_sec'); ?>">contact us</a></li>
           </ul>
         </div>
 

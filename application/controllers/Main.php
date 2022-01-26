@@ -110,6 +110,11 @@ class Main extends CI_Controller
         $this->load->view('package/package',$data);*/
     }
 
+    public function aboutus(){
+        $this->load->view('aboutUs/about_us');
+
+    }
+
     
     
 

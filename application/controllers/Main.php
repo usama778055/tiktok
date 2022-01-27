@@ -55,7 +55,7 @@ class Main extends CI_Controller
 
         $record_packages['single_data'] = $this->genral_model->get_records('ig_service_description','igservices','packageId','id' ,$single_id);
         $record_packages['category'] = $packages;
-        $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','displayQty' ,1);
+        $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','favourite' ,1);
         
         // echo "<pre>";
         // print_r($record_packages);

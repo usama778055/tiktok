@@ -11,7 +11,8 @@ $(function() {
 });
 
 // Cart-Popup
-function myFunction() {
+function cardfunction() {
+
   document.getElementById("myPopup").classList.toggle("cartshow");
 }
 
@@ -106,7 +107,7 @@ jQuery(document).on("keypress", 'input', function (e) {
 
 $( "#form-stacked-text" ).change(function() {
 
-   
+
    var getclass = $('.js-example-basic-single').find(':selected').attr('data_id');
 
 
@@ -128,7 +129,7 @@ $.ajax({
     success : function(response){
         $(".loader_class").hide();
         $(this).prop('disabled', false);
-        
+
         var result= $.parseJSON(response);
         var images = result.post_links;
         var len = images.length;
@@ -172,7 +173,7 @@ $.ajax({
                     $('#loadmore').hide();
                 }
                 else{
-                    
+
                 }
                 
             });

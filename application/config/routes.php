@@ -61,7 +61,6 @@ $route['blogs'] = "blog/index";
 // echo 'coming';exit;
 
 // Faq
-
 $route['faqs'] = 'main/faq';
 
 // package

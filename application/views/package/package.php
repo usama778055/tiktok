@@ -3,8 +3,8 @@
 <div id="package-lottie" class="uk-section pakages-banner custom-padding-top">
 	<div class="uk-container">
 		<div class="pakages-banner-content uk-width-3-4@s">
-			<h4>Buy Tiktok likes</h4>
-			<h3>Welcome to the <span> Tiktok Likes </span> </h3>
+			<h4>Buy <?php echo $single_data[0]->packageTitle ?></h4>
+			<h3>Welcome to the <span> <?php echo $single_data[0]->packageTitle ?> </span> </h3>
 			<p>Where you can get your favorite packages instantly. Lorem Ipsum is simply dummy text of the printing.</p>
 		</div>
 		<div class="uk-margin-top">

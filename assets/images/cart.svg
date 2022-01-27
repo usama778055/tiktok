@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51">
+  <g id="Group_166" data-name="Group 166" transform="translate(-1181 -15)">
+    <rect id="Rectangle_129" data-name="Rectangle 129" width="51" height="51" rx="9" transform="translate(1181 15)" fill="#fe2c55"/>
+    <g id="Cart" transform="translate(1185.22 21.82)">
+      <path id="Path_72" data-name="Path 72" d="M29.186,20.149H12.517L8.43,7.64H34.044Z" transform="translate(2.736 1.514)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Path_73" data-name="Path 73" d="M2.41,4.31h7.1l5.353,16.276a2.587,2.587,0,0,1-.189,2.051l-1.658,3.054h20.77" transform="translate(0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <circle id="Ellipse_40" data-name="Ellipse 40" cx="3.505" cy="3.505" r="3.505" transform="translate(26.744 28.469)" fill="#fff"/>
+      <circle id="Ellipse_41" data-name="Ellipse 41" cx="3.505" cy="3.505" r="3.505" transform="translate(13.377 28.469)" fill="#fff"/>
+    </g>
+    <circle id="Ellipse_42" data-name="Ellipse 42" cx="7" cy="7" r="7" transform="translate(1213 24)" fill="#fff"/>
+  </g>
+</svg>

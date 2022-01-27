@@ -43,11 +43,7 @@
 
         <div class="uk-navbar shoping-cart">
           <ul class="uk-navbar-nav">
-<<<<<<< HEAD
-            <li class="cartPopup"><a href="#"><img onclick="myFunction()" class="popupbtn" src="<?php echo base_url('assets/images/cart.svg') ?>" alt=""></a>
-=======
-            <li class="cartPopup"><a href="#" onclick="cardfunction()"><img  class="popupbtn" src="<?php echo base_url('assets/images/Group166.PNG') ?>" alt=""></a>
->>>>>>> 22754215572c4bd3af3dcbcc843d462a905e1e8e
+            <li class="cartPopup"><a href="#"><img onclick="cardfunction()" class="popupbtn" src="<?php echo base_url('assets/images/cart.svg') ?>" alt=""></a>
               <div id="myPopup" class="popupbtn-content">
                 <div class="cart-modal">
                   <h3>Your Cart</h3>

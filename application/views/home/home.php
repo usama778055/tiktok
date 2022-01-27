@@ -116,7 +116,7 @@
 				</div>
 				<div class="uk-width-1-2@s img-end">
 					<div class="uk-card">
-						<img src="<?php echo base_url('assets/images/image1.PNG') ?>" alt="">
+						<img src="<?php echo base_url('assets/images/tablet.webp') ?>" alt="">
 					</div>
 				</div>
 			</div>
@@ -127,7 +127,7 @@
 			<div class="services uk-section" uk-grid>
 				<div class="uk-width-1-2@s img-center">
 					<div class="uk-card">
-						<img src="<?php echo base_url('assets/images/image2.PNG') ?>" alt="">
+						<img src="<?php echo base_url('assets/images/Group359.webp') ?>" alt="">
 					</div>
 				</div>
 				<div class="uk-width-1-2@s">
@@ -177,7 +177,7 @@
 				</div>
 				<div class="uk-width-1-2@s img-end">
 					<div class="uk-card">
-						<img src="<?php echo base_url('assets/images/image3.PNG') ?>" alt="">
+						<img src="<?php echo base_url('assets/images/mobiles.webp') ?>" alt="">
 					</div>
 				</div>
 			</div>
@@ -204,15 +204,15 @@
 			</div>
 			<div class="uk-child-width-1-3@s uk-child-width-1-5@m uk-text-center uk-flex-center" uk-grid>
 				<?php foreach($feature_data as $val){ ?>
-				<div>
-					<div class="uk-card feature-content">
-						<div class="feature-content-overlay">
-							<h3><?php echo '0'.$val['feature_id']; ?></h3>
-							<h4><?php echo $val['feature_title']; ?></h4>
-							<p><?php echo $val['feature_body']; ?></p>
+					<div>
+						<div class="uk-card feature-content">
+							<div class="feature-content-overlay">
+								<h3><?php echo '0'.$val['feature_id']; ?></h3>
+								<h4><?php echo $val['feature_title']; ?></h4>
+								<p><?php echo $val['feature_body']; ?></p>
+							</div>
 						</div>
 					</div>
-				</div>
 				<?php } ?>
 				
 			</div>
@@ -253,26 +253,28 @@
 							$rating = $val['rating'];
 							$active = $val['active'];
 							if($active == 1){
-						 ?>
-						<li>
-							<div class="uk-card uk-card-default uk-flex testimonial-slide">
-								<div class="uk-card-media-top agent uk-width-1-4@s">
-									<img src="<?php echo $img ;?>" alt="">
+								?>
+								<li>
+									<div class="uk-card uk-card-default uk-flex testimonial-slide">
+										<div class="uk-card-media-top agent uk-width-1-4@s">
+											<img src="<?php echo $img ;?>" alt="">
+										</div>
+										<div class="uk-card-body uk-width-3-4@s">
+											<h3 class=""><?php echo $author_name; ?></h3>
+											<ul class="uk-list">
+												<li class="uk-list custom-rating"><?php for($i = 1; $i <= $rating; $i++){ ?>
+													<img class="svg_stype"
+													src="<?php echo base_url('assets/images/1289679474.svg') ?>"
+													alt="triangle with all three sides equal"/>
+												<?php } ?>
+											</li>
+											<li><span>19-02-2021</span></li>
+										</ul>
+										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+									</div>
 								</div>
-								<div class="uk-card-body uk-width-3-4@s">
-									<h3 class=""><?php echo $author_name; ?></h3>
-									<ul class="uk-list">
-										<li><?php for($i = 1; $i <= $rating; $i++){ ?>
-											<span uk-icon="star"></span>
-											<?php } ?>
-										</li>
-										<li><span>19-02-2021</span></li>
-									</ul>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-								</div>
-							</div>
-						</li>
-					<?php } } ?>
+							</li>
+						<?php } } ?>
 						
 					</ul>
 
@@ -301,30 +303,30 @@
 			</div>
 			<div class="statisfied-sec-box" uk-grid>
 				<?php foreach($service_data as $key => $val){ ?>
-				<div class="uk-width-1-3">
-					<div class="uk-card">
-						<?php if($key == 0){?>
-						<img src="<?php echo base_url('assets/images/Asset5.PNG') ?>" alt="">	
-						<?php
-						} 
-						else if($key == 1){?>
-						<img src="<?php echo base_url('assets/images/Asset4.PNG') ?>" alt="">	
-						<?php
-						}
-						else if($key == 2){?>
-						<img src="<?php echo base_url('assets/images/Asset6.PNG') ?>" alt="">	
-						<?php
-						}
-						?>
-						
-						<div class="statisfied-sec-content">
-							<span><?php echo $val['cat_name']; ?></span>
-							<h4><?php echo $val['service_title']; ?> <br>Services</h4>
-							<p><?php echo $val['service_body']; ?></p>
-							<a class="serv-btn" href="#"><span class="spanbtn">buy now</span></a>
+					<div class="uk-width-1-3">
+						<div class="uk-card">
+							<?php if($key == 0){?>
+								<img src="<?php echo base_url('assets/images/Asset5.PNG') ?>" alt="">	
+								<?php
+							} 
+							else if($key == 1){?>
+								<img src="<?php echo base_url('assets/images/Asset4.PNG') ?>" alt="">	
+								<?php
+							}
+							else if($key == 2){?>
+								<img src="<?php echo base_url('assets/images/Asset6.PNG') ?>" alt="">	
+								<?php
+							}
+							?>
+							
+							<div class="statisfied-sec-content">
+								<span><?php echo $val['cat_name']; ?></span>
+								<h4><?php echo $val['service_title']; ?> <br>Services</h4>
+								<p><?php echo $val['service_body']; ?></p>
+								<a class="serv-btn" href="#"><span class="spanbtn">buy now</span></a>
+							</div>
 						</div>
 					</div>
-				</div>
 				<?php } ?>
 			</div>
 		</div>
@@ -348,4 +350,4 @@
 		</div>
 	</div>
 
-<?php $this->load->view('layouts/footer'); ?>
+	<?php $this->load->view('layouts/footer'); ?>

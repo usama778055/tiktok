@@ -55,8 +55,8 @@ class Main extends CI_Controller
 
         $record_packages['single_data'] = $this->genral_model->get_records('ig_service_description','igservices','packageId','id' ,$single_id);
         $record_packages['category'] = $packages;
-         $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','displayQty' ,1);
-         
+        $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','displayQty' ,1);
+        
         //         echo "<Pre>";
         // print_r($record_packages);
         // exit;
@@ -65,7 +65,7 @@ class Main extends CI_Controller
     }
 
     public function package_getdata(){ 
-         $packages = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
+       $packages = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
        foreach ($packages as $key => $value) {
         $str['id'] = $value->id;
         $str['packageQty'] = $value->packageQty;
@@ -75,20 +75,20 @@ class Main extends CI_Controller
         $str['package_description'] = $value->package_description;
         $str['priceUnit'] = $value->priceUnit;
         $str['url'] = base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType);
-       }
-       echo json_encode($str);
-        
     }
+    echo json_encode($str);
+    
+}
 
-    public function purchase_package($quantity, $stype){
-        $record_packages['user_data'] = $this->genral_model->get_stype_qun_data('serviceType',$stype,'packageQty' ,$quantity,'igservices');
-        if(empty($record_packages['user_data'])){
-            show_404();
-        }
-        $record_packages['alldata'] = $this->genral_model->select_all_data('serviceType',$stype,'igservices');
-        $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','displayQty' ,1);
-        
-        $this->load->view('package/purchase_package',$record_packages);
+public function purchase_package($quantity, $stype){
+    $record_packages['user_data'] = $this->genral_model->get_stype_qun_data('serviceType',$stype,'packageQty' ,$quantity,'igservices');
+    if(empty($record_packages['user_data'])){
+        show_404();
+    }
+    $record_packages['alldata'] = $this->genral_model->select_all_data('serviceType',$stype,'igservices');
+    $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','displayQty' ,1);
+    
+    $this->load->view('package/purchase_package',$record_packages);
             /*$get_title = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$id);
 
             print_r();
@@ -96,7 +96,7 @@ class Main extends CI_Controller
             $packages['user_data'] = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$id);
 
             $packages['alldata'] = $this->genral_model->get_records('igservices' , 'ig_service_description','packageId');
-         $this->load->view('package/purchase_package',$packages);*/
+            $this->load->view('package/purchase_package',$packages);*/
         /*
         $this->load->view('package/package',$data);*/
     }
@@ -105,9 +105,14 @@ class Main extends CI_Controller
         $name = $_POST['name'];
         $this->load->library('instapi');
         $packages = $this->instapi->get_tiktok_user($name);
-         echo json_encode($packages['data']);
+        echo json_encode($packages['data']);
         /*
         $this->load->view('package/package',$data);*/
+    }
+
+    public function aboutus(){
+        $this->load->view('aboutUs/about_us');
+
     }
 
     

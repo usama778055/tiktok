@@ -7,8 +7,6 @@
   <link rel="icon" href="<?php echo base_url('favicon.icon')?>" />
   <link rel="stylesheet" href="<?php echo base_url('assets/css/uikit.min.css') ?>" />
   <link href="<?php echo base_url('assets/css/main.css'); ?>" rel="stylesheet" type="text/css">
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -38,8 +36,8 @@
               <a href="<?php echo base_url('blogs') ?>">blogs</a>
             </li>
             <li><a href="<?php echo base_url('faqs') ?>">faqs</a></li>
-            <li><a href="<?php echo base_url('about-us'); ?>">about us</a></li>
-            <li><a href="<?php echo base_url('contact-us'); ?>">contact us</a></li>
+            <li><a class="aboutus" href="<?php echo base_url('about-us'); ?>">about us</a></li>
+            <li><a href="<?php echo base_url('about-us#contact_sec'); ?>">contact us</a></li>
           </ul>
         </div>
 

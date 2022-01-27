@@ -39,7 +39,7 @@
               <li><a href="<?php echo base_url('blogs'); ?>">Blogs</a></li>
               <li><a href="<?php echo base_url('faqs'); ?>">FAQs</a></li>
               <li><a href="<?php echo base_url('about-us'); ?>">About us</a></li>
-              <li><a href="<?php echo base_url('contact-us'); ?>">Contact us</a></li>
+              <li><a href="<?php echo base_url('about-us#contact_sec'); ?>">Contact us</a></li>
             </ul>
           </div>
         </div>
@@ -86,7 +86,7 @@
           <p>All rights reserved | 2020-2021</p>
         </div>
         <div class="policy">
-          <p><a href="policy">Privacy Policy</a> / <a href="terms">Terms & Conditions</a></p>
+          <p><a href="<?php echo base_url('policy'); ?>">Privacy Policy</a> / <a href="<?php echo base_url('terms'); ?>">Terms & Conditions</a></p>
         </div>
       </div>
     </div>

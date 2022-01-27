@@ -10,11 +10,11 @@
 		<div class="uk-margin-top">
 			<ul class="uk-list uk-flex uk-flex-center pakages-banner-btn">
 				<li>
-					<a class="serv-btn" href="buy-tiktok-reellikes"><span class="spanbtn">Real Likes</span></a>
+					<a class="serv-btn" href="<?php echo base_url('buy-tiktok-reallikes') ?>"><span class="spanbtn">Real Likes</span></a>
 					<!-- <a href="#">Buy Tiktok Likes</a> -->
 				</li>
 				<li>
-					<a class="serv-btn" href="buy-tiktok-premiumlikes"><span class="spanbtn">Premium Likes</span></a>
+					<a class="serv-btn" href="<?php echo base_url('buy-tiktok-premiumlikes') ?>"><span class="spanbtn">Premium Likes</span></a>
 				</li>
 			</ul>
 		</div>
@@ -47,7 +47,7 @@
 			</div>
 			<div class="uk-width-1-2@s">
 				<div class="pakage-details">
-					<small><a href="#">Home</a>/<a class="active" href="#">Tiktok <?php echo $single_data[0]->serviceType; ?></a></small>
+					<small><a href="<?php echo base_url(); ?>">Home</a>/<a class="active" href="#">Tiktok <?php echo $single_data[0]->serviceType; ?></a></small>
 					<h3>Buy <?php echo $single_data[0]->packageQty; ?> <?php echo $single_data[0]->packageTitle; ?></h3>
 					<strong><?php echo $single_data[0]->priceUnit; ?> <?php echo $single_data[0]->packagePrice; ?></strong>
 					<p><?php echo $single_data[0]->package_description; ?></p>
@@ -118,7 +118,7 @@
 		</div>
 		<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 	</div>
-	
+
 </div>
 </div>
 <!-------------------------------------------->

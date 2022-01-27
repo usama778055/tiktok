@@ -70,6 +70,7 @@ $route['buy-tiktok-(:any)'] = 'main/package/$1';
 $route['package_data'] = 'main/package_getdata';
 $route['buy-(:num)-tiktok-(:any)'] = 'main/purchase_package/$1/$2';
 $route['get_tiktokuser_data'] = 'main/get_user_data_api';
+$route['about-us'] = 'main/aboutus';
 
 //instapi
 /*$route['get_tiktok'] = 'Instapi/get_tiktok_user';*/

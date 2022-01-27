@@ -12,7 +12,6 @@ $(function() {
 
 // Cart-Popup
 function cardfunction() {
-
   document.getElementById("myPopup").classList.toggle("cartshow");
 }
 

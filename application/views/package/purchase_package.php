@@ -50,7 +50,7 @@
 
 						<div class="load-gallery custom_image_class">
 							<div class="loader_class" uk-spinner style="display: none; color: white;"></div>		
-							
+
 						</div>
 						<a id="loadmore" class="serv-btn" href="#"><span class="spanbtn">Load More</span></a>
 					</div>
@@ -102,33 +102,34 @@
 			<h6>Add on</h6>
 			<h4>Take a look at these amazing packages</h4>
 			<ul class="uk-slider-items uk-child-width-1-3@m uk-child-width-1-2@s uk-grid">
-					<?php foreach ($featured as $key => $value) {// code...
-						$parts = explode('.', $value->packagePrice);
-						?>
-						<li class="feed-box">
-							<div class="amazing-package">
-								<h5>Buy <?php echo $value->packageQty ?> Tiktok <?php echo $value->serviceType; ?></h5>
-								<small><?php echo $value->priceUnit.' '.$parts[0]; ?><sup><?php if(!empty($parts[1])){
-									echo $parts[1];
-								}
-								else{
+				<?php foreach ($featured as $key => $value) {// code...
+					$parts = explode('.', $value->packagePrice);
+					?>
+					<li class="feed-box">
+						<div class="amazing-package">
+							<h5>Buy <?php echo $value->packageQty ?> Tiktok <?php echo $value->serviceType; ?></h5>
+							<small><?php echo $value->priceUnit.' '.$parts[0]; ?><sup><?php if(!empty($parts[1])){
+								echo $parts[1];
+							}
+							else{
 
-								}?></sup></small>
-								<ul class="uk-list">
-									<li>High Quality</li>
-									<li>Active and Real Users </li>
-									<li>Instant Delivery</li>
-									<li>24/7 Support</li>
-								</ul>
-								<a class="serv-btn" href="<?php echo base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType); ?>"><span class="spanbtn">Purchase</span></a>
-							</div>
-						</li>
-					<?php } ?>
-				</ul>
-			</div>
-			<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+							}?></sup></small>
+							<ul class="uk-list">
+								<li>High Quality</li>
+								<li>Active and Real Users </li>
+								<li>Instant Delivery</li>
+								<li>24/7 Support</li>
+							</ul>
+							<a class="serv-btn" href="<?php echo base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType); ?>"><span class="spanbtn">Purchase</span></a>
+						</div>
+					</li>
+
+				<?php } ?>
+			</ul>
+			
 		</div>
 	</div>
+</div>
 	<!-------------------------------------------------->
 
 

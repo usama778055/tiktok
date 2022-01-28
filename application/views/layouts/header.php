@@ -66,8 +66,8 @@
                       </tbody>
                     </table>
                     <div class="cart-btn">
-                      <a href="">I want to shop more</a>
-                      <a class="payment-btn" href="">Proceed To Payment</a>
+                      <a href="<?= base_url() ?>">I want to shop more</a>
+                      <a class="payment-btn" href="<?= base_url('checkout') ?>">Proceed To Payment</a>
                     </div>
                   </div>
                 </div>

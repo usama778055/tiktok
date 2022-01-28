@@ -84,8 +84,8 @@
 							<p><?php echo $user_data[0]->priceUnit .' '. $user_data[0]->packagePrice ?></p>
 						</div>
 						<div class="invoice-modal-btn">
-							<a href="">Add To Cart</a>
-							<a class="active" href="">Checkout</a>
+							<a href="<?= base_url('add-to-cart') ?>">Add To Cart</a>
+							<a class="active" href="<?= base_url('checkout') ?>">Checkout</a>
 						</div>
 					</div>
 				</div>

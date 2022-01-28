@@ -63,8 +63,11 @@ $route['blogs'] = "blog/index";
 // Faq
 $route['faqs'] = 'main/faq';
 
-// package
+// Cart
+$route['add-to-cart'] = 'cart/add_to_cart';
+$route['checkout'] = 'cart/checkout';
 
+// package
 $route['buy-tiktok-(:any)'] = 'main/package/$1';
 $route['package_data'] = 'main/package_getdata';
 $route['buy-(:num)-tiktok-(:any)'] = 'main/purchase_package/$1/$2';

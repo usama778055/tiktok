@@ -1692,6 +1692,7 @@
   font-family: 'Lato-Bold';
   font-size: 18px;
 }
+
 .faq-sec .uk-accordion-content{
   font-family: Helvetica;
   font-size: 14px;
@@ -1700,12 +1701,28 @@
 .faq-sec .uk-accordion-title:hover ,.faq-sec .uk-accordion-title ,.faq-sec .uk-accordion-content{
   color: #fff;
 }
+
+.faq-sec li.uk-open .uk-accordion-title, .faq-sec .uk-accordion-title:hover{
+  color: #FE2C55; 
+  transition: all 0.4s;
+}
+
+.uk-accordion li{
+  padding: 10px;
+}
+
+li.uk-open {
+  border: solid 1px #FE2C55;
+  border-radius: 4px;
+}
+
 .faq-sec .uk-accordion-title::before{
   background-image: url('../images/Group184.PNG');
 }
 .faq-sec .uk-open>.uk-accordion-title::before{
   background-image: url('../images/Group175.PNG');
 }
+
 .faq-sec ul{
   background-color: #272727;
   padding: 70px;

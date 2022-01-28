@@ -49,6 +49,7 @@
                   <h3>Your Cart</h3>
                   <div class="custom-bar"></div>
                   <div class="shopping-details">
+                    <?php if(!empty($user_data[0])){ ?>
                     <table class="uk-table uk-table-striped">
                       <thead>
                         <tr class="shopping-detail-head">
@@ -59,12 +60,13 @@
                       </thead>
                       <tbody>
                         <tr class="shopping-detail-body">
-                          <td>Tiktok Likes</td>
-                          <td>1000</td>
-                          <td>$ 4.53</td>
+                          <td><?php if(!empty($user_data[0]->serviceType)){ echo 'TikTok'.$user_data[0]->serviceType; } ?></td>
+                          <td><?php if(!empty($user_data[0]->packageQty)){ echo $user_data[0]->packageQty; }  ?></td>
+                          <td><?php if(!empty($user_data[0]->packagePrice) && !empty($user_data[0]->packagePrice)){ echo $user_data[0]->priceUnit .' '. $user_data[0]->packagePrice; } ?></td>
                         </tr>
                       </tbody>
                     </table>
+                  <?php } ?>
                     <div class="cart-btn">
                       <a href="<?= base_url() ?>">I want to shop more</a>
                       <a class="payment-btn" href="<?= base_url('checkout') ?>">Proceed To Payment</a>

@@ -117,7 +117,7 @@
 					?>
 					<div>
 						<div class="blog-image">
-							<a class="uk-link-heading" href="<?= base_url("blog/{$val->slug}") ?>">
+							<a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>">
 								<img src="<?php echo base_url('assets/images/blog1.PNG'); ?>">
 							</a>
 						</div>

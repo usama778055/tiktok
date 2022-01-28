@@ -85,7 +85,7 @@ public function index(){
 
         $getData['data'] = $this->users->getBlogById('posts',"p.slug",$slug);
         $getData['alldata'] = $this->users->selectlimitjoin($slug);
-        
+
         $this->load->view('blogs/single_blog',$getData);
     }
 

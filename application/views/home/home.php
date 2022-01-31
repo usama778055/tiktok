@@ -339,14 +339,16 @@
 	<div class="coupon-sec">
 		<div class="coupon uk-width-1-2@s uk-align-center">
 			<h3>Apply for a coupon </h3>
-			<form>
-				<div class="uk-margin">
-					<input class="uk-input" type="text" placeholder="Enter your email">
+			<form class="uk-margin">
+				<div class="">
+					<input class="apply_cop_email uk-input" type="text" placeholder="Enter your email">
 				</div>
 				<div>
-					<a class="serv-btn" href="#"><span class="spanbtn">Submit</span></a>
+					<a class="serv-btn" href="javascript:void(0)"><span class="spanbtn">Submit</span></a>
 				</div>
+				<div class="error" style="height: 10px;"></div>
 			</form>
+			
 		</div>
 	</div>
 

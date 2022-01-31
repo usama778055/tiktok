@@ -71,8 +71,14 @@ $route['checkout'] = 'cart/checkout';
 $route['buy-tiktok-(:any)'] = 'main/package/$1';
 $route['package_data'] = 'main/package_getdata';
 $route['buy-(:num)-tiktok-(:any)'] = 'main/purchase_package/$1/$2';
+// buy now
 $route['get_tiktokuser_data'] = 'main/get_user_data_api';
+// about us
 $route['about-us'] = 'main/aboutus';
+//apply copon
+$route['apply_copon'] = 'main/apply_coppen';
+// subcribe for news
+$route['subcribe_for_news'] = 'main/subcribe_for_new';
 
 //instapi
 /*$route['get_tiktok'] = 'Instapi/get_tiktok_user';*/

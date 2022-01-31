@@ -115,6 +115,36 @@ public function purchase_package($quantity, $stype){
 
     }
 
+    public function apply_coppen(){
+        $record = $this->genral_model->getByColumn('apply_for_coppen','email',$_POST['email']);
+         
+       if(empty($record)){
+        $email['email'] = $_POST['email'];
+        $sendEmail = $this->genral_model->store('apply_for_coppen',$email);
+        echo 'true';
+       }
+       else{
+        echo 'false';
+       }
+
+
+    }
+
+    public function subcribe_for_new(){
+        $record = $this->genral_model->getByColumn('subcribe_for_news','email',$_POST['email']);
+         
+       if(empty($record)){
+        $email['email'] = $_POST['email'];
+        $sendEmail = $this->genral_model->store('subcribe_for_news',$email);
+        echo 'true';
+       }
+       else{
+        echo 'false';
+       }
+
+
+    }
+
     
     
 

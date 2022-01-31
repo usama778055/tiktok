@@ -107,12 +107,12 @@ jQuery(document).on("keypress", 'input', function (e) {
 $( "#form-stacked-text" ).change(function() {
 
 
-   var getclass = $('.js-example-basic-single').find(':selected').attr('data_id');
+ var getclass = $('.js-example-basic-single').find(':selected').attr('data_id');
 
 
-   var get_value = $('.user_name').val();
-   var find = $(this).find('.user_name');
-   if(get_value === ''){
+ var get_value = $('.user_name').val();
+ var find = $(this).find('.user_name');
+ if(get_value === ''){
 
     UIkit.notification({message: 'Field empty', pos: 'top-right',status:'danger'});
     return false;
@@ -205,8 +205,6 @@ $(document).on('click', ".selected_div", function () {
     $(this).removeClass("selected");
     $(this).find(".putquentity").text('');
 
-    console.log('error');
-
             /*setTimeout(() => {
                 $(this).removeClass("shake animated");
             }, 600);*/
@@ -238,6 +236,86 @@ function myFunction() {
   var load = $('.js-example-basic-single').val();
   window.location.href = load;
 }
+
+$(document).on('click', ".serv-btn", function () {
+
+    // $(".error").hide();
+    var hasError = false;
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    var email = $('.apply_cop_email').val();
+    if(email == '') {
+        $(".error").show();
+        $(".error").html("<small class='' style='color:red;'>Please enter your email address.</small>");
+        hasError = true;
+    }
+    else if(!emailReg.test(email)) {
+        $(".error").show();
+        $(".error").html('<small class="" style="color:red;">Enter a correct email address.</small>');
+        hasError = true;
+    }
+    if(hasError == true) { return false; }
+    $.ajax({
+        method:"post",
+        url : base_url+"apply_copon",
+        data : {
+            "email": email,
+                //"bread_name": "australian"
+        },
+        success : function(response){
+            if(response == 'false'){
+                $(".error").show();
+                $(".error").html("<small class='' style='color:red;'>Email already store in database</small>");
+                return false;
+            }
+            else{
+                $('.apply_cop_email').val('');
+                $(".error").show();
+                $(".error").html("<small class='' style='color:red;'>Success Data</small>");
+            }
+        }
+    });
+});
+
+
+
+$(document).on('click', ".submit_apply_cop", function () {
+
+    /*$(".erroremail").hide();*/
+    var hasError = false;
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    var email = $('.email_submit').val();
+    if(email == '') {
+        $(".erroremail").show();
+        $(".erroremail").html("<small class='' style='color:red;'>Please enter your email address.</span>");
+        hasError = true;
+    }
+    else if(!emailReg.test(email)) {
+        $(".erroremail").show();
+        $(".erroremail").html('<small class="" style="color:red;">Enter a correct email address.</small>');
+        hasError = true;
+    }
+    if(hasError == true) { return false; }
+    $.ajax({
+        method:"post",
+        url : base_url+"subcribe_for_news",
+        data : {
+            "email": email,
+                //"bread_name": "australian"
+        },
+        success : function(response){
+            if(response == 'false'){
+                $(".erroremail").show();
+                $(".erroremail").html("<small class='' style='color:red;'>Email already store in database</small>");
+                return false;
+            }
+            else{
+                $('.email_submit').val('');
+                $(".erroremail").show();
+                $(".erroremail").html("<small class='' style='color:red;'>Success Data</small>");
+            }
+        }
+    });
+});
 
 /*$(document).on('click', ".aboutus", function () {
   $.ajax({

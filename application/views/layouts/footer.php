@@ -61,11 +61,12 @@
               <li class="footer-subscriber">
                 <form>
                   <div class="serv-btn">
-                    <input class="spanbtn uk-input" type="text" placeholder="Your email">
+                    <input class="spanbtn email_submit uk-input" type="email" placeholder="Your email">
                   </div>
                   <div class="subscriber-btn">
-                    <a class="" href="#"><span class="">Submit</span></a>
+                    <a class="submit_apply_cop" href="javascript:void(0)"><span class="">Submit</span></a>
                   </div>
+                  <div class="erroremail" style="height: 10px;"></div>
                 </form>
               </li>
             </ul>

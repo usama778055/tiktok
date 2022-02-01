@@ -9,7 +9,7 @@
 
 	$body = htmlspecialchars_decode(stripslashes($value->body));
 	$body_strip_slashes = stripslashes($body);
-	$body_span_stripped = strip_tags($body_strip_slashes, ['<img>', '<a>', '<p>', '<h1>', '<h2>', '<h3>']);
+	$body_span_stripped = strip_tags($body_strip_slashes, '<img><a><p><h1><h2><h3><h4><h5><h6><h3>');
 	$body_styles_stripped = preg_replace('/(dir=".*?")? (style=".*?")/i', '$1', $body_span_stripped);
 	$body_remove_empty_para = preg_replace('/<p><\/p>/i', '', $body_styles_stripped);
 
@@ -64,7 +64,7 @@
 						</div>
 						<small><?php echo $value->name; ?></small>
 						<div class="blogs-body">
-							<?= $body_remove_empty_para ?>
+							<?php print_r($body_remove_empty_para); ?>
 						</div>
 					</div>
 				</div>

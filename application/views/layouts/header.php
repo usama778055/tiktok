@@ -7,6 +7,7 @@
   <link rel="icon" href="<?php echo base_url('favicon.icon')?>" />
   <link rel="stylesheet" href="<?php echo base_url('assets/css/uikit.min.css') ?>" />
   <link href="<?php echo base_url('assets/css/main.css'); ?>" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/nice-select.css'); ?>">
 </head>
 
 <body>

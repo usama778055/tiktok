@@ -65,8 +65,8 @@ class Main extends CI_Controller
     }
 
     public function package_getdata(){ 
-       $packages = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
-       foreach ($packages as $key => $value) {
+     $packages = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
+     foreach ($packages as $key => $value) {
         $str['id'] = $value->id;
         $str['packageQty'] = $value->packageQty;
         $str['serviceType'] = $value->serviceType;
@@ -110,42 +110,68 @@ public function purchase_package($quantity, $stype){
         $this->load->view('package/package',$data);*/
     }
 
-    public function aboutus(){
-        $this->load->view('aboutUs/about_us');
+    public function aboutus(){            
+        $this->validation();
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->load->view('aboutUs/about_us');
+        }
+        else{
+            $data['name'] = $_POST['name'];
+            $data['email'] = $_POST['email'];
+            $data['message'] = $_POST['message'];
+            $sendData = $this->genral_model->store('contact_us',$data);
+        }        
 
     }
 
     public function apply_coppen(){
         $record = $this->genral_model->getByColumn('apply_for_coppen','email',$_POST['email']);
-         
-       if(empty($record)){
-        $email['email'] = $_POST['email'];
-        $sendEmail = $this->genral_model->store('apply_for_coppen',$email);
-        echo 'true';
-       }
-       else{
-        echo 'false';
-       }
+        
+        if(empty($record)){
+            $email['email'] = $_POST['email'];
+            $sendEmail = $this->genral_model->store('apply_for_coppen',$email);
+            echo 'true';
+        }
+        else{
+            echo 'false';
+        }
 
 
     }
 
     public function subcribe_for_new(){
         $record = $this->genral_model->getByColumn('subcribe_for_news','email',$_POST['email']);
-         
-       if(empty($record)){
-        $email['email'] = $_POST['email'];
-        $sendEmail = $this->genral_model->store('subcribe_for_news',$email);
-        echo 'true';
-       }
-       else{
-        echo 'false';
-       }
+        
+        if(empty($record)){
+            $email['email'] = $_POST['email'];
+            $sendEmail = $this->genral_model->store('subcribe_for_news',$email);
+            echo 'true';
+        }
+        else{
+            echo 'false';
+        }
 
 
     }
 
-    
-    
+    function validation(){
+        
+     $this->form_validation->set_rules('name', 'Username', 'required');
+     $this->form_validation->set_rules('email', 'Email', 'trim|required');
+     $this->form_validation->set_rules('message', 'Massage', 'required');
+       /*if(empty($record)){
+        
+        echo 'true';
+       }
+       else{
+        echo 'false';
+    }*/
+
+
+}
+
+
+
 
 }

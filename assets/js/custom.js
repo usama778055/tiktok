@@ -317,6 +317,10 @@ $(document).on('click', ".submit_apply_cop", function () {
     });
 });
 
+$(document).ready(function() {
+  $('.js-example-basic-single').niceSelect();
+});
+
 /*$(document).on('click', ".aboutus", function () {
   $.ajax({
         method:"post",

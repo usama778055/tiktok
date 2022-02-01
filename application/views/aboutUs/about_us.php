@@ -54,31 +54,34 @@
 		<div class="uk-container">
 			<h3>Contact With Us</h3>
 			<div class="contact-form">
-				<form>
+				<form method="post" action="">
 					<div class="" uk-grid>
 						<div class="uk-width-1-2@s">
 							<div class="contact-input"><legend class="uk-legend">Your Name</legend>
 								<div class="uk-margin">
-									<input class="uk-input" type="text" placeholder="John Doe">
+									<input class="uk-input contact_name" type="text" name="name" placeholder="John Doe" value="<?php echo set_value('name'); ?>">
+									<?php echo form_error('name', '<span class="uk-text-danger">', '</span>'); ?>
 								</div>
 							</div>
 						</div>
 						<div class="uk-width-1-2@s">
-							<div class="contact-input"><legend class="uk-legend">Email Address</legend>
+							<div class="contact-input contact_email"><legend class="uk-legend">Email Address</legend>
 								<div class="uk-margin">
-									<input class="uk-input" type="text" placeholder="someone@domain.com">
+									<input class="uk-input contact_email" type="email" name="email" placeholder="someone@domain.com" value="<?php echo set_value('email'); ?>">
+									<?php echo form_error('email', '<span class="uk-text-danger">', '</span>'); ?>
 								</div>
 							</div>
 						</div>
 						<div class="uk-width-1-1@s">
 							<div class="contact-textarea"><legend class="uk-legend">Your Message</legend>
 								<div class="uk-margin">
-									<textarea class="uk-textarea" rows="5" placeholder="Lorem ispum..."></textarea>
+									<textarea class="uk-textarea contact_message" name="message" rows="5" placeholder=""><?php echo set_value('message'); ?></textarea>
+									<?php echo form_error('message', '<span class="uk-text-danger">', '</span>'); ?>
 								</div>
 							</div>
 						</div>
 					</div>
-					<button type="submit">Submit</button>
+					<button type="submit" name="submit">Submit</button>
 				</form>
 			</div>
 		</div>

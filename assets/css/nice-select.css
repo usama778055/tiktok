@@ -27,14 +27,15 @@
       -ms-user-select: none;
           user-select: none;
   white-space: nowrap;
-  width: auto; }
+  width: 165px; }
   .nice-select:hover {
     border-color: white;
     color: #fff;
     font-weight: bold;
      }
   .nice-select:active, .nice-select.open, .nice-select:focus {
-    border-color: #999; }
+    border-color: #999;
+     }
   .nice-select:after {
     color: #666;
     border-bottom: 2px solid #999;

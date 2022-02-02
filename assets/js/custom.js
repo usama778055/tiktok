@@ -317,25 +317,8 @@ $(document).on('click', ".submit_apply_cop", function () {
     });
 });
 
-$(document).ready(function() {
-  $('.js-example-basic-single').niceSelect();
-});
 
-/*$(document).on('click', ".aboutus", function () {
-  $.ajax({
-        method:"post",
-        url : base_url+"about-us",
-        data : {
-            },
-            success : function(response){
-                
-               window.location.href = '';
-               window.scrollTo(0,document.body.scrollHeight); 
-                
-
-            }
-        });
-    });*/
+    
 
 
 

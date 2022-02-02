@@ -38,10 +38,10 @@
 										<option value="<?php echo base_url('buy-'.$values->packageQty.'-tiktok-'.$values->serviceType) ?>" class="" data_id="<?php echo $values->packageQty;?>" <?php echo $att; ?>><?php echo $values->packageQty.' '.$values->packageTitle; ?></option>
 									<?php } ?>
 								</select>
-								<!-- <button class="uk-button uk-button-default" type="button" tabindex="-1">
+								<button class="uk-button uk-button-default" type="button" tabindex="-1">
 									<span></span>
 									<span uk-icon="icon: chevron-down"></span>
-								</button> -->
+								</button>
 							</div>
 						</form>
 
@@ -120,7 +120,7 @@
 								<li>Instant Delivery</li>
 								<li>24/7 Support</li>
 							</ul>
-							<a class="serv-btn" href="<?php echo base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType); ?>"><span class="spanbtn">Purchase</span></a>
+							<span class="spanbtn"><a class="" href="<?php echo base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType); ?>">Purchase</a></span>
 						</div>
 					</li>
 

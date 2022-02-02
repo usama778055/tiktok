@@ -23,13 +23,16 @@ class Blog extends CI_Controller
 public function index(){
 
 
-    $data["latest"] = $this->genral_model->get_authors(4, 0);
+    $data["latest"] = $this->genral_model->get_authors();
     $data["featured"] = $this->users->feature_blog();
-    $data["alldata"] = $this->users->selectjoin(); 
+    $data["alldata"] = $this->genral_model->minimum_data(); 
+    
+
+    // echo '<pre>';print_r($data);exit;
         /*$pageall=count($alldata);
 
         
-
+    
 
         $config = array();
         $config["uri_segment"] = 2;
@@ -78,6 +81,36 @@ public function index(){
 
         $data['start'] = ($page == 0 ? 0 : (($page - 1) * $config["per_page"] + 1));*/
         $this->load->view('blogs/blog',$data);
+    }
+
+    public function more_any_blogs(){
+        $slug = $this->input->post('slug');
+        $getData['alldata'] = $this->genral_model->limited_data($slug);
+        
+        // echo "<pre>";print_r($getData);exit;
+
+        $this->load->view('blogs/dropdown_blogs', $getData);
+
+        // $arr = [];
+        // foreach($getData as $key => $val){
+        //     $caterory = $val->cat_name;
+        //     $data['user_name'] = $val->name;
+        //     $data['cat_name'] = $caterory;
+        //     $data['caterory_url'] = base_url('category/'.$caterory.'/1');
+        //     $data['image'] = base_url('assets/images/blog1.png');
+        //    $data['slug'] = $val->slug ;
+        //    $data['url'] = base_url('blogs/'.$val->slug); 
+        //    $data['base_url'] = base_url();
+        //    $data['body'] = substr(strip_tags($val->body), 0, 80) . '...';
+        //     $data['title'] = $val->title ;
+        //     $data['created_at'] = $val->created_at;
+        //     $data['post_image'] = $val->post_image ;
+        //     $arr[] = $data;
+            
+            
+        // }
+        // echo json_encode($arr);
+
     }
     
     public function slugData($slug){

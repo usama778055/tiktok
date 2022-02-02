@@ -90,15 +90,20 @@
       </div>
     </div>
     <!-- <div class="uk-pagination uk-flex-center">
-      <?php echo($links);?>
+      <?php //echo($links);?>
     </div> -->
   </div>
 </div>
 <!-------------------------------------------->
 
 <!-------------Popular-blog-Slider------------>
-<?php $this->load->view('blogs/blog_slider'); ?>
-<?php $this->load->view('blogs/dropdown_blogs'); ?>
+<?php $this->load->view('blogs/blog_slider', $featured); ?>
+
+<div class="uk-section vertical-blog-sec">
+  <div class="uk-container">
+    <?php $this->load->view('blogs/dropdown_blogs', $alldata); ?>
+  </div>
+</div>
 
 
 <!---------------------------------------------------->

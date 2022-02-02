@@ -57,6 +57,7 @@ $route['category/(:any)'] = 'blog/categoryData/$1';
 $route['testing'] = 'blog/testing';
 $route['privious'] = 'blog/previosData';
 $route['blogs'] = "blog/index";
+$route['moreBlogs'] = "blog/more_any_blogs";
 /*$route['category/(:any)'] = "blog/categoryData/$1";*/
 // echo 'coming';exit;
 

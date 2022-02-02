@@ -121,6 +121,7 @@ public function purchase_package($quantity, $stype){
             $data['email'] = $_POST['email'];
             $data['message'] = $_POST['message'];
             $sendData = $this->genral_model->store('contact_us',$data);
+            $this->load->view('aboutUs/about_us');
         }        
 
     }

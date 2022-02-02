@@ -41,7 +41,7 @@ $(function () {
     e.preventDefault();
     $('.blog-article:hidden').slice(0, 2).slideDown();
     if ($('.blog-article:hidden').length === 0) {
-        $('#loadmoreBlog').replaceWith("<a id='nomore-blog' class='serv-btn' href=''><span class='spanbtn'>No More</span></a>");
+        $('#loadmoreBlog').replaceWith("");
     }
 });
 });
@@ -237,9 +237,24 @@ function myFunction() {
   window.location.href = load;
 }
 
+$(document).on('click', "#loadmoreBlog", function () {
+    $slug = $(this).attr("data_id");
+    $.ajax({
+        method:"post",
+        url : base_url+"moreBlogs",
+        data : {'slug': $slug },
+            success : function(response){
+                $("#loadmoreBlog").remove();
+                $(".vertical-blog-sec .uk-container").append(response);
+                $(".blog-article").css("display", "block");
+                console.log(response);
+            }
+        });
+
+});
+
 $(document).on('click', ".serv-btn", function () {
 
-    // $(".error").hide();
     var hasError = false;
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     var email = $('.apply_cop_email').val();

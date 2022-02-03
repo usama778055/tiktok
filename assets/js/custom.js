@@ -282,7 +282,6 @@ $(document).on('click', ".serv-btn", function () {
         url : base_url+"apply_copon",
         data : {
             "email": email,
-                //"bread_name": "australian"
         },
         success : function(response){
             if(response == 'false'){

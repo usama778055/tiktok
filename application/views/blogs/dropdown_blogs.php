@@ -1,7 +1,8 @@
 <?php
 $slug = array();
  foreach ($alldata as $value) {
-	$slug[] = $value->slug; 
+	$slug[] = $value->slug;
+	print_r($slug); 
 	$body = $value->body;
 	$body = htmlspecialchars_decode(stripslashes($body));
 	?>

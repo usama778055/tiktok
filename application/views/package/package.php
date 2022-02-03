@@ -58,7 +58,7 @@
 						<li>24/7 Support</li>
 					</ul>
 					<div class="purchase-btn">
-						<a class="serv-btn" href="<?php echo base_url('buy-'.$single_data[0]->packageQty.'-tiktok-'.$single_data[0]->serviceType) ?>"><span class="spanbtn">Purchase</span></a>
+						<a class="serv-btn" onclick="location.reload('<?php echo base_url('buy-'.$single_data[0]->packageQty.'-tiktok-'.$single_data[0]->serviceType) ?>');" href=""><span onclick='' class="spanbtn">Purchase<br></span></a>
 					</div>
 				</div>
 			</div>

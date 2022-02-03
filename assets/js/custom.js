@@ -261,7 +261,7 @@ $(document).on('click', "#loadmoreBlog", function (e) {
 
 
 
-$(document).on('click', ".serv-btn", function () {
+$(document).on('click', "#email_button", function () {
 
     var hasError = false;
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;

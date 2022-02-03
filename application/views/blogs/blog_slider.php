@@ -8,6 +8,7 @@
 				<ul class="uk-slider-items uk-child-width-1-3@m uk-child-width-1-2@s uk-grid">
 					<?php foreach ($featured as $key => $value){
 						$post_image = $value->post_image;
+						$post_thumb = $value->post_thumbnail;
 						$body = $value->body;
 						$body = htmlspecialchars_decode(stripslashes($body));
 						?>

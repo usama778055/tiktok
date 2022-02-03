@@ -368,7 +368,7 @@
       text-decoration: none;
       width: 7em;
       z-index: 2;
-    }
+}
     .serv-btn:hover {
       color: #fff;
     }
@@ -1644,15 +1644,23 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  width: 75%;
+  margin: auto;
 }
 .prevNext li a{
- font-family: Helvetica-Bold;
+ font-family: Helvetica;
  text-decoration: none;
  font-size: 14px;
  color: #fff;
+ border: 1px solid #FE2C55;
+ background-color: #FE2C55;
+ padding: 10px 20px;
+
 }
 .prevNext li a:hover ,.prevNext .active{
-  color: #FE2C55;
+  color: white;
+  background-color: transparent;
+  transition: .2s ease-in-out;
 }
 /********************FAQ***************************/
 #faq-lottie{

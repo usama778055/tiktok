@@ -75,7 +75,7 @@
 						<div class="uk-width-1-1@s">
 							<div class="contact-textarea"><legend class="uk-legend">Your Message</legend>
 								<div class="uk-margin">
-									<textarea class="uk-textarea contact_message" name="message" rows="5" placeholder=""><?php echo set_value('message'); ?></textarea>
+									<textarea class="uk-textarea contact_message" name="message" rows="5" placeholder="Your message ..."><?php echo set_value('message'); ?></textarea>
 									<?php echo form_error('message', '<span class="uk-text-danger">', '</span>'); ?>
 								</div>
 							</div>

@@ -1833,18 +1833,18 @@ li.uk-open {
 .contact-input{
  margin-right: 30%;
 }
-.contact-form input::placeholder ,.contact-form textarea::placeholder{
+/*.contact-form input::placeholder ,.contact-form textarea::placeholder{
   font-family: Lato-Regular;
   color: #fff;
   font-size: 18px;
-}
+}*/
 .contact-form input:focus ,.contact-form textarea:focus{
   background: transparent;
 }
 .contact-form{
   padding-top: 50px;
 }
-.contact-form textarea{
+.contact-form textarea.uk-textarea.contact_message{
   background: transparent;
   color: #fff;
   resize: none;

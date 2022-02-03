@@ -34,17 +34,7 @@ window.onclick = function(event) {
 
 
 // Blog
-$(function () {
-  "use strict";
-  $('.blog-article').slice(0, 3).show();
-  $('#loadmoreBlog').on('click', function (e) {
-    e.preventDefault();
-    $('.blog-article:hidden').slice(0, 2).slideDown();
-    if ($('.blog-article:hidden').length === 0) {
-        $('#loadmoreBlog').replaceWith("");
-    }
-});
-});
+
 
 // Counter
 $('.custom-count').each(function () {
@@ -237,21 +227,39 @@ function myFunction() {
   window.location.href = load;
 }
 
-$(document).on('click', "#loadmoreBlog", function () {
+$(function () {
+  "use strict";
+  $('.blog-article').slice(0, 3).show();
+  /*$('#loadmoreBlog').on('click', function (e) {
+    e.preventDefault();
+    $('.blog-article:hidden').slice(0, 2).slideDown();
+    if ($('.blog-article:hidden').length === 0) {
+        $('#loadmoreBlog').replaceWith("");
+    }*/
+});
+
+
+$(document).on('click', "#loadmoreBlog", function (e) {
+    e.preventDefault();
     $slug = $(this).attr("data_id");
     $.ajax({
         method:"post",
         url : base_url+"moreBlogs",
         data : {'slug': $slug },
-            success : function(response){
-                $("#loadmoreBlog").remove();
-                $(".vertical-blog-sec .uk-container").append(response);
-                $(".blog-article").css("display", "block");
-                console.log(response);
+        success : function(response){
+            $("#loadmoreBlog").remove();
+            $(".vertical-blog-sec .uk-container").append(response);
+            
+            $('.blog-article:hidden').slice(0,2).slideDown();
+            if ($('.blog-article:hidden').length === 0) {
+                $('#loadmoreBlog').replaceWith("");
             }
-        });
+        }
+    });
 
 });
+
+
 
 $(document).on('click', ".serv-btn", function () {
 
@@ -295,7 +303,7 @@ $(document).on('click', ".serv-btn", function () {
 
 $(document).on('click', ".submit_apply_cop", function () {
 
-    /*$(".erroremail").hide();*/
+    $(".erroremail").hide();
     var hasError = false;
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     var email = $('.email_submit').val();

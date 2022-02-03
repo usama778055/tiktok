@@ -34,17 +34,7 @@ window.onclick = function(event) {
 
 
 // Blog
-$(function () {
-  "use strict";
-  $('.blog-article').slice(0, 3).show();
-  $('#loadmoreBlog').on('click', function (e) {
-    e.preventDefault();
-    $('.blog-article:hidden').slice(0, 2).slideDown();
-    if ($('.blog-article:hidden').length === 0) {
-        $('#loadmoreBlog').replaceWith("<a id='nomore-blog' class='serv-btn' href=''><span class='spanbtn'>No More</span></a>");
-    }
-});
-});
+
 
 // Counter
 $('.custom-count').each(function () {
@@ -237,9 +227,42 @@ function myFunction() {
   window.location.href = load;
 }
 
+$(function () {
+  "use strict";
+  $('.blog-article').slice(0, 3).show();
+  /*$('#loadmoreBlog').on('click', function (e) {
+    e.preventDefault();
+    $('.blog-article:hidden').slice(0, 2).slideDown();
+    if ($('.blog-article:hidden').length === 0) {
+        $('#loadmoreBlog').replaceWith("");
+    }*/
+});
+
+
+$(document).on('click', "#loadmoreBlog", function (e) {
+    e.preventDefault();
+    $slug = $(this).attr("data_id");
+    $.ajax({
+        method:"post",
+        url : base_url+"moreBlogs",
+        data : {'slug': $slug },
+        success : function(response){
+            $("#loadmoreBlog").remove();
+            $(".vertical-blog-sec .uk-container").append(response);
+            
+            $('.blog-article:hidden').slice(0,2).slideDown();
+            if ($('.blog-article:hidden').length === 0) {
+                $('#loadmoreBlog').replaceWith("");
+            }
+        }
+    });
+
+});
+
+
+
 $(document).on('click', ".serv-btn", function () {
 
-    // $(".error").hide();
     var hasError = false;
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     var email = $('.apply_cop_email').val();
@@ -280,7 +303,7 @@ $(document).on('click', ".serv-btn", function () {
 
 $(document).on('click', ".submit_apply_cop", function () {
 
-    /*$(".erroremail").hide();*/
+    $(".erroremail").hide();
     var hasError = false;
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     var email = $('.email_submit').val();
@@ -317,25 +340,8 @@ $(document).on('click', ".submit_apply_cop", function () {
     });
 });
 
-$(document).ready(function() {
-  $('.js-example-basic-single').niceSelect();
-});
 
-/*$(document).on('click', ".aboutus", function () {
-  $.ajax({
-        method:"post",
-        url : base_url+"about-us",
-        data : {
-            },
-            success : function(response){
-                
-               window.location.href = '';
-               window.scrollTo(0,document.body.scrollHeight); 
-                
-
-            }
-        });
-    });*/
+    
 
 
 

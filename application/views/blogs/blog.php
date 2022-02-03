@@ -67,7 +67,7 @@
             ?>
             <div>
               <div class="blog-image">
-                <a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>"><img src="<?php echo base_url('assets/images/blog2.JPG') ?>"></a>
+                <a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>"><img src="<?php echo base_url('assets/blogs_images/'.$post_image) ?>"></a>
               </div>
               <div class="blog-text">
                 <div class="blog-published">
@@ -90,15 +90,20 @@
       </div>
     </div>
     <!-- <div class="uk-pagination uk-flex-center">
-      <?php echo($links);?>
+      <?php //echo($links);?>
     </div> -->
   </div>
 </div>
 <!-------------------------------------------->
 
 <!-------------Popular-blog-Slider------------>
-<?php $this->load->view('blogs/blog_slider'); ?>
-<?php $this->load->view('blogs/dropdown_blogs'); ?>
+<?php $this->load->view('blogs/blog_slider', $featured); ?>
+
+<div class="uk-section vertical-blog-sec">
+  <div class="uk-container">
+    <?php $this->load->view('blogs/dropdown_blogs', $alldata); ?>
+  </div>
+</div>
 
 
 <!---------------------------------------------------->

@@ -7,7 +7,7 @@
   <link rel="icon" href="<?php echo base_url('favicon.icon')?>" />
   <link rel="stylesheet" href="<?php echo base_url('assets/css/uikit.min.css') ?>" />
   <link href="<?php echo base_url('assets/css/main.css'); ?>" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="<?php echo base_url('assets/css/nice-select.css'); ?>">
+
 </head>
 
 <body>
@@ -51,23 +51,23 @@
                   <div class="custom-bar"></div>
                   <div class="shopping-details">
                     <?php if(!empty($user_data[0])){ ?>
-                    <table class="uk-table uk-table-striped">
-                      <thead>
-                        <tr class="shopping-detail-head">
-                          <th>Services</th>
-                          <th>Qty</th>
-                          <th>Price</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr class="shopping-detail-body">
-                          <td><?php if(!empty($user_data[0]->serviceType)){ echo 'TikTok'.$user_data[0]->serviceType; } ?></td>
-                          <td><?php if(!empty($user_data[0]->packageQty)){ echo $user_data[0]->packageQty; }  ?></td>
-                          <td><?php if(!empty($user_data[0]->packagePrice) && !empty($user_data[0]->packagePrice)){ echo $user_data[0]->priceUnit .' '. $user_data[0]->packagePrice; } ?></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  <?php } ?>
+                      <table class="uk-table uk-table-striped">
+                        <thead>
+                          <tr class="shopping-detail-head">
+                            <th>Services</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="shopping-detail-body">
+                            <td><?php if(!empty($user_data[0]->serviceType)){ echo 'TikTok'.$user_data[0]->serviceType; } ?></td>
+                            <td><?php if(!empty($user_data[0]->packageQty)){ echo $user_data[0]->packageQty; }  ?></td>
+                            <td><?php if(!empty($user_data[0]->packagePrice) && !empty($user_data[0]->packagePrice)){ echo $user_data[0]->priceUnit .' '. $user_data[0]->packagePrice; } ?></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    <?php } ?>
                     <div class="cart-btn">
                       <a href="<?= base_url() ?>">I want to shop more</a>
                       <a class="payment-btn" href="<?= base_url('checkout') ?>">Proceed To Payment</a>

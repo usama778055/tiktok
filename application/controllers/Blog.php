@@ -23,69 +23,31 @@ class Blog extends CI_Controller
 public function index(){
 
 
-    $data["latest"] = $this->genral_model->get_authors(4, 0);
+    $data["latest"] = $this->genral_model->get_authors();
     $data["featured"] = $this->users->feature_blog();
-    $data["alldata"] = $this->users->selectjoin(); 
-        /*$pageall=count($alldata);
+    $data["alldata"] = $this->genral_model->minimum_data(); 
 
-        
+    $this->load->view('blogs/blog',$data);
+    }
 
-
-        $config = array();
-        $config["uri_segment"] = 2;
-        $config["base_url"] = base_url('blogs');
-        $config["total_rows"] = $pageall;
-        $config["per_page"] = 7;
-        
-        $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination pagination-sm uk-list uk-flex ul_justify">';        
-        $config['full_tag_close'] = '</ul></nav>';        
-        $config['first_link'] = 'First';        
-        $config['last_link'] = 'Last';        
-        $config['first_tag_open'] = '<li class=""><span class="uk-button uk-button-default">';        
-        $config['first_tag_close'] = '</span></li>';        
-        $config['prev_link'] = '&laquo';        
-        $config['prev_tag_open'] = '<li class=""><span class="uk-button uk-button-default">';        
-        $config['prev_tag_close'] = '</span></li>';        
-        $config['next_link'] = '&raquo';        
-        $config['next_tag_open'] = '<li class=""><span class="uk-button uk-button-default">';        
-        $config['next_tag_close'] = '</span></li>';        
-        $config['last_tag_open'] = '<li class=""><span class="uk-button uk-button-default">';        
-        $config['last_tag_close'] = '</span></li>';        
-        $config['cur_tag_open'] = '<li class="active "><a class="uk-text-muted uk-button uk-button-default" href="javascript:void(0);">';        
-        $config['cur_tag_close'] = '</a></li>';        
-        $config['num_tag_open'] = '<li class=""><span class="uk-button uk-button-default">';        
-        $config['num_tag_close'] = '</span></li>'; 
-        
-        $config['use_page_numbers'] = TRUE;
-        $config['first_url'] = '1';        
-        
-        $tot_pages = ceil($pageall / $config["per_page"]);
-
-        if($this->uri->segment(2) < 1 || $this->uri->segment(2) > $tot_pages)
-            return redirect(base_url('blogs/1'));
-
-
-        $this->pagination->initialize($config);
-        $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
-        
-        
-        $offset = ($page == 0  ? 0 : ($page - 1) * $config["per_page"]);
-
-        $data["links"] = $this->pagination->create_links();
-
-        $data["result"] = $this->genral_model->get_authors($config["per_page"], $offset);
-
-
-        $data['start'] = ($page == 0 ? 0 : (($page - 1) * $config["per_page"] + 1));*/
-        $this->load->view('blogs/blog',$data);
+    public function more_any_blogs(){
+        $slug = $this->input->post('slug');
+        $getData['alldata'] = $this->genral_model->limited_data($slug);
+        $this->load->view('blogs/dropdown_blogs', $getData);
     }
     
     public function slugData($slug){
-        $data['slug'] = $slug;
 
         $getData['data'] = $this->users->getBlogById('posts',"p.slug",$slug);
-        $getData['alldata'] = $this->users->selectlimitjoin($slug);
+        
+        if(is_numeric($this->uri->segment(2)))
+            return redirect('blogs');
 
+        else if(!$getData['data'])
+            show_404();
+
+        $data['slug'] = $slug;
+        $getData['alldata'] = $this->users->selectlimitjoin($slug);
         $this->load->view('blogs/single_blog',$getData);
     }
 

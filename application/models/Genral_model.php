@@ -112,8 +112,8 @@ class Genral_model extends CI_Model
 		return false;
 	}
 
-	public function get_authors($limit, $start) {
-		$this->db->select('*');
+	public function get_authors() {
+		$this->db->select('posts.*, users.name, categories.*');
 		$this->db->from('posts');
 		$this->db->join('users', 'ON posts.user_id = users.id','left');
 		$this->db->join('categories', 'ON posts.category_id = categories.id','left');
@@ -129,6 +129,29 @@ class Genral_model extends CI_Model
 			return $data;
 		}
 		return false;
+	}
+
+	public function minimum_data() {
+		$this->db->select('*');
+		$this->db->from('posts');
+		$this->db->join('users', 'ON posts.user_id = users.id','left');
+		$this->db->join('categories', 'ON posts.category_id = categories.id','left');
+		$this->db->limit(3);
+		
+		$query = $this->db->get();
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result() as $row) {
+				$data[] = $row;
+			}
+			return $data;
+		}
+		return false;
+	}
+
+	public function limited_data($slug) {
+		$que = "SELECT * FROM posts left join users ON posts.user_id = users.id left join categories ON posts.category_id = categories.id WHERE posts.id > (SELECT posts.id from posts where posts.slug = '{$slug}') ORDER BY posts.id ASC LIMIT 3";
+		return $this->db->query($que)->result();
 	}
 
 	public function get_categories_authors($limit, $start,$value) {

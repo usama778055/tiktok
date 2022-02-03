@@ -7,6 +7,7 @@
 
 				<ul class="uk-slider-items uk-child-width-1-3@m uk-child-width-1-2@s uk-grid">
 					<?php foreach ($featured as $key => $value){
+						$post_image = $value->post_image;
 						$body = $value->body;
 						$body = htmlspecialchars_decode(stripslashes($body));
 						?>
@@ -14,7 +15,7 @@
 							<div>
 								<a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
 									<div class="blog-image">
-										<img src="<?php echo base_url('assets/images/blog2.JPG') ?>">
+										<img src="<?php echo base_url('assets/images/'.$post_image) ?>">
 									</div>
 								</a>
 								<div class="blog-text">

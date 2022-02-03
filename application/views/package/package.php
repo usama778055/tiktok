@@ -14,7 +14,7 @@
 					<!-- <a href="#">Buy Tiktok Likes</a> -->
 				</li>
 				<li>
-					<a class="serv-btn" href="<?php echo base_url('buy-tiktok-premiumlikes') ?>"><span class="spanbtn">Premium Likes</span></a>
+					<a class="serv-btn link" href="<?php echo base_url('buy-tiktok-premiumlikes') ?>"><span class="spanbtn">Premium Likes</span></a>
 				</li>
 			</ul>
 		</div>

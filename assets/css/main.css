@@ -1178,7 +1178,7 @@
   font-family: Helvetica;
   font-size: 14px;
   border-bottom: 2px solid #fff;
-  padding: 0;
+  padding: 10px;
 }
 .promo-code input:focus{
   background: transparent;
@@ -1264,7 +1264,7 @@
   font-size: 28px;
   font-family: Lato-Bold;
   color: #fff;
-  margin: 0;
+  margin: 0 0 30px 0;
 }
 .feed-sec-packages h5{
   padding: 10px 34% 10px 30px;
@@ -1841,18 +1841,18 @@ li.uk-open {
 .contact-input{
  margin-right: 30%;
 }
-.contact-form input::placeholder ,.contact-form textarea::placeholder{
+/*.contact-form input::placeholder ,.contact-form textarea::placeholder{
   font-family: Lato-Regular;
   color: #fff;
   font-size: 18px;
-}
+}*/
 .contact-form input:focus ,.contact-form textarea:focus{
   background: transparent;
 }
 .contact-form{
   padding-top: 50px;
 }
-.contact-form textarea{
+.contact-form textarea.uk-textarea.contact_message{
   background: transparent;
   color: #fff;
   resize: none;

@@ -343,7 +343,7 @@
 					<input class="apply_cop_email uk-input" type="text" placeholder="Enter your email">
 				</div>
 				<div>
-					<a class="serv-btn" href="javascript:void(0)"><span class="spanbtn">Submit</span></a>
+					<a id ="email_button" class="serv-btn" href="javascript:void(0)"><span class="spanbtn">Submit</span></a>
 				</div>
 				<div class="error" style="height: 10px;"></div>
 			</form>

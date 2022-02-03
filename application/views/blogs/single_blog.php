@@ -21,29 +21,6 @@
 	$prev_slug = $value->prev_slug;
 
 ?>
-
-	<div class="prevNext custom-padding-top">
-		<div class="uk-container">
-			<ul class="uk-list">
-				<li>
-					<?php if($prev_slug != ""){ ?>
-						<a class="btn btn-secondary" href="<?php echo base_url('blogs/'.$prev_slug); ?>">previous</a>
-					<?php }else{
-						echo '';
-					} ?>
-				</li>
-				<li>
-					<?php if($next_slug != ""){ ?>
-						<a class="btn btn-primary" href="<?php echo base_url('blogs/'.$next_slug); ?>">Next</a>
-					<?php }else{
-						echo "";
-					} ?>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-
 	<div class="uk-section blog-banner">
 
 		<div class="blog-banner-content uk-text-center">
@@ -73,6 +50,28 @@
 	</div>
 <?php }
 ?>
+
+<div class="prevNext custom-padding-top">
+	<div class="uk-container">
+		<ul class="uk-list">
+			<li>
+				<?php if($prev_slug != ""){ ?>
+					<a class="btn btn-secondary" href="<?php echo base_url('blogs/'.$prev_slug); ?>">Previous</a>
+				<?php }else{
+					echo '';
+				} ?>
+			</li>
+			<li>
+				<?php if($next_slug != ""){ ?>
+					<a class="btn btn-primary" href="<?php echo base_url('blogs/'.$next_slug); ?>">Next</a>
+				<?php }else{
+					echo "";
+				} ?>
+			</li>
+		</ul>
+	</div>
+</div>
+
 
 <!--------------------Blog-------------------->
 <div class="uk-section blog-sec related-art">

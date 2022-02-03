@@ -14,23 +14,21 @@
       <p>Lorem Ipsum is simply dummy text of the printing.</p>
     </div>
     <div class="blog-panel">
-
       <?php
-      $leng = 0;
-
-
-      foreach ($latest as $value) {
-        if($leng == 0){
-
-          $body = $value->body;
-          $body = htmlspecialchars_decode(stripslashes($body));
-
-          ?>
+        $leng = 0;
+        foreach ($latest as $value) 
+        {
+          if($leng == 0)
+          {
+            $body = $value->body;
+            $body = htmlspecialchars_decode(stripslashes($body));
+      ?>
           <div class="uk-grid-collapse uk-child-width-expand@m uk-margin-large-top big-blog-article" uk-grid>
             <div>
               <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
                 <div class="blog-image">
-                  <img src="<?php echo base_url('assets/images/blog1.PNG') ?>">
+                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$value->post_image}") ? "{$value->post_image}" : "no_thumbnail.jpg" ?>
+                  <img width="600" height="250" src="<?= base_url("assets/blogs_images/{$post_image}") ?>">
                 </div>
               </a>
             </div>
@@ -63,11 +61,13 @@
             $post_thumb = $data->post_thumbnail;
             $created_at = $data->created_at;
 
-
             ?>
             <div>
               <div class="blog-image">
-                <a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>"><img src="<?php echo base_url('assets/blogs_images/'.$post_image) ?>"></a>
+                <a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>">
+                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$post_image}") ? "{$post_image}" : "no_thumbnail.jpg" ?>
+                  <img width="250" height="150" src="<?php echo base_url('assets/blogs_images/'.$post_image) ?>">
+                </a>
               </div>
               <div class="blog-text">
                 <div class="blog-published">

@@ -120,7 +120,7 @@
 								<li>Instant Delivery</li>
 								<li>24/7 Support</li>
 							</ul>
-							<span class="spanbtn"><a class="" href="<?php echo base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType); ?>">Purchase</a></span>
+							<a class="serv-btn" href="<?php echo base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType); ?>"><span class="spanbtn">Purchase</span></a>
 						</div>
 					</li>
 

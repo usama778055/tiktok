@@ -1,4 +1,3 @@
-
 <?php $this->load->view('layouts/header'); ?>
 <div class="uk-section custom-uk-first-panel custom-padding-top">
 	<div class="uk-container">

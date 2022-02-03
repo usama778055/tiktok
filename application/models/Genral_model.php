@@ -113,7 +113,7 @@ class Genral_model extends CI_Model
 	}
 
 	public function get_authors() {
-		$this->db->select('*');
+		$this->db->select('posts.*, users.name, categories.*');
 		$this->db->from('posts');
 		$this->db->join('users', 'ON posts.user_id = users.id','left');
 		$this->db->join('categories', 'ON posts.category_id = categories.id','left');

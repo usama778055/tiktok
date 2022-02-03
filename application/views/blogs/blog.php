@@ -67,7 +67,7 @@
             ?>
             <div>
               <div class="blog-image">
-                <a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>"><img src="<?php echo base_url('assets/images/blog2.JPG') ?>"></a>
+                <a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>"><img src="<?php echo base_url('assets/blogs_images/'.$post_image) ?>"></a>
               </div>
               <div class="blog-text">
                 <div class="blog-published">

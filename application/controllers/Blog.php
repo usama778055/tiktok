@@ -26,6 +26,7 @@ public function index(){
     $data["latest"] = $this->genral_model->get_authors();
     $data["featured"] = $this->users->feature_blog();
     $data["alldata"] = $this->genral_model->minimum_data(); 
+
     $this->load->view('blogs/blog',$data);
     }
 

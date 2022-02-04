@@ -30,7 +30,8 @@
             <div>
               <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
                 <div class="blog-image">
-                  <img src="<?php echo base_url('assets/images/blog1.PNG') ?>">
+                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$value->post_image}") ? "{$value->post_image}" : "no_thumbnail.jpg" ?>
+                  <img width="600" height="370" src="<?php echo base_url("assets/blogs_images/{$post_image}") ?>">
                 </div>
               </a>
             </div>
@@ -66,7 +67,8 @@
             <div>
               <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
                 <div class="blog-image">
-                  <img src="<?php echo base_url('assets/images/blog2.JPG') ?>">
+                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$post_image}") ? "{$post_image}" : "no_thumbnail.jpg" ?>
+                  <img width="370" height="250" src="<?php echo base_url("assets/blogs_images/{$post_image}") ?>">
                 </div>
               </a>
               <div class="blog-text">
@@ -89,7 +91,7 @@
 
       </div>
     </div>
-    <div class="uk-pagination uk-flex-center">
+    <div class="uk-pagination uk-flex-center pagination">
       <?php echo($links);?>
     </div>
   </div>

@@ -228,10 +228,8 @@ function myFunction() {
 }
 
 $(function () {
-  "use strict";
-  $('.blog-article').slice(0, 3).show();
+  $('.blog-article').show();
 });
-
 
 $(document).on('click', "#loadmoreBlog", function (e) {
     e.preventDefault();
@@ -242,8 +240,8 @@ $(document).on('click', "#loadmoreBlog", function (e) {
         data : {'slug': $slug },
         success : function(response){
             $("#loadmoreBlog").remove();
-            $(".vertical-blog-sec .uk-container").append(response);            
-            $('.blog-article:hidden').slice(0,3).slideDown();
+            $(".vertical-blog-sec .uk-container").append(response);             
+            $('.blog-article:hidden').slice(0, 3).slideDown();
         }
     });
 

@@ -1272,6 +1272,7 @@ z-index: 2;
   background: #FE2C55;
   font-size: 18px;
   font-family: Lato-Black;
+  height: 40px;
 }
 .amazing-package{
   background: #D5D5D5;
@@ -1895,6 +1896,18 @@ li.uk-open {
   border-radius: 20px;
   border: 0;
   padding: 7px 29px;
+}
+
+.pagination>*>*{
+  color: white;
+}
+
+.pagination {
+  margin-top: 80px;
+}
+
+.pagination>.uk-active>*, .pagination>*>:hover{
+  color: #FE2C55;
 }
 /*******************responsive*********************/
 @media only screen and (max-width: 1190px){

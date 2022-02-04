@@ -40,8 +40,6 @@ public function index(){
 
         $getData['data'] = $this->users->getBlogById('posts',"p.slug",$slug);
         
-        // echo"<pre>";print_r($getData);exit;
-
         if(is_numeric($this->uri->segment(2)))
             return redirect('blogs');
 
@@ -86,7 +84,7 @@ public function index(){
         $config['num_tag_open'] = '<div>';
         $config['num_tag_close'] = '</div>';        
                 
-        $config['cur_tag_open'] = '<div class="uk-active"><a class="uk-text-muted uk-button-default" href="javascript:void(0);">';        
+        $config['cur_tag_open'] = '<div class="uk-active"><a class="uk-button-default" href="javascript:void(0);">';        
         $config['cur_tag_close'] = '</a></div>';        
          
         

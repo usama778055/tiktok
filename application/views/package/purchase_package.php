@@ -84,7 +84,7 @@
 							<p><?php echo $user_data[0]->priceUnit .' '. $user_data[0]->packagePrice ?></p>
 						</div>
 						<div class="invoice-modal-btn">
-							<a href="<?= base_url('add-to-cart') ?>">Add To Cart</a>
+							<a id="add-to-cart" href="<?= base_url('add-to-cart') ?>">Add To Cart</a>
 							<a class="active" href="<?= base_url('checkout') ?>">Checkout</a>
 						</div>
 					</div>
@@ -132,5 +132,10 @@
 </div>
 	<!-------------------------------------------------->
 
-
-	<?php $this->load->view('layouts/footer'); ?>
+<?php $this->load->view('layouts/footer'); ?>
+<script>
+	$("#add-to-cart").on("click", function(event){
+		event.preventDefault();
+		alert('ss');
+	})
+</script>

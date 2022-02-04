@@ -99,7 +99,7 @@
 <!-------------Popular-blog-Slider------------>
 <?php $this->load->view('blogs/blog_slider', $featured); ?>
 
-<div class="uk-section vertical-blog-sec">
+<div id='check_drowpdown' class="uk-section vertical-blog-sec">
   <div class="uk-container">
     <?php $this->load->view('blogs/dropdown_blogs', $alldata); ?>
   </div>

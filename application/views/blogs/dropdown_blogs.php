@@ -35,4 +35,10 @@ $slug = array();
 	</div>
 <?php } ?>
 
-<a id="loadmoreBlog" class="serv-btn" data_id="<?php echo $slug[2]; ?>" href="#"><span class="spanbtn">Load More</span></a>
+
+<?php $last_blog = end($alldata);
+
+if(!empty($last_blog)) { ?>
+	<a id="loadmoreBlog" class="serv-btn" data_id="<?php echo $last_blog->slug; ?>" href="#"><span class="spanbtn">Load More</span></a>
+
+<?php } ?>

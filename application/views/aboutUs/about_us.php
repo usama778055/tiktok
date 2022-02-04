@@ -19,7 +19,6 @@
 			unknown printer took a galley of type.</p>
 		</div>
 	</div>
-	<!-- <div id="shiva"><span class="count"></span></div> -->
 </div>
 
 

@@ -31,7 +31,6 @@ $slug = array();
 				</div>
 			</div>
 		</div>
-		<!-- <div class="push_data"></div> -->
 	</div>
 <?php } ?>
 

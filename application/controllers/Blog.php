@@ -7,7 +7,6 @@ class Blog extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        /*$this->is_logged();*/
         $this->load->helper(array('form', 'url'));
         $this->load->library('session');
         $this->load->library('form_validation');
@@ -16,11 +15,8 @@ class Blog extends CI_Controller
         $this->load->library('pagination');
         $this->load->library('image_lib');
     }
-    /*{
-    "place_id" :"0509be86e76bc794104d74113eb23e3a"
-}*/
 
-public function index(){
+    public function index(){
 
 
     $data["latest"] = $this->genral_model->get_authors();
@@ -95,23 +91,13 @@ public function index(){
 
         if(empty($this->uri->segment(3)) || $this->uri->segment(3) < 1 || $this->uri->segment(3) > $tot_pages)
             return redirect(base_url('category/'.$name.'/1'));
-
-
         $this->pagination->initialize($config);
         $page = (!empty($this->uri->segment(3))) ? $this->uri->segment(3) : 1;
-        
-        
         $offset = ($page == 0  ? 0 : ($page - 1) * $config["per_page"]);
-
         $data["links"] = $this->pagination->create_links();
-
         $data["result"] = $this->genral_model->get_categories_authors($config["per_page"], $offset,$name);
-
-
         $data['start'] = ($page == 0 ? 0 : (($page - 1) * $config["per_page"] + 1));
         $this->load->view('blogs/categories_page',$data);
-        /*print_r($data["result"]);*//**/
-
         
     }
 

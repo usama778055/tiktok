@@ -99,12 +99,12 @@
   var base_url = "<?php echo base_url();?>"
 </script>
 
-<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/uikit.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/uikit-icons.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/uikit.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/uikit-icons.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/signal-img-lottie.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/faq-lottie.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/package-lottie.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/package-lottie.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 
 </body>

@@ -59,7 +59,6 @@ $route['privious'] = 'blog/previosData';
 $route['blogs'] = "blog/index";
 $route['moreBlogs'] = "blog/more_any_blogs";
 /*$route['category/(:any)'] = "blog/categoryData/$1";*/
-// echo 'coming';exit;
 
 // Faq
 $route['faqs'] = 'main/faq';
@@ -73,13 +72,13 @@ $route['checkout'] = 'cart/checkout';
 $route['buy-tiktok-(:any)'] = 'main/package/$1';
 $route['package_data'] = 'main/package_getdata';
 $route['buy-(:num)-tiktok-(:any)'] = 'main/purchase_package/$1/$2';
+
 // buy now
 $route['get_tiktokuser_data'] = 'main/get_user_data_api';
-// about us
+
+// miscellenous pages
 $route['about-us'] = 'main/aboutus';
-//apply copon
 $route['apply_copon'] = 'main/apply_coppen';
-// subcribe for news
 $route['subcribe_for_news'] = 'main/subcribe_for_new';
 
 //instapi

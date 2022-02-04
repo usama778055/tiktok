@@ -232,14 +232,17 @@ function myFunction() {
 }
 
 $(function () {
+<<<<<<< HEAD
 
   /*if ($('.gallery-image:hidden').length !== 0) {
       $('#loadmore').show();
    }*/
    $('.blog-article').show();
   
+=======
+  $('.blog-article').show();
+>>>>>>> 5dcb28ada5280724827c34ffd85db4e15eaf2323
 });
-
 
 $(document).on('click', "#loadmoreBlog", function (e) {
     e.preventDefault();
@@ -250,9 +253,14 @@ $(document).on('click', "#loadmoreBlog", function (e) {
         data : {'slug': $slug },
         success : function(response){
             $("#loadmoreBlog").remove();
+<<<<<<< HEAD
             $(".vertical-blog-sec .uk-container").append(response);
             $('.blog-article').slideDown('slow');
             /*$('.blog-article');*/
+=======
+            $(".vertical-blog-sec .uk-container").append(response);             
+            $('.blog-article:hidden').slice(0, 3).slideDown();
+>>>>>>> 5dcb28ada5280724827c34ffd85db4e15eaf2323
         }
     });
 

@@ -2,10 +2,10 @@
 
 <div class="uk-section faq-1-banner custom-padding-top">
 	<div class="faq-1-banner-watermark">
-		<img src="images/faq-1-polygon.PNG">
+		<img src="<?php echo base_url('assets/images/faq-1-polygon.png'); ?>">
 	</div>
 	<div class="faq-2-banner-watermark">
-		<img src="images/faq-1-polygon2.PNG">
+		<img src="<?php echo base_url('assets/images/faq-1-polygon2.png'); ?>">
 	</div>
 	<div class="uk-container">
 		<div class="uk-width-3-4@s faq-1-banner-content">

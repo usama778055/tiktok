@@ -112,12 +112,15 @@ $.ajax({
     url : base_url+"get_tiktokuser_data",
     data : { "name": get_value },
     beforeSend: function() {
-        $(".loader_class").show();
-        $(this).prop('disabled', true);
+            $(".loader_class").show();
+            $("#form-stacked-text"). attr('disabled','disabled');   
+        
+        /*$( "#name" ).prop( "disabled", true );
+        $(this).prop('disabled', true);*/
     },
     success : function(response){
         $(".loader_class").hide();
-        $(this).prop('disabled', false);
+        $("#form-stacked-text"). removeAttr('disabled');
 
         var result= $.parseJSON(response);
         var images = result.post_links;
@@ -168,7 +171,8 @@ $.ajax({
             });
 
 
-        }   
+        },
+  
     });
 });
 
@@ -228,12 +232,12 @@ function myFunction() {
 }
 
 $(function () {
-  "use strict";
 
-  if ($('.gallery-image:hidden').length !== 0) {
+  /*if ($('.gallery-image:hidden').length !== 0) {
       $('#loadmore').show();
-   }
-  $('.blog-article').slice(0, 3).show();
+   }*/
+   $('.blog-article').show();
+  
 });
 
 
@@ -247,9 +251,8 @@ $(document).on('click', "#loadmoreBlog", function (e) {
         success : function(response){
             $("#loadmoreBlog").remove();
             $(".vertical-blog-sec .uk-container").append(response);
-
-            $('.blog-article:hidden').slice(0,3).slideDown();
-
+            $('.blog-article').slideDown('slow');
+            /*$('.blog-article');*/
         }
     });
 

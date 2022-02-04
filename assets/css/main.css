@@ -2369,6 +2369,17 @@ img.svg_stype{
   width: 21px;
 }
 
+.loader_class{
+  color: white;
+  position: relative;
+  display: none;
+}
+
+.loader_class svg{
+  position: absolute;
+    top: 168px;
+    
+}
 /*.svg_star polygon{
   color: #FFFF00;
   fill: #FFFF00;

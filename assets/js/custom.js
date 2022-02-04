@@ -230,12 +230,6 @@ function myFunction() {
 $(function () {
   "use strict";
   $('.blog-article').slice(0, 3).show();
-  /*$('#loadmoreBlog').on('click', function (e) {
-    e.preventDefault();
-    $('.blog-article:hidden').slice(0, 2).slideDown();
-    if ($('.blog-article:hidden').length === 0) {
-        $('#loadmoreBlog').replaceWith("");
-    }*/
 });
 
 
@@ -248,12 +242,8 @@ $(document).on('click', "#loadmoreBlog", function (e) {
         data : {'slug': $slug },
         success : function(response){
             $("#loadmoreBlog").remove();
-            $(".vertical-blog-sec .uk-container").append(response);
-            
-            $('.blog-article:hidden').slice(0,2).slideDown();
-            if ($('.blog-article:hidden').length === 0) {
-                $('#loadmoreBlog').replaceWith("");
-            }
+            $(".vertical-blog-sec .uk-container").append(response);            
+            $('.blog-article:hidden').slice(0,3).slideDown();
         }
     });
 

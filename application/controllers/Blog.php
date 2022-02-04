@@ -40,6 +40,8 @@ public function index(){
 
         $getData['data'] = $this->users->getBlogById('posts',"p.slug",$slug);
         
+        // echo"<pre>";print_r($getData);exit;
+
         if(is_numeric($this->uri->segment(2)))
             return redirect('blogs');
 

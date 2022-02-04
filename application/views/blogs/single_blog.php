@@ -1,8 +1,8 @@
 
-<!-----------Side-Icons---------------------->
 <?php $this->load->view('layouts/header'); ?>
-<?php $this->load->view('layouts/share_buttons'); ?>
 
+<!-----------Side-Icons---------------------->
+<?php $this->load->view('layouts/share_buttons'); ?>
 <!------------------------------------------->
 
 <?php foreach ($data as $key => $value){
@@ -22,7 +22,6 @@
 
 ?>
 	<div class="uk-section blog-banner">
-
 		<div class="blog-banner-content uk-text-center">
 			<h1><?php echo $title; ?></h1>
 		</div>
@@ -30,7 +29,8 @@
 			<div class="uk-container">
 				<div class="uk-width-3-4@s uk-margin-auto">
 					<div class="single-blog-image">
-						<img src="<?php echo base_url('assets/images/blog1.PNG'); ?>">
+						<?php $post_thumbnail = file_exists(FCPATH . "assets/blogs_images/{$value->post_thumbnail}") ? "{$value->post_thumbnail}" : "no_thumbnail.jpg" ?>
+						<img src="<?php echo base_url("assets/blogs_images/{$post_thumbnail}"); ?>">
 					</div>
 				</div>
 				<div class="uk-width-3-4@s uk-margin-auto">

@@ -2,7 +2,6 @@
 $slug = array();
  foreach ($alldata as $value) {
 	$slug[] = $value->slug;
-	print_r($slug); 
 	$body = $value->body;
 	$body = htmlspecialchars_decode(stripslashes($body));
 	?>
@@ -11,7 +10,7 @@ $slug = array();
 			<div class="uk-width-1-4@m">
 				<div class="">
 					<a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
-						<div class="blog-image">
+						<div class="blog-image more-blog">
 							<?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$value->post_image}") ? "{$value->post_image}" : "no_thumbnail.jpg" ?>
 							<img width="250" height="150" src="<?php echo base_url("assets/blogs_images/{$post_image}") ?>">
 						</div>

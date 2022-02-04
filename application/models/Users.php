@@ -60,7 +60,7 @@ class Users extends CI_Model
 	public function getBlogById($table,$colum, $value)
 	{
 
-		$sql = "SELECT u.name,p.title, p.slug, p.body, p.created_at, p.updated_at, c.cat_name,(SELECT slug FROM posts WHERE id > p.id ORDER BY id ASC LIMIT 1)as next_slug, (SELECT slug FROM posts WHERE id < p.id ORDER BY id DESC LIMIT 1) as prev_slug FROM posts p JOIN users u ON p.user_id = u.id left join categories c ON p.category_id = c.id WHERE ".$colum." = '".$value."'";
+		$sql = "SELECT u.name,p.title, p.slug, p.body, p.created_at, p.updated_at, p.post_thumbnail, c.cat_name,(SELECT slug FROM posts WHERE id > p.id ORDER BY id ASC LIMIT 1)as next_slug, (SELECT slug FROM posts WHERE id < p.id ORDER BY id DESC LIMIT 1) as prev_slug FROM posts p JOIN users u ON p.user_id = u.id left join categories c ON p.category_id = c.id WHERE ".$colum." = '".$value."'";
 		
 
 		return $this->db->query($sql)->result();

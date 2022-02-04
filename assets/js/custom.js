@@ -249,14 +249,14 @@ $(document).on('click', "#loadmoreBlog", function (e) {
             $(".vertical-blog-sec .uk-container").append(response);
 
             $('.blog-article:hidden').slice(0,3).slideDown();
-            
+
         }
     });
 
 });
 
 
-
+ 
 $(document).on('click', "#email_button", function () {
 
     var hasError = false;
@@ -278,7 +278,6 @@ $(document).on('click', "#email_button", function () {
         url : base_url+"apply_copon",
         data : {
             "email": email,
-                //"bread_name": "australian"
         },
         success : function(response){
             if(response == 'false'){

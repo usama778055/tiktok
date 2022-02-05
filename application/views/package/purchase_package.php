@@ -20,7 +20,7 @@
 							<div class="uk-width-1-2@m">
 								<label class="uk-form-label" for="form-stacked-text">Your Tiktok User ID</label>
 								<div class="uk-form-controls">
-									<input class="uk-input user_name" id="form-stacked-text" type="text" placeholder="@therock" onchange="from_get_api(event)">
+									<input class="uk-input user_name" id="form-stacked-text" type="text" placeholder="@therock">
 								</div>
 							</div>
 							<div class="uk-width-1-2@m custom-selected" uk-form-custom="target: > * > span:first-child">

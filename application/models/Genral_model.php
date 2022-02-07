@@ -202,7 +202,7 @@ class Genral_model extends CI_Model
 		$this->db->join($tab2, "ON {$table}.id = {$tab2}.{$u_id}",'left');
 		$this->db->where($table.".id = " , $where);
 		$this->db->limit(1);
-		return $this->db->get()->result();
+		return $this->db->get()->row();
 	}
 
 	function get_stype_qun_data($serviceType,$val1,$packageQty ,$val2,$table){

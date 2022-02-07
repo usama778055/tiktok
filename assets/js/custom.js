@@ -53,22 +53,8 @@ $('.package_button').bind("click",function () {
             "id": id,
             },
             success : function(response){
-                var result= $.parseJSON(response); 
-                var url = window.location.origin;
-                var html = `<small><a href="#">Home</a>/<a class="active" href="#">Tiktok ${result.serviceType}</a></small>
-                <h3>Buy ${result.packageQty} ${result.packageTitle}</h3>
-                <strong>${result.priceUnit} ${result.packagePrice}</strong>
-                <p>${result.package_description}</p>
-                <ul class="uk-list">
-                <li>High Quality</li>
-                <li>Active and Real Users </li>
-                <li>Instant Delivery</li>
-                <li>24/7 Support</li>
-                </ul>
-                <div class="purchase-btn">
-                <a class="serv-btn" href='${result.url}'><span class="spanbtn">Purchase</span></a>
-                </div>`;
-                $('.pakage-details').html(html);
+                
+                $('.pakage-details').html(response);
             }
         });
 });
@@ -105,25 +91,7 @@ $.ajax({
     success : function(response){
         $(".loader_class").hide();
         $("#form-stacked-text"). removeAttr('disabled');
-
-        var result= $.parseJSON(response);
-        var images = result.post_links;
-        var len = images.length;
-        var html = '';
-        var count = 1;
-        $.each(images,function(index, post){
-            console.log(post);
-
-            html += `<div data_id=''>
-            <div class='gallery-image uk-transition-toggle selected_div' tabindex='0'>
-            <img class='uk-transition-scale-up uk-transition-opaque' src='${post}'>
-            <div class='uk-position-bottom uk-overlay-default get_select' style=''>
-            <p class='uk-h4 uk-margin-remove putquentity'></p>
-            </div>
-            </div>
-            </div>`; 
-        });
-        $('.custom_image_class').html(html);
+        $('.custom_image_class').html(response);
         if ($('.gallery-image:hidden').length !== 0) {
             $('#loadmore').show();
         }
@@ -252,7 +220,7 @@ $(document).on('click', ".submit_apply_cop", function () {
     var email = $('.email_submit').val();
     if(email == '') {
         $(".erroremail").show();
-        $(".erroremail").html("<small class='' style='color:red;'>Please enter your email address.</span>");
+        $(".erroremail").html("<small class='' style='color:red;'>Please enter your email address.</small>");
         hasError = true;
     }
     else if(!emailReg.test(email)) {

@@ -56,8 +56,9 @@ class Main extends CI_Controller
 
     public function package_getdata()
     { 
-        $packages = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
-        foreach ($packages as $key => $value) 
+        $packages['single_data'] = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
+        $this->load->view('package/package_partial_view',$packages);
+        /*foreach ($packages as $key => $value) 
         {
             $str['id'] = $value->id;
             $str['packageQty'] = $value->packageQty;
@@ -67,8 +68,8 @@ class Main extends CI_Controller
             $str['package_description'] = $value->package_description;
             $str['priceUnit'] = $value->priceUnit;
             $str['url'] = base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType);
-        }
-        echo json_encode($str);
+        }*/
+        
     }
 
     public function purchase_package($quantity, $stype)
@@ -87,7 +88,9 @@ class Main extends CI_Controller
         $name = $_POST['name'];
         $this->load->library('instapi');
         $packages = $this->instapi->get_tiktok_user($name);
-        echo json_encode($packages['data']);
+        $data['api_images'] = $packages['data']['post_links'];
+        $this->load->view('package/api_images_partial_view',$data);
+        /*echo json_encode($packages['data']);*/
     }
 
     public function aboutus(){            

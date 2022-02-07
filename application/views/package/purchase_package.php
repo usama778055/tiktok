@@ -49,8 +49,7 @@
 					<div class="left-feed-botoom">
 
 						<div class="load-gallery custom_image_class">
-							<div class="loader_class" uk-spinner="ratio: 4"></div>		
-
+							<div class="loader_class" uk-spinner="ratio: 4"></div>
 						</div>
 						<a id="loadmore" class="serv-btn" href="#"><span class="spanbtn">Load More</span></a>
 					</div>

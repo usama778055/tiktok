@@ -116,7 +116,6 @@ $.ajax({
 $(document).on('click', ".selected_div", function () {
     $(this).toggleClass("selected");
     var length = $('.selected_div.selected').length;
-    console.log(length);
     var limit = 50;
     var packageQty = $('.js-example-basic-single').find(':selected').attr('data_id');
     const quantity = packageQty / 1;

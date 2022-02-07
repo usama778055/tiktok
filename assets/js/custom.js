@@ -162,9 +162,8 @@ $(document).on('click', "#loadmoreBlog", function (e) {
         data : {'slug': $slug },
         success : function(response){
             $("#loadmoreBlog").remove();
-
             $(".vertical-blog-sec .uk-container").append(response);             
-            $('.blog-article:hidden').slice(0, 3).slideDown();
+            $('.blog-article:hidden').slice(0, 2).slideDown(500);
         }
     });
 

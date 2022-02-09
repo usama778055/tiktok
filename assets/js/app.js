@@ -53,8 +53,15 @@ $(document).ready(function () {
 				action: "get_tiktok_user",
 				user_name: username,
 				// user_email: email,
+			},
+			beforeSend: function() {
+			    $(".loader_class").show();
+			    $("#form-stacked-text"). attr('disabled','disabled');   
 			}, 
 			success: function (data, status){
+				$(".loader_class").hide();
+				$("#form-stacked-text").removeAttr('disabled');
+
 				$(".load-gallery.custom_image_class").removeClass("shown");
 				$(selector).attr("disabled", false);
 				if (status === "success") {

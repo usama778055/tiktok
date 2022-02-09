@@ -90,7 +90,7 @@ $.ajax({
     },
     success : function(response){
         $(".loader_class").hide();
-        $("#form-stacked-text"). removeAttr('disabled');
+        $("#form-stacked-text").removeAttr('disabled');
         $('.custom_image_class').html(response);
         if ($('.gallery-image:hidden').length !== 0) {
             $('#loadmore').show();

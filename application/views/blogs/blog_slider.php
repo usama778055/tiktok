@@ -17,7 +17,7 @@
 							<div>
 								<a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
 									<div class="blog-image popular">
-										<?php $post_image = file_exists(FCPATH . "assets/blogs_images/".$post_thumb) || !empty($post_thumb) ? $post_thumb : "no_thumbnail.jpg" ?>
+										<?php $post_image = file_exists(FCPATH . "assets/blogs_images/".$post_thumb) && !empty($post_thumb) ? $post_thumb : "no_thumbnail.jpg" ?>
 										<img width="370" height="220" src="<?php echo base_url('assets/blogs_images/'.$post_image) ?>">
 									</div>
 								</a>
@@ -39,9 +39,6 @@
 				<a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
 			</div>
-
-			<!-- <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul> -->
-
 		</div>
 	</div>
 </div>

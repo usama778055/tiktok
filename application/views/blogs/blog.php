@@ -27,7 +27,7 @@
             <div>
               <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
                 <div class="blog-image first-image">
-                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$value->post_thumbnail}") || !empty($value->post_thumbnail) || !empty($value->post_thumbnail) ? "{$value->post_thumbnail}" : "no_thumbnail.jpg" ?>
+                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$value->post_thumbnail}") && !empty($value->post_thumbnail) ? "{$value->post_thumbnail}" : "no_thumbnail.jpg" ?>
                   <img width="600" height="350" src="<?= base_url("assets/blogs_images/{$post_image}") ?>">
                 </div>
               </a>
@@ -65,7 +65,7 @@
             <div>
               <div class="blog-image more-image">
                 <a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>">
-                  <?php $post_image = !file_exists(FCPATH . "assets/blogs_images/{$post_image}") || empty($post_image)  ? "no_thumbnail.jpg" : "{$post_image}" ?>
+                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$post_image}") && !empty($post_image)  ? "{$post_image}" : "no_thumbnail.jpg" ?>
                   <img width="370" height="220" src="<?php echo base_url('assets/blogs_images/'.$post_image) ?>">
                 </a>
               </div>

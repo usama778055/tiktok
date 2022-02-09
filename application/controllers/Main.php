@@ -31,7 +31,6 @@ class Main extends CI_Controller
     }
 
     public function package($slug){
-
         $packages = $this->genral_model->selectDataFromAny('slug' , 'sub_categories',$slug);
         if(empty($packages)){
             show_404();
@@ -86,14 +85,40 @@ class Main extends CI_Controller
         $this->session->set_userdata('user_name', $name);
     }
 
-    public function request()
+    public function find_tiktok_user()
     {
-        $name = $_POST['user_name'];
-        $this->load->library('instapi');
-        $packages = $this->instapi->get_tiktok_user($name);
+        $post = $this->postData;
+        $act  = $post['action'];
+        if (method_exists($this, $act)) {
+            $this->$act($post);
+        } else {
+            $this->response(400, "Invalid request.");
+        }
+    }
 
-        $data['api_images'] = $packages['data']['post_links'];
-        $this->load->view('package/api_images_partial_view',$data);
+    private function find_user($post)
+    {
+        $this->load->library('findinstauser');
+        $user_data = $this->findinstauser->findUser($post);
+        $user_data = (object) $user_data;
+        if ($user_data->success == 1) {
+            $user_data = (object) $user_data->data;
+            $user = (object) $user_data->user;
+            $posts = $user_data->user_posts;
+            $data["user"] = $user;
+            $data["posts"] = $posts;
+            $html = $this->load->view('templates/app_profile', $data, TRUE);
+        }
+        $resp = array(
+            "html" => $html,
+            "data" => $data,
+            "success" => true,
+            "message" => ""
+        );
+        if (empty($html)) {
+            $resp["success"] = false;
+        }
+        exit(json_encode($resp));
     }
 
     public function aboutus(){            

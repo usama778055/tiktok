@@ -21,6 +21,7 @@ class Main extends CI_Controller
         $data['data'] = $this->genral_model->selectData('reviews');
         $data['feature_data'] = $this->genral_model->selectData('features');
         $data['service_data'] = $this->genral_model->select_service('cat_service');
+
         $this->load->view('home/home',$data);
     }
     
@@ -57,6 +58,7 @@ class Main extends CI_Controller
     public function package_getdata()
     { 
         $packages = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
+
         foreach ($packages as $key => $value) 
         {
             $str['id'] = $value->id;
@@ -79,7 +81,8 @@ class Main extends CI_Controller
         }
         $record_packages['alldata'] = $this->genral_model->select_all_data('serviceType',$stype,'igservices');
         $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','displayQty' ,1);
-        
+
+        $this->session->set_userdata('package_detail', $record_packages['user_data'][0]);
         $this->load->view('package/purchase_package',$record_packages);
     }
 
@@ -88,6 +91,24 @@ class Main extends CI_Controller
         $this->load->library('instapi');
         $packages = $this->instapi->get_tiktok_user($name);
         echo json_encode($packages['data']);
+
+        $this->session->set_userdata('user_name', $name);
+    }
+
+    public function request()
+    {
+        $name = $_POST['user_name'];
+        $this->load->library('instapi');
+        $packages = $this->instapi->get_tiktok_user($name);
+        echo json_encode($packages['data']);
+
+        // $post = $this->postData;
+        // $act  = $post['action'];
+        // if (method_exists($this, $act)) {
+        //     $this->$act($post);
+        // } else {
+        //     $this->response(400, "Invalid request.");
+        // }
     }
 
     public function aboutus(){            

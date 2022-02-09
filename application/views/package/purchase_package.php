@@ -20,7 +20,7 @@
 							<div class="uk-width-1-2@m">
 								<label class="uk-form-label" for="form-stacked-text">Your Tiktok User ID</label>
 								<div class="uk-form-controls">
-									<input class="uk-input user_name" id="form-stacked-text" type="text" placeholder="@therock" onchange="from_get_api(event)">
+									<input class="uk-input user_name" id="form-stacked-text" name="tiktok_username" type="text" placeholder="@therock">
 								</div>
 							</div>
 							<div class="uk-width-1-2@m custom-selected" uk-form-custom="target: > * > span:first-child">
@@ -131,11 +131,14 @@
 	</div>
 </div>
 	<!-------------------------------------------------->
-
 <?php $this->load->view('layouts/footer'); ?>
-<script>
-	$("#add-to-cart").on("click", function(event){
-		event.preventDefault();
-		alert('ss');
-	})
+<script type="text/javascript">
+  const sType = "<?php echo $user_data[0]->serviceType; ?>",
+    packageQty = "<?php echo $user_data[0]->packageQty; ?>",
+    user_name = '<?php echo (isset($_SESSION["user_name"])) ? $_SESSION["user_name"] : ""; ?>',
+    user_email = '<?php echo (isset($_SESSION["user_email"])) ? $_SESSION["user_email"] : ""; ?>';
 </script>
+
+<script type="text/javascript" src="<?= base_url('assets/js/common.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('assets/js/app.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('assets/js/cart.js') ?>"></script>

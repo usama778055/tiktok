@@ -127,7 +127,6 @@ $.ajax({
             /*const quantity = packageQty / 1;
             const service_limit = limit / 1;*/
             $.each(images,function(index, post){
-                console.log(post);
                 
                 html += `<div data_id=''>
                 <div class='gallery-image uk-transition-toggle selected_div' tabindex='0'>
@@ -181,7 +180,6 @@ $(document).on('click', ".selected_div", function () {
   }*/
   /*   $(this).find('.get_select').show();*/
   var length = $('.selected_div.selected').length;
-  console.log(length);
   var limit = 50;
   var packageQty = $('.js-example-basic-single').find(':selected').attr('data_id');
   const quantity = packageQty / 1;
@@ -214,11 +212,6 @@ $(document).on('click', ".selected_div", function () {
                 /*$(post).find(".per_quantity").val(0);*/
             }
         });
-
-
-        /*console.log(select);*/
-
-
     });
 
 

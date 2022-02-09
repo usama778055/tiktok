@@ -58,7 +58,6 @@ $route['testing'] = 'blog/testing';
 $route['privious'] = 'blog/previosData';
 $route['blogs'] = "blog/index";
 $route['moreBlogs'] = "blog/more_any_blogs";
-/*$route['category/(:any)'] = "blog/categoryData/$1";*/
 
 // Faq
 $route['faqs'] = 'main/faq';
@@ -66,7 +65,6 @@ $route['faqs'] = 'main/faq';
 // Cart
 $route['add-to-cart'] = 'cart/add_to_cart';
 $route['checkout'] = 'cart/checkout';
-// $route['pay'] = 'stripe/pay';
 
 // package
 $route['buy-tiktok-(:any)'] = 'main/package/$1';
@@ -78,12 +76,9 @@ $route['get_tiktokuser_data'] = 'main/get_user_data_api';
 $route['find'] = 'main/request';
 
 
-// miscellenous pages
 $route['about-us'] = 'main/aboutus';
 $route['apply_copon'] = 'main/apply_coppen';
 $route['subcribe_for_news'] = 'main/subcribe_for_new';
 
-//instapi
-/*$route['get_tiktok'] = 'Instapi/get_tiktok_user';*/
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

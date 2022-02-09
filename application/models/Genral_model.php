@@ -159,7 +159,6 @@ class Genral_model extends CI_Model
 		$this->db->from('posts');
 		$this->db->join('users', 'ON posts.user_id = users.id','left');
 		$this->db->join('categories', 'ON posts.category_id = categories.id','left');
-		/*   	$this->db->order_by('posts.id',"desc");*/
 		$this->db->where('categories.cat_name =',$value);
 		$this->db->limit($limit, $start);
 		
@@ -173,17 +172,6 @@ class Genral_model extends CI_Model
 		}
 		return false;
 	}
-
-	// public function getSingleRowByColumn($table, $name, $value)
-	// {
-	// 	$this->db->select("hd_tickets.* , users.name ,users.user_role");
-	// 	$this->db->join("users", $table . ".user_id = users.id");
-	// 	$this->db->where($table . '.' . $name, $value);
-	// 	if ($this->user->user_role != 1) {
-	// 		$this->db->where('users.id', $this->user->id);
-	// 	}
-	// 	return $this->db->get($table)->row();
-	// }
 
 	function get_records($table1,$table2,$user_id,$any, $where)
 	{
@@ -214,7 +202,7 @@ class Genral_model extends CI_Model
 		$this->db->join($tab2, "ON {$table}.id = {$tab2}.{$u_id}",'left');
 		$this->db->where($table.".id = " , $where);
 		$this->db->limit(1);
-		return $this->db->get()->result();
+		return $this->db->get()->row();
 	}
 
 	function get_stype_qun_data($serviceType,$val1,$packageQty ,$val2,$table){

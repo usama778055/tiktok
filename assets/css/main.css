@@ -23,6 +23,7 @@
   font-family: Helvetica-Bold;
   src: url('../fonts/Helvetica-Bold.ttf');
 }
+
 .custom-padding-top{
   padding-top: 130px;
 }
@@ -2382,7 +2383,14 @@ img.svg_stype{
   width: 21px;
 }
 
-/*.svg_star polygon{
-  color: #FFFF00;
-  fill: #FFFF00;
-}*/
+.loader_class{
+  color: white;
+  position: relative;
+  display: none;
+}
+
+.loader_class svg{
+  position: absolute;
+    top: 168px;
+    
+}

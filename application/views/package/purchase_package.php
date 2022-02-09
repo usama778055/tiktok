@@ -49,8 +49,7 @@
 					<div class="left-feed-botoom">
 
 						<div class="load-gallery custom_image_class">
-							<div class="loader_class" uk-spinner style="display: none; color: white;"></div>		
-
+							<div class="loader_class" uk-spinner="ratio: 4"></div>
 						</div>
 						<a id="loadmore" class="serv-btn" href="#"><span class="spanbtn">Load More</span></a>
 					</div>
@@ -130,7 +129,8 @@
 		</div>
 	</div>
 </div>
-	<!-------------------------------------------------->
+<!-------------------------------------------------->
+
 <?php $this->load->view('layouts/footer'); ?>
 <script type="text/javascript">
   const sType = "<?php echo $user_data[0]->serviceType; ?>",

@@ -57,20 +57,8 @@ class Main extends CI_Controller
 
     public function package_getdata()
     { 
-        $packages = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
-
-        foreach ($packages as $key => $value) 
-        {
-            $str['id'] = $value->id;
-            $str['packageQty'] = $value->packageQty;
-            $str['serviceType'] = $value->serviceType;
-            $str['packageTitle'] = $value->packageTitle;
-            $str['packagePrice'] = $value->packagePrice;
-            $str['package_description'] = $value->package_description;
-            $str['priceUnit'] = $value->priceUnit;
-            $str['url'] = base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType);
-        }
-        echo json_encode($str);
+        $packages['single_data'] = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
+        $this->load->view('package/package_partial_view',$packages);
     }
 
     public function purchase_package($quantity, $stype)
@@ -90,7 +78,8 @@ class Main extends CI_Controller
         $name = $_POST['name'];
         $this->load->library('instapi');
         $packages = $this->instapi->get_tiktok_user($name);
-        echo json_encode($packages['data']);
+        $data['api_images'] = $packages['data']['post_links'];
+        $this->load->view('package/api_images_partial_view',$data);
 
         $this->session->set_userdata('user_name', $name);
     }
@@ -100,15 +89,9 @@ class Main extends CI_Controller
         $name = $_POST['user_name'];
         $this->load->library('instapi');
         $packages = $this->instapi->get_tiktok_user($name);
-        echo json_encode($packages['data']);
 
-        // $post = $this->postData;
-        // $act  = $post['action'];
-        // if (method_exists($this, $act)) {
-        //     $this->$act($post);
-        // } else {
-        //     $this->response(400, "Invalid request.");
-        // }
+        $data['api_images'] = $packages['data']['post_links'];
+        $this->load->view('package/api_images_partial_view',$data);
     }
 
     public function aboutus(){            

@@ -85,7 +85,7 @@
 <div class="wanted-pakages-sec">
 	<div class="uk-section wanted-pakages-heading">
 		<div class="uk-container uk-width-3-4@s">
-			<h5><img src="<?php echo base_url('assets/images/hot.PNG') ?>">Rock And Hot</h5>
+			<h5><img src="<?php echo base_url('assets/images/hot.png') ?>">Rock And Hot</h5>
 			<h4>Most Wanted Packages</h4>
 		</div>
 	</div>

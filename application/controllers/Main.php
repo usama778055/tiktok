@@ -21,6 +21,7 @@ class Main extends CI_Controller
         $data['data'] = $this->genral_model->selectData('reviews');
         $data['feature_data'] = $this->genral_model->selectData('features');
         $data['service_data'] = $this->genral_model->select_service('cat_service');
+
         $this->load->view('home/home',$data);
     }
     
@@ -60,18 +61,6 @@ class Main extends CI_Controller
     { 
         $packages['single_data'] = $this->genral_model->get_one_records('igservices' , 'ig_service_description','packageId',$_POST['id']);
         $this->load->view('package/package_partial_view',$packages);
-        /*foreach ($packages as $key => $value) 
-        {
-            $str['id'] = $value->id;
-            $str['packageQty'] = $value->packageQty;
-            $str['serviceType'] = $value->serviceType;
-            $str['packageTitle'] = $value->packageTitle;
-            $str['packagePrice'] = $value->packagePrice;
-            $str['package_description'] = $value->package_description;
-            $str['priceUnit'] = $value->priceUnit;
-            $str['url'] = base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType);
-        }*/
-        
     }
 
     public function purchase_package($quantity, $stype)
@@ -83,7 +72,8 @@ class Main extends CI_Controller
         }
         $record_packages['alldata'] = $this->genral_model->select_all_data('serviceType',$stype,'igservices');
         $record_packages["featured"] = $this->genral_model->get_packagerecords('ig_service_description','igservices','packageId','displayQty' ,1);
-        
+
+        $this->session->set_userdata('package_detail', $record_packages['user_data'][0]);
         $this->load->view('package/purchase_package',$record_packages);
     }
 
@@ -93,7 +83,18 @@ class Main extends CI_Controller
         $packages = $this->instapi->get_tiktok_user($name);
         $data['api_images'] = $packages['data']['post_links'];
         $this->load->view('package/api_images_partial_view',$data);
-        /*echo json_encode($packages['data']);*/
+
+        $this->session->set_userdata('user_name', $name);
+    }
+
+    public function request()
+    {
+        $name = $_POST['user_name'];
+        $this->load->library('instapi');
+        $packages = $this->instapi->get_tiktok_user($name);
+
+        $data['api_images'] = $packages['data']['post_links'];
+        $this->load->view('package/api_images_partial_view',$data);
     }
 
     public function aboutus(){            

@@ -73,6 +73,8 @@ $route['buy-(:num)-tiktok-(:any)'] = 'main/purchase_package/$1/$2';
 
 // buy now
 $route['get_tiktokuser_data'] = 'main/get_user_data_api';
+$route['find'] = 'main/request';
+
 
 $route['about-us'] = 'main/aboutus';
 $route['apply_copon'] = 'main/apply_coppen';

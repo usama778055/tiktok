@@ -103,9 +103,6 @@ $.ajax({
             if ($('.gallery-image:hidden').length === 0) {
                 $('#loadmore').hide();
             }
-            else{
-
-            }
         });
     },
 });
@@ -121,8 +118,8 @@ $(document).on('click', ".selected_div", function () {
     const quantity = packageQty / 1;
     const service_limit = limit / 1;
     let per_input = Math.floor(quantity / length);
-
     const remaining = quantity % length;
+
     if (length > 1 && per_input < 50){
         console.log(per_input);
         $(this).removeClass("selected");

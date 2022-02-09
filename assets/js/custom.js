@@ -113,33 +113,50 @@ $.ajax({
 $(document).on('click', ".selected_div", function () {
     $(this).toggleClass("selected");
     var length = $('.selected_div.selected').length;
+    var commenttype =  $('.service_type').attr('id');
+    /**/
+    if(commenttype == 'comments'){
+        var limit = 5;
+        if(commenttype == 'comments'){
+           $.ajax({
+            method:"post",
+            url : base_url+"get_tiktokuser_data",
+            data : { "commenttype": commenttype,
+        },
+        success : function(response){
+            
+        },
+    }); 
+       }
+   }
+   else{
     var limit = 50;
-    var packageQty = $('.js-example-basic-single').find(':selected').attr('data_id');
-    const quantity = packageQty / 1;
-    const service_limit = limit / 1;
-    let per_input = Math.floor(quantity / length);
-    const remaining = quantity % length;
+}
+var packageQty = $('.js-example-basic-single').find(':selected').attr('data_id');
+const quantity = packageQty / 1;
+const service_limit = limit / 1;
+let per_input = Math.floor(quantity / length);
+const remaining = quantity % length;
 
-    if (length > 1 && per_input < 50){
-        console.log(per_input);
-        $(this).removeClass("selected");
-        $(this).find(".putquentity").text('');
-        return false;
-    }
+if (length > 1 && per_input < limit){
+    $(this).removeClass("selected");
+    $(this).find(".putquentity").text('');
+    return false;
+}
 
-    $(".selected_div").each((index, post) => {
+$(".selected_div").each((index, post) => {
 
-        if ($(post).hasClass("selected")) {
-            if (index === length - 1) {
-                per_input += remaining;
-            }
-            $(post).find(".putquentity").text(per_input);
-            $(post).find(".putquentity").val(per_input);
-        } else {
-            $(post).find(".putquentity").text("");
-            $(post).find(".putquentity").val('');
+    if ($(post).hasClass("selected")) {
+        if (index === length - 1) {
+            per_input += remaining;
         }
-    });
+        $(post).find(".putquentity").text(per_input);
+        $(post).find(".putquentity").val(per_input);
+    } else {
+        $(post).find(".putquentity").text("");
+        $(post).find(".putquentity").val('');
+    }
+});
 });
 
 

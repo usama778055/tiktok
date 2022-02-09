@@ -31,8 +31,7 @@ class Main extends CI_Controller
     }
 
     public function package($slug){
-        print_r($slug);
-        exit;
+
         $packages = $this->genral_model->selectDataFromAny('slug' , 'sub_categories',$slug);
         if(empty($packages)){
             show_404();

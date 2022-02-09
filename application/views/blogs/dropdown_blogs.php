@@ -11,7 +11,7 @@ $slug = array();
 				<div class="">
 					<a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
 						<div class="blog-image more-blog">
-							<?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$value->post_thumbnail}") || !empty($value->post_thumbnail) ? "{$value->post_thumbnail}" : "no_thumbnail.jpg" ?>
+							<?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$value->post_thumbnail}") && !empty($value->post_thumbnail) ? "{$value->post_thumbnail}" : "no_thumbnail.jpg" ?>
 							<img width="250" height="150" src="<?php echo base_url("assets/blogs_images/{$post_image}") ?>">
 						</div>
 					</a>

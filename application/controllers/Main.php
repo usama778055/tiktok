@@ -30,6 +30,8 @@ class Main extends CI_Controller
     }
 
     public function package($slug){
+        print_r($slug);
+        exit;
         $packages = $this->genral_model->selectDataFromAny('slug' , 'sub_categories',$slug);
         if(empty($packages)){
             show_404();
@@ -74,6 +76,7 @@ class Main extends CI_Controller
 
     public function purchase_package($quantity, $stype)
     {
+        /*print_r($stype);*/
         $record_packages['user_data'] = $this->genral_model->get_stype_qun_data('serviceType',$stype,'packageQty' ,$quantity,'igservices');
         if(empty($record_packages['user_data'])){
             show_404();

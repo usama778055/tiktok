@@ -9,6 +9,7 @@
 
 
 <!--------------------Feed-main-sec----------------->
+<input class="service_type" id='<?php echo $user_data[0]->serviceType; ?>' type="" name="" style="display:none;">
 <div class="feed-main uk-section">
 	<div class="uk-container">
 		<div class="" uk-grid>
@@ -23,8 +24,9 @@
 									<input class="uk-input user_name" id="form-stacked-text" type="text" placeholder="@therock">
 								</div>
 							</div>
-							<div class="uk-width-1-2@m custom-selected" uk-form-custom="target: > * > span:first-child">
-								<label for="" class="uk-form-label">Package Selected</label>			<select class="js-example-basic-single" onchange="myFunction()">
+							<div class="uk-width-1-2@m custom-selected custom_selected_container" uk-form-custom="target: > * > span:first-child">
+
+								<label for="" class="uk-form-label">Package Selected</label>			<select class="selcter_custom_class js-example-basic-single" onchange="myFunction()">
 									<?php foreach($alldata as $values){
 
 										if($user_data[0]->id == $values->id){
@@ -44,10 +46,8 @@
 								</button>
 							</div>
 						</form>
-
 					</div>
 					<div class="left-feed-botoom">
-
 						<div class="load-gallery custom_image_class">
 							<div class="loader_class" uk-spinner="ratio: 4"></div>
 						</div>

@@ -30,7 +30,7 @@
             <div>
               <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
                 <div class="blog-image">
-                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$value->post_image}") ? "{$value->post_image}" : "no_thumbnail.jpg" ?>
+                  <?php $post_image = !file_exists(FCPATH . "assets/blogs_images/".$value->post_thumbnail) || empty($value->post_thumbnail) ? "no_thumbnail.jpg" : $value->post_thumbnail ?>
                   <img width="600" height="370" src="<?php echo base_url("assets/blogs_images/{$post_image}") ?>">
                 </div>
               </a>
@@ -67,7 +67,7 @@
             <div>
               <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
                 <div class="blog-image">
-                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$post_image}") ? "{$post_image}" : "no_thumbnail.jpg" ?>
+                  <?php $post_image = file_exists(FCPATH . "assets/blogs_images/".$post_thumb) || !empty($value->post_thumbnail) ? $post_thumb : "no_thumbnail.jpg" ?>
                   <img width="370" height="250" src="<?php echo base_url("assets/blogs_images/{$post_image}") ?>">
                 </div>
               </a>

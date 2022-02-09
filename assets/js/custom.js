@@ -51,12 +51,12 @@ $('.package_button').bind("click",function () {
         url : base_url+"package_data",
         data : {
             "id": id,
-            },
-            success : function(response){
-                
-                $('.pakage-details').html(response);
-            }
-        });
+        },
+        success : function(response){
+
+            $('.pakage-details').html(response);
+        }
+    });
 });
 
 jQuery(document).on("keypress", 'input', function (e) {
@@ -70,12 +70,12 @@ jQuery(document).on("keypress", 'input', function (e) {
 $( "#form-stacked-text" ).change(function() {
 
 
-   var getclass = $('.js-example-basic-single').find(':selected').attr('data_id');
+ var getclass = $('.js-example-basic-single').find(':selected').attr('data_id');
 
 
-   var get_value = $('.user_name').val();
-   var find = $(this).find('.user_name');
-   if(get_value === ''){
+ var get_value = $('.user_name').val();
+ var find = $(this).find('.user_name');
+ if(get_value === ''){
 
     UIkit.notification({message: 'Field empty', pos: 'top-right',status:'danger'});
     return false;
@@ -137,8 +137,10 @@ $(document).on('click', ".selected_div", function () {
                 per_input += remaining;
             }
             $(post).find(".putquentity").text(per_input);
+            $(post).find(".putquentity").val(per_input);
         } else {
             $(post).find(".putquentity").text("");
+            $(post).find(".putquentity").val('');
         }
     });
 });
@@ -150,7 +152,7 @@ function myFunction() {
 }
 
 $(function () {
- $('.blog-article').show();
+   $('.blog-article').show();
 });
 
 $(document).on('click', "#loadmoreBlog", function (e) {
@@ -163,7 +165,7 @@ $(document).on('click', "#loadmoreBlog", function (e) {
         success : function(response){
             $("#loadmoreBlog").remove();
             $(".vertical-blog-sec .uk-container").append(response);             
-            $('.blog-article:hidden').slice(0, 2).slideDown(500);
+            $('.blog-article:hidden').slice(0, 3).slideDown('slow');
         }
     });
 
@@ -232,20 +234,30 @@ $(document).on('click', ".submit_apply_cop", function () {
         url : base_url+"subcribe_for_news",
         data : {
             "email": email,
-            },
-            success : function(response){
-                if(response == 'false'){
-                    $(".erroremail").show();
-                    $(".erroremail").html("<small class='' style='color:red;'>Email already store in database</small>");
-                    return false;
-                }
-                else{
-                    $('.email_submit').val('');
-                    $(".erroremail").show();
-                    $(".erroremail").html("<small class='' style='color:red;'>Success Data</small>");
-                }
+        },
+        success : function(response){
+            if(response == 'false'){
+                $(".erroremail").show();
+                $(".erroremail").html("<small class='' style='color:red;'>Email already store in database</small>");
+                return false;
             }
-        });
+            else{
+                $('.email_submit').val('');
+                $(".erroremail").show();
+                $(".erroremail").html("<small class='' style='color:red;'>Success Data</small>");
+            }
+        }
+    });
+});
+
+$(document).on('click', "#promo_div", function () {
+    $(".promo_input_div").slideToggle();
+    
+});
+
+$(document).on('click', "#cart-remove-id", function () {
+    $(".tr_container").remove();
+    
 });
 
 

@@ -1,3 +1,4 @@
+<div>
 <div class="uk-section popular-blog-slider">
 	<div class="uk-container">
 		<h3>Popular</h3>
@@ -16,7 +17,7 @@
 							<div>
 								<a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>">
 									<div class="blog-image popular">
-										<?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$post_image}") ? "{$post_image}" : "no_thumbnail.jpg" ?>
+										<?php $post_image = file_exists(FCPATH . "assets/blogs_images/".$post_thumb) || !empty($post_thumb) ? $post_thumb : "no_thumbnail.jpg" ?>
 										<img width="370" height="220" src="<?php echo base_url('assets/blogs_images/'.$post_image) ?>">
 									</div>
 								</a>
@@ -43,4 +44,5 @@
 
 		</div>
 	</div>
+</div>
 </div>

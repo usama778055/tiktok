@@ -915,6 +915,27 @@ z-index: 2;
   color: #fff;
   width: 100%;
 }
+
+/*comment*/
+.comments_sec{
+  position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    scroll-snap-align: start;
+    padding: 10px;
+    border-bottom: 1px solid #cbcbcb;
+}
+
+.selected_items{
+  scroll-snap-type: y proximity;
+  border: 1px solid #eee;
+}
+
+.wrap_selected_items {
+    position: relative;
+    margin-top: 10px;
+}
 .pakage-details li{
  font-family: Lato-Regular;
  font-size: 14px;
@@ -1439,16 +1460,35 @@ z-index: 2;
   color: #FE2C55;
 }
 .promo-select button{
-  border: 0;
-  text-align: center;
+  border: none;
   color: #fff;
-  padding-right: 0;
 }
 .total-check{
   display: flex;
   justify-content: right;
   flex-direction: row;
   align-items: baseline;
+  margin-top: 20px
+}
+.cart-remove{
+  background-color: transparent;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ff005f;
+    color: #ff005f;
+    line-height: 1;
+    transition: all 0.4s;
+}
+.check_out_email_buntton{
+color: #fff;
+}
+.checkout_page_email_div .promo_code_input{
+  width: 28%;
 }
 .total-check h4{
   color: #fff;
@@ -2393,4 +2433,31 @@ img.svg_stype{
   position: absolute;
     top: 168px;
     
+}
+.promo_input_div{
+  position: absolute;
+    right: 80px;
+    display: none;
+}
+.promo_code_input{
+  background-color: #191919;
+    border: 1px solid#fff;
+    color: #fff;
+    padding: 7px 10px;
+    margin: 0px 20px;
+    border-radius: 4px;
+    height: 24px;
+}
+
+.promo_input_div button{
+  color: #fff;
+}
+
+
+.promocode_h4{
+  display: inline-block;
+}
+
+#promo_div{
+  cursor: pointer;
 }

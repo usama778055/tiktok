@@ -29,7 +29,7 @@
 			<div class="uk-container">
 				<div class="uk-width-3-4@s uk-margin-auto">
 					<div class="single-blog-image">
-						<?php $post_thumbnail = file_exists(FCPATH . "assets/blogs_images/{$value->post_thumbnail}") ? "{$value->post_thumbnail}" : "no_thumbnail.jpg" ?>
+						<?php $post_thumbnail = file_exists(FCPATH . "assets/blogs_images/{$value->post_thumbnail}") || !empty($value->post_thumbnail) ? "{$value->post_thumbnail}" : "no_thumbnail.jpg" ?>
 						<img src="<?php echo base_url("assets/blogs_images/{$post_thumbnail}"); ?>">
 					</div>
 				</div>
@@ -101,7 +101,9 @@
 					?>
 					<div>
 						<div class="blog-image">
+							<?php $post_image = file_exists(FCPATH . "assets/blogs_images/{$post_thumb}") || !empty($value->post_thumbnail) ? "{$post_thumb}" : "no_thumbnail.jpg" ?>
 							<a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>">
+
 								<img src="<?php echo base_url('assets/blogs_images/'.$post_image); ?>">
 							</a>
 						</div>

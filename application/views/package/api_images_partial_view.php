@@ -1,12 +1,14 @@
-<?php foreach ($api_images as $key => $value): ?>
+<?php
+$i=1;
+foreach ($user['post_links'] as $key => $value): ?>
     
-    <div data_id=''>
+    <div data_id='<?php echo $i?>'>
     <div class='gallery-image uk-transition-toggle selected_div' tabindex='0'>
-        <img class='uk-transition-scale-up uk-transition-opaque' src='<?php print_r($value); ?>'>
+        <img class='uk-transition-scale-up uk-transition-opaque' src='<?php echo $value; ?>'>
         <div class='uk-position-bottom uk-overlay-default get_select' style=''>
             <p class='uk-h4 uk-margin-remove putquentity'></p>
         </div>
     </div>
 </div>
-<?php endforeach ?>
+<?php $i++;endforeach ?>
 <!--  -->

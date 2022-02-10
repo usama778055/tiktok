@@ -78,8 +78,7 @@ class Cart extends CI_Controller
 
         if (in_array($pckg['serviceType'], $username_pkgs)) 
         {
-			echo "selected user pkg in";exit;
-        	$res['user_name'] = $session['user_name'];
+			$res['user_name'] = $session['user_name'];
             $res['item_type'] = 1;
             if (isset($this->postData['selected_posts'])) {
                 $res['selected_posts'] = $this->postData['selected_posts'];
@@ -93,10 +92,10 @@ class Cart extends CI_Controller
                 $res['item_type'] = 3;
             } else */
 			if (isset($this->postData['selected_posts'])) {
-				echo "selected in";exit;
-                $selected_posts = $this->postData['selected_posts'];
+				$selected_posts = $this->postData['selected_posts'];
+				/*echo "<pre>";print_r($selected_posts);exit;
                 $url = $selected_posts["url"];
-                $res['url'] = $url["post_id"];
+                $res['url'] = $url["post_id"];*/
                 $res['selected_posts'] = $selected_posts;
             }
         }

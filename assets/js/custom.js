@@ -90,6 +90,7 @@ $( "#form-stacked-text" ).change(function() {
 });
 
 function sendAjax(selector, username) {
+
 	jQuery.ajax({
 		url: `${base_url}find`,
 		method: "POST",
@@ -100,8 +101,10 @@ function sendAjax(selector, username) {
 			// user_email: email,
 		},
 		beforeSend: function() {
+            $(".load-gallery.custom_image_class").html("");
 			$(".loader_class").show();
 			$("#form-stacked-text"). attr('disabled','disabled');
+
 		},
 		success: function (data, status){
 			$(".loader_class").hide();
@@ -110,7 +113,6 @@ function sendAjax(selector, username) {
 			$(".load-gallery.custom_image_class").removeClass("shown");
 			$(selector).attr("disabled", false);
 			if (status === "success") {
-
 				if (data.success === true || data.success === 1) {
 					toaster.success("Tiktok Data Loaded Succesfully!");
 					$(".load-gallery.custom_image_class").attr("data-found", 1);
@@ -119,7 +121,7 @@ function sendAjax(selector, username) {
 						$('.gallery-image').show();
 						return false;
 					} else {
-						$(".load-gallery.custom_image_class").append(data.html);
+						$(".load-gallery.custom_image_class").html(data.html);
 						$('.gallery-image').show();
 						//fetchThumbnails(data.data);
 						return false;
@@ -142,49 +144,67 @@ $(document).on('click', ".selected_div", function () {
     $(this).toggleClass("selected");
     var length = $('.selected_div.selected').length;
     var commenttype =  $('.service_type').attr('id');
-    /**/
-    if(commenttype == 'comments'){
+    var imagesrc =  $(this).children('img').attr('src');
+    var data_id =  $(this).find('p.putquentity').attr('data_id');
+    console.log(data_id);
+    $select = $(this).attr("class");
+    if (commenttype == 'comments') {
         var limit = 5;
-        if(commenttype == 'comments'){
-           $.ajax({
-            method:"post",
-            url : base_url+"get_tiktokuser_data",
-            data : { "commenttype": commenttype,
-        },
-        success : function(response){
-            
-        },
-    }); 
-       }
-   }
-   else{
-    var limit = 50;
-}
-var packageQty = $('.js-example-basic-single').find(':selected').attr('data_id');
-const quantity = packageQty / 1;
-const service_limit = limit / 1;
-let per_input = Math.floor(quantity / length);
-const remaining = quantity % length;
-
-if (length > 1 && per_input < limit){
-    $(this).removeClass("selected");
-    $(this).find(".putquentity").text('');
-    return false;
-}
-
-$(".selected_div").each((index, post) => {
-
-    if ($(post).hasClass("selected")) {
-        if (index === length - 1) {
-            per_input += remaining;
-        }
-        $(post).find(".putquentity").text(per_input);
-        $(post).find(".putquentity").val(per_input);
-    } else {
-        $(post).find(".putquentity").text("");
-        $(post).find(".putquentity").val('');
     }
-});
+    else{
+        var limit = 50;
+    }
+
+    var packageQty = $('.js-example-basic-single').find(':selected').attr('data_id');
+    const quantity = packageQty / 1;
+    const service_limit = limit / 1;
+    let per_input = Math.floor(quantity / length);
+    const remaining = quantity % length;
+
+    if (length > 1 && per_input < limit){
+        $(this).removeClass("selected");
+        $(this).find(".putquentity").text('');
+        return false;
+    }
+    $(".selected_div").each((index, post) => {
+
+        if ($(post).hasClass("selected")) {
+            if (index === length - 1) {
+                per_input += remaining;
+            }
+            $(post).find(".putquentity").text(per_input);
+            $(post).find(".per_quantity").val(per_input);
+
+        } else {
+            $(post).find(".putquentity").text("");
+            $(post).find(".per_quantity").val('');
+        }
+
+    });
+    if ($(this).hasClass("selected")) {
+        if(commenttype == 'comments'){
+            var quenty = $('#quenty_'+data_id).text();
+            $.ajax({
+                method:"post",
+                url : base_url+"comments",
+                data : {image : imagesrc,
+                        length : data_id
+                    },
+                success : function(response){
+                    $('#add_comment').append(response);
+                    $(".comments_sec").each((index, post) => {
+                    $(post).find(".total_com").text(quenty);
+                    $(post).find(".comment_length").text(quenty);
+
+                });
+            }
+        });
+            
+        }
+    }
+    else{
+        $('#add_comment').children('#wrap_selected_items'+data_id).remove();
+    }
 });
 
 

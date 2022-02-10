@@ -53,6 +53,7 @@
 						</div>
 						<a id="loadmore" class="serv-btn" href="#"><span class="spanbtn">Load More</span></a>
 					</div>
+					<div id="add_comment"></div>
 				</div>
 			</div>
 			<div class="uk-width-1-2@s">

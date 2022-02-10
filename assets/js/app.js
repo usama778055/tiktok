@@ -91,10 +91,7 @@ $(document).ready(function () {
 	}
 
 	// handle base64 thumbnail for profile picture
-	function showProfilePicture(user) {
-		const profile_pic = user.profile_pic;
-		showImage("#ig_profile_thumb", "profile_img", profile_pic);
-	}
+
 
 	// handle base64 thumbnails for posts
 	function showPostThumbnails(posts) {
@@ -130,26 +127,6 @@ $(document).ready(function () {
 			},
 		});
 	}
-
-	function displayTiktokProfile(data) {
-		const user = data.user;
-		showProfilePicture(user);
-		displayIgCounts(user);
-	}
-
-	function displayIgCounts(user) {
-		const username = user.user_name,
-			fullname = user.full_name,
-			following = user.following,
-			followers = user.followers,
-			post_count = user.post_count;
-		$("#ig-d-fullname").text(fullname);
-		$("#ig-d-username").text("@" + username);
-		$("#ig-post-count").text(transformQuantity(post_count));
-		$("#ig-followers-count").text(transformQuantity(followers));
-		$("#ig-following-count").text(transformQuantity(following));
-	}
-
 	// Show next button if more posts exist.
 	function showNextButton(user) {
 		const next_page = user.next_page;
@@ -329,4 +306,24 @@ function isEmail(email) {
 	var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return regex.test(email);
 }
-
+function displayTiktokProfile(data) {
+	const user = data.user;
+	//showProfilePicture(user);
+	displayIgCounts(user);
+}
+function showProfilePicture(user) {
+	const profile_pic = user.profile_pic;
+	showImage("#ig_profile_thumb", "profile_img", profile_pic);
+}
+function displayIgCounts(user) {
+	const username = user.user_name,
+		fullname = user.full_name,
+		following = user.following,
+		followers = user.followers;
+		//post_count = user.post_count
+	$("#ig-d-fullname").text(fullname);
+	$("#ig-d-username").text("@" + username);
+	//$("#ig-post-count").text(transformQuantity(post_count));
+	$("#ig-followers-count").text(transformQuantity(followers));
+	$("#ig-following-count").text(transformQuantity(following));
+}

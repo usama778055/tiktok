@@ -1,8 +1,6 @@
 <?php
 $i=1;
 foreach ($user['post_links'] as $key => $value): ?>
-    
-
     <div data_id='<?php echo $i?>'>
     <div class='gallery-image uk-transition-toggle selected_div' tabindex='0'>
         <img class='uk-transition-scale-up uk-transition-opaque' src='<?php echo $value; ?>'>

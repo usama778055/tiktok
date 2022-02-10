@@ -53,7 +53,7 @@ class Cart extends CI_Controller
 
     private function prepareProdData()
     {
-        echo "<pre>";print_r($this->postData);exit;
+        // echo "<pre>";print_r($this->postData);exit;
     	$session = $_SESSION;
         if (!isset($session['package_detail'])) {
             return array();
@@ -139,7 +139,7 @@ class Cart extends CI_Controller
             $cartPrice = $_SESSION['cart']['total_amount'];
             $discountPrice = $cartPrice * $discountPercent / 100;   // Discount in amount
             $offPrice = round($discountPrice, 2);
-            $discount_price      = $cartPrice - $offPrice;           // Amount after discount
+            $discount_price = $cartPrice - $offPrice;           // Amount after discount
             $discountedPrice = round($discount_price, 2);
             $_SESSION['discount']['discountPercent'] = $discountPercent;
             $_SESSION['discount']['discountPrice'] = $offPrice;
@@ -160,8 +160,59 @@ class Cart extends CI_Controller
         return $postData;
     }
 
+    public function actionHandler()
+    {
+        $post = $this->postData;
+        if (isset($post['act'])) {
+            $act = $post['act'];
+            switch ($act) {
+                case 'remove_cart_prod':
+                    $this->remove_prod();
+                    break;
+                case 'applypromo':
+                    $this->applyPromo();
+                    break;
+                // case 'proceePayment':
+                //     $this->setStripeCartSession();
+                //     break;
+            }
+        }
+    }
+
+    public function remove_prod()
+    {
+        $productId = $this->postData['prod_id'];
+        if (empty($_SESSION['cart'])) {
+            $res = array('success' => 0, 'message' => 'Cart is already empty.');
+        }
+        if (isset($_SESSION['cart']['items'][$productId])) {
+            $cart = $_SESSION['cart']['items'];
+            unset($cart[$productId]);
+            $sortedArray = array_values($cart);
+            $_SESSION['cart']['items'] = $sortedArray;
+            $this->calTotalAmount();
+            if (isset($_SESSION['discount']) && isset($_SESSION['discount']['promoCode'])) {
+                $promocode = $_SESSION['discount']['promoCode'];
+                $this->applyPromo($promocode);
+            }
+            $res = array('success' => 1);
+        } else {
+            $res['message'] = 'Reload the page and try again.';
+        }
+        exit(json_encode($res));
+    }
+
     public function checkout()
     {
+        if (isset($this->postData['act'])) {
+            $this->actionHandler();
+            $this->remove_prod();
+        }
+        $cartData = (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) ? $_SESSION['cart'] : array();
+        $discount = isset($_SESSION['discount']) ? $_SESSION['discount'] : array();
+        $data = array('cartData' => $cartData, 'discount' => $discount);
+        $data["title"] = "Cart Page | Tiktok likes";
+
         $this->load->view('cart/checkout');
     }
 }

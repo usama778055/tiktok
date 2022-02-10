@@ -1,4 +1,0 @@
-<div style="" class="wrap_selected_items">
-    <h4>Your Selected Items</h4>
-    <div class="selected_items"><div class="comments_sec"><div class="post_area cmntcol"><div data-id="CQQBSTAlp5s" style="background-image: url()" class="selected_img"></div></div><div class="comments_field"><div class="wrap_rem_counts"><div class="comments_field-hdr"><span>10</span> Comments (1 per line)</div><div class="comments_field-ftr">Quantity: <span class="count_CQQBSTAlp5s">0</span> / <span class="total_com">10</span></div></div><textarea placeholder="Write your comments here..." rows="10" cols="50" spellcheck="true" class="com_area com_CQQBSTAlp5s" data-id="CQQBSTAlp5s" com-limit="10"></textarea></div></div></div>
-</div>

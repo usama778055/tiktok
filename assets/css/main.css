@@ -927,9 +927,12 @@ z-index: 2;
     border-bottom: 1px solid #cbcbcb;
 }
 
-.selected_items{
-  scroll-snap-type: y proximity;
-  border: 1px solid #eee;
+.selected_img{
+  height: 206px;
+  width: 170px;
+  background-size: 111px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .wrap_selected_items {

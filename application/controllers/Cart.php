@@ -207,6 +207,11 @@ class Cart extends CI_Controller
 
     public function checkout()
     {
+        if(isset($_GET['session']))
+        {
+            echo "<pre>";print_r($this->session->all_userdata());exit;
+        }
+
         if (isset($this->postData['act'])) {
             $this->actionHandler();
             $this->remove_prod();

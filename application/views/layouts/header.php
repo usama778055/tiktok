@@ -48,7 +48,7 @@ $this->load->helper('cart');
         <div class="uk-navbar shoping-cart">
           <ul class="uk-navbar-nav">
             <li class="cartPopup">
-                
+
               <a href="javascript:void(0)" onclick="cardfunction()">
       					<?php if (show_cart_count()) { ?>
       					<span class="uk-badge" id="sf-cart-counts" data-count="<?php echo show_cart_count(); ?>" style="background-color:#FE2C55 !important;"><?php echo show_cart_count(); ?></span>
@@ -61,7 +61,7 @@ $this->load->helper('cart');
                   <div class="custom-bar"></div>
                   <?php
                   $cartData = (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) ? $_SESSION['cart'] : array();
-                  if(!empty($cartData)){ ?>
+                  if(!empty($cartData['items'])){ ?>
                     <div class="shopping-details">  
                         <table class="uk-table uk-table-striped">
                           <thead>

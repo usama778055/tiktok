@@ -63,8 +63,8 @@
 						<div class="user-img">
 							<img height=100 width=100 src="<?php echo base_url('assets/images/placeholder_person.png') ?>">
 							<div class="">
-								<h5>The Rock</h5>
-								<p>@therock</p>
+								<h5><?php echo isset($_SESSION['profile_data']['full_name']) && !empty($_SESSION['profile_data']['full_name']) ? $_SESSION['profile_data']['full_name'] : '';?></h5>
+								<p>@<?php echo isset($_SESSION['profile_data']['user_name']) && !empty($_SESSION['profile_data']['user_name']) ? $_SESSION['profile_data']['user_name'] : '';?></p>
 							</div>
 						</div>
 						<div class="order">

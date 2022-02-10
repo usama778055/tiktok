@@ -9,7 +9,8 @@
 </div>
 
 <!----------------Checkout-Sec---------------------->
-<div class="uk-section checkout-sec">
+<div id="wrap_cart_detail">
+<div class="uk-section checkout-sec" id="cart-details-sec">
 	<?php if(empty($cartData["items"])) { ?>
 		<div class="uk-text-center">
 			<?php echo 'Cart is empty. <a href="' . base_url() . '" >Continue Shop</a>'; ?>
@@ -74,7 +75,7 @@
 									 <a class="uk-text-light uk-text-primary" href="<?= $username ?>" target="_blank" uk-tooltip="<?= $username ?>;pos: top" title="" aria-expanded="false"> Link </a>
 								<?php } ?>
 							</td>
-							<td><button id="cart-remove-id" class="cart-remove" data-id="0">×
+							<td><button id="cart-remove" class="cart-remove" data-id="<?php echo $dataKey; ?>">×
 							</button></td>
 						</tr>
 					<?php } ?>
@@ -110,5 +111,6 @@
 		</div>
 	<?php } ?> 
 </div>
-
+</div>
 <?php $this->load->view('layouts/footer') ?>
+<script type="text/javascript" src="<?= base_url('assets/js/checkout.js') ?>"></script>

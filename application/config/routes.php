@@ -65,7 +65,7 @@ $route['faqs'] = 'main/faq';
 // Cart
 $route['add-to-cart'] = 'cart/add_to_cart';
 $route['checkout'] = 'cart/checkout';
-
+$route['remove-cart-prod'] = "Cart_controller/remove_prod";
 // package
 $route['buy-tiktok-(:any)'] = 'main/package/$1';
 $route['package_data'] = 'main/package_getdata';

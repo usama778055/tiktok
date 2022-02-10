@@ -180,6 +180,12 @@ class Main extends CI_Controller
         exit(json_encode($resp));
     }
 
+    public function comment_section(){
+        $comment_section['comments'] = $_POST;
+        $this->load->view('package/comment_section',$comment_section);
+
+    }
+
     public function aboutus(){            
         $this->validation();
         if ($this->form_validation->run() == FALSE)

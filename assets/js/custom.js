@@ -90,6 +90,7 @@ $( "#form-stacked-text" ).change(function() {
 });
 
 function sendAjax(selector, username) {
+
 	jQuery.ajax({
 		url: `${base_url}find`,
 		method: "POST",
@@ -100,8 +101,10 @@ function sendAjax(selector, username) {
 			// user_email: email,
 		},
 		beforeSend: function() {
+            $(".load-gallery.custom_image_class").html("");
 			$(".loader_class").show();
 			$("#form-stacked-text"). attr('disabled','disabled');
+
 		},
 		success: function (data, status){
 			$(".loader_class").hide();
@@ -110,7 +113,6 @@ function sendAjax(selector, username) {
 			$(".load-gallery.custom_image_class").removeClass("shown");
 			$(selector).attr("disabled", false);
 			if (status === "success") {
-				console.log(data);
 				if (data.success === true || data.success === 1) {
 					toaster.success("Tiktok Data Loaded Succesfully!");
 					$(".load-gallery.custom_image_class").attr("data-found", 1);
@@ -119,7 +121,7 @@ function sendAjax(selector, username) {
 						$('.gallery-image').show();
 						return false;
 					} else {
-						$(".load-gallery.custom_image_class").append(data.html);
+						$(".load-gallery.custom_image_class").html(data.html);
 						$('.gallery-image').show();
 						//fetchThumbnails(data.data);
 						return false;
@@ -143,7 +145,8 @@ $(document).on('click', ".selected_div", function () {
     var length = $('.selected_div.selected').length;
     var commenttype =  $('.service_type').attr('id');
     var imagesrc =  $(this).children('img').attr('src');
-    var data_id =  $(this).children('img').attr('data_id');
+    var data_id =  $(this).find('p.putquentity').attr('data_id');
+    console.log(data_id);
     $select = $(this).attr("class");
     if (commenttype == 'comments') {
         var limit = 5;
@@ -183,12 +186,12 @@ $(document).on('click', ".selected_div", function () {
             $.ajax({
                 method:"post",
                 url : base_url+"comments",
-                data : {'image' : imagesrc,
-                'length' : data_id
-            },
-            success : function(response){
-                $('#add_comment').append(response);
-                $(".comments_sec").each((index, post) => {
+                data : {image : imagesrc,
+                        length : data_id
+                    },
+                success : function(response){
+                    $('#add_comment').append(response);
+                    $(".comments_sec").each((index, post) => {
                     $(post).find(".total_com").text(quenty);
                     $(post).find(".comment_length").text(quenty);
 

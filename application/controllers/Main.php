@@ -182,6 +182,7 @@ class Main extends CI_Controller
 
     public function comment_section(){
         $comment_section['comments'] = $_POST;
+
         $this->load->view('package/comment_section',$comment_section);
 
     }

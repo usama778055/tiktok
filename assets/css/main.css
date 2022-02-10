@@ -1490,8 +1490,17 @@ z-index: 2;
 .check_out_email_buntton{
 color: #fff;
 }
-.checkout_page_email_div .promo_code_input{
-  width: 28%;
+
+.checkout_email .email_text{
+  font-weight: bold;
+  display: inline-block;
+  color: #FE2C55 ;
+  margin-bottom: 10px;
+}
+
+.checkout_email .promo_code_input{
+  width: 70%;
+  margin: auto;
 }
 .total-check h4{
   color: #fff;

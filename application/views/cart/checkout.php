@@ -103,7 +103,10 @@
 				<span class="total-sec-bar"></span>
 				<a href="">Pay</a>
 			</div>
-			<div class="checkout_page_email_div"><input class="promo_code_input" type="text" name="" placeholder="Enter Your Email"></div>
+			<div class="checkout_email">
+				<label class="email_text" for="user_checkout_email">Your Checkout Email</label>
+				<input class="promo_code_input" type="text" name="" placeholder="Enter Your Email">
+			</div>
 		</div>
 	<?php } ?> 
 </div>

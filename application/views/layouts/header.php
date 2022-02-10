@@ -1,3 +1,6 @@
+<?php
+$this->load->helper('cart');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +47,11 @@
 
         <div class="uk-navbar shoping-cart">
           <ul class="uk-navbar-nav">
-            <li class="cartPopup"><a href="javascript:void(0)" onclick="cardfunction()"><img  class="popupbtn"  src="<?php echo base_url('assets/images/cart.svg') ?>" alt=""></a>
+            <li class="cartPopup"><a href="javascript:void(0)" onclick="cardfunction()">
+					<?php if (show_cart_count()) { ?>
+					<span class="uk-badge" style="background-color:#FE2C55 !important;"><?php echo show_cart_count(); ?></span>
+					<?php } ?>
+					<img  class="popupbtn"  src="<?php echo base_url('assets/images/cart.svg') ?>" alt=""></a>
               <div id="myPopup" class="popupbtn-content">
                 <div class="cart-modal">
                   <h3>Your Cart</h3>

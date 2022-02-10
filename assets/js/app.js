@@ -1,10 +1,5 @@
 $(document).ready(function () {
-	const auto_services = [
-		"followers",
-		"autolikes",
-		"autoviews",
-		"livestream",
-	];
+
 	// set username from session to input field.
 	setTimeout(function () {
 		$(".user_name#form-stacked-text").val(user_name ? user_name : "");
@@ -20,6 +15,7 @@ $(document).ready(function () {
 
 	function showInitUserPosts() {
 		var userName = $('input[name="tiktok_username"]').val();
+
 		// var userEmail = $('input[name="user_email"]').val();
 		if (userName && userName !== "") {
 			showUserPosts();
@@ -29,6 +25,7 @@ $(document).ready(function () {
 	function showUserPosts() {
 		$(".load-gallery.custom_image_class").addClass("shown");
 		var userName = $('input[name="tiktok_username"]').val();
+		//alert(userName);return;
 		// var userEmail = $('input[name="user_email"]').val();
 
 		if (userName === "") {
@@ -44,51 +41,7 @@ $(document).ready(function () {
 	}
 
 	// get instagram data (ajax)
-	function sendAjax(selector, username) {
-		jQuery.ajax({
-			url: `${base_url}find`,
-			method: "POST",
-			dataType: "json",
-			data: {
-				action: "get_tiktok_user",
-				user_name: username,
-				// user_email: email,
-			},
-			beforeSend: function() {
-			    $(".loader_class").show();
-			    $("#form-stacked-text"). attr('disabled','disabled');   
-			}, 
-			success: function (data, status){
-				$(".loader_class").hide();
-				$("#form-stacked-text").removeAttr('disabled');
 
-				$(".load-gallery.custom_image_class").removeClass("shown");
-				$(selector).attr("disabled", false);
-				if (status === "success") {
-					if (data.success === true || data.success === 1) {
-						toaster.success("Tiktok Data Loaded Succesfully!");
-						$(".load-gallery.custom_image_class").attr("data-found", 1);
-						if (auto_services.includes(sType)) {
-							displayTiktokProfile(data.data);
-							return false;
-						} else {
-							$(".load-gallery.custom_image_class").replaceWith(data.html);
-							fetchThumbnails(data.data);
-							return false;
-						}
-					} else {
-						$(".load-gallery.custom_image_class").attr("data-found", 0);
-						toaster.error(data.message);
-					}
-				}
-			},
-			error: function (jqXHR, textStatus, errorThrown) {
-				$(".load-gallery.custom_image_class").removeClass("shown");
-				$(selector).attr("disabled", false);
-				toaster.error(errorThrown);
-			},
-		});
-	}
 
 	// change package using dropdown
 	$(document).on("change", ".apconMain #select-pkg", function (e) {
@@ -376,3 +329,4 @@ function isEmail(email) {
 	var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return regex.test(email);
 }
+

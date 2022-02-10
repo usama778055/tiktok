@@ -3,7 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Main extends CI_Controller
 {
-    public function __construct()
+	public $postData = array();
+	public function __construct()
     {
         parent::__construct();
         /*$this->is_logged();*/
@@ -14,8 +15,22 @@ class Main extends CI_Controller
         $this->load->model('genral_model');
         $this->load->library('pagination');
         $this->load->library('image_lib');
+		if ($this->input->post('action', True) != false) {
+			$this->cleanPostData();
+			$this->request();
+		}
     }
 
+	public function request()
+	{
+		$post = $this->postData;
+		$act  = $post['action'];
+		if (method_exists($this, $act)) {
+			$this->$act($post);
+		} else {
+			$this->response(400, "Invalid request.");
+		}
+	}
     public function index(){
         $data['sub_categories'] = $this->genral_model->selectData('sub_categories');
         $data['data'] = $this->genral_model->selectData('reviews');
@@ -75,14 +90,58 @@ class Main extends CI_Controller
         $this->load->view('package/purchase_package',$record_packages);
     }
 
-    public function get_user_data_api(){
-        $name = $_POST['name'];
-        $this->load->library('instapi');
-        $packages = $this->instapi->get_tiktok_user($name);
-        $data['api_images'] = $packages['data']['post_links'];
-        $this->load->view('package/api_images_partial_view',$data);
+    public function get_tiktok_user($post){
 
-        $this->session->set_userdata('user_name', $name);
+
+		$html="";
+		$this->load->library('findinstauser');
+		$user_data = $this->findinstauser->findUser($post);
+		//echo "<pre>";print_r($user_data);exit;
+		if ($user_data['success'] == 1) {
+			$data["user"] = $user_data['data'];
+			$html = $this->load->view('package/api_images_partial_view', $data, TRUE);
+		}
+		$resp = array(
+			"html" => $html,
+			"data" => $data,
+			"success" => true,
+			"message" => ""
+		);
+		if (empty($html)) {
+			$resp["success"] = false;
+		}
+		exit(json_encode($resp));
+       /* $data['api_images'] = $packages['data']['post_links'];
+        $this->load->view('package/api_images_partial_view',$data);
+		if(!isset($_SESSION['user_name']) && empty($_SESSION['user_name']))
+		{
+			$this->session->set_userdata('user_name', $name);
+		}*/
+
+		/*
+		$this->load->library('findinstauser');
+		$user_data = $this->findinstauser->findUser($post);
+		$user_data = (object) $user_data;
+		if ($user_data->success == 1) {
+			$user_data = (object) $user_data->data;
+			$user = (object) $user_data->user;
+			$posts = $user_data->user_posts;
+			$data["user"] = $user;
+			$data["posts"] = $posts;
+			$html = $this->load->view('templates/app_profile', $data, TRUE);
+		}
+		$resp = array(
+			"html" => $html,
+			"data" => $data,
+			"success" => true,
+			"message" => ""
+		);
+		if (empty($html)) {
+			$resp["success"] = false;
+		}
+		exit(json_encode($resp));
+		*/
+
     }
 
     public function find_tiktok_user()
@@ -174,4 +233,12 @@ class Main extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'trim|required');
         $this->form_validation->set_rules('message', 'Massage', 'required');
     }
+	private function cleanPostData()
+	{
+		if ($this->input->post('action', True) != false) {
+			foreach ($this->input->post() as $key => $post) {
+				$this->postData[$key] = $this->input->post($key, True);
+			}
+		}
+	}
 }

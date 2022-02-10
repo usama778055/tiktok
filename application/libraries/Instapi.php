@@ -20,11 +20,11 @@ class Instapi{
     }
     
     public function get_tiktok_user($username){
+
         $data = array(  'act' => 'get_tiktok_posts', 
                 'user_name' => $username);
         $userData = $this->insta_user($data);
         $user = json_decode($userData, true);
-        
         return $user;
     }
 

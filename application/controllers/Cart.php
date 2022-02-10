@@ -20,7 +20,8 @@ class Cart extends CI_Controller
 
     public function add_to_cart()
     {
-        echo "<pre>";print_r($_SESSION);exit;
+
+    	//echo "<pre>";print_r($this->session->all_userdata());exit;
         $prodData = $this->prepareProdData();
         $cart = array('success' => 0, 'message' => 'There is an error. Try again.');
         if (!empty($prodData)) {
@@ -52,7 +53,8 @@ class Cart extends CI_Controller
 
     private function prepareProdData()
     {
-        $session = $_SESSION;
+        echo "<pre>";print_r($this->postData);exit;
+    	$session = $_SESSION;
         if (!isset($session['package_detail'])) {
             return array();
         }
@@ -72,7 +74,7 @@ class Cart extends CI_Controller
         );
 
         $username_pkgs = ['followers', 'autolikes', 'autoviews'];
-        $user_posts_pkgs = ['likes', 'views'];
+        $user_posts_pkgs = ['likes', 'views','comments'];
 
         if (in_array($pckg['serviceType'], $username_pkgs)) 
         {

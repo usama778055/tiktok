@@ -24,7 +24,7 @@ $(document).ready(function(e){
 		$.ajax({
 			method:"POST",
 			url : `${base_url}add-to-cart`,
-			data : {"username": username },
+			data : data,
 			cache: false,
 			dataType: "json",
 			async: true,
@@ -99,6 +99,7 @@ function likesForm() {
 
 function checkIfAnyError() {
 	var username = $('.user_name#form-stacked-text').val();
+
 	var result = { success: 1 };
 	if (username == "") {
 		result = {
@@ -118,13 +119,13 @@ function checkIfAnyError() {
 	return result;
 }
 var checkError = function () {
-	var selectedElem = $(".proposts.selected");
+	var selectedElem = $(".gallery-image.selected");
 	var result = { success: 1 };
-	if (is_auto === "true") {
+	if (auto_services.includes(sType)) {
 		return result;
 	}
-	var postCats = postOrderCats();
-	if ($.inArray(sType, postCats) != -1 && selectedElem.length === 0) {
+	//var postCats = postOrderCats();
+	if (selectedElem.length === 0) {
 		result = { success: 0, error: "Error: Please select atleast one post." };
 	} else if (sType == "comments") {
 		result = emtpyCommentsError();

@@ -1,4 +1,10 @@
 // Header
+const auto_services = [
+	"followers",
+	"autolikes",
+	"autoviews",
+	"livestream",
+];
 $(function() {
     $(window).on("scroll", function() {
         if($(window).scrollTop() > 50) {
@@ -80,35 +86,57 @@ $( "#form-stacked-text" ).change(function() {
     UIkit.notification({message: 'Field empty', pos: 'top-right',status:'danger'});
     return false;
 }
-$.ajax({
-    method:"post",
-    url : base_url+"get_tiktokuser_data",
-    data : { "name": get_value },
-    beforeSend: function() {
-        $(".loader_class").show();
-        $("#form-stacked-text"). attr('disabled','disabled');   
-    },
-    success : function(response){
-        $(".loader_class").hide();
-        $("#form-stacked-text").removeAttr('disabled');
-        $('.custom_image_class').html(response);
-        if ($('.gallery-image:hidden').length !== 0) {
-            $('#loadmore').show();
-        }
-
-        $('.gallery-image').slice(0, 4).show();
-        $('#loadmore').on('click', function (e) {
-            e.preventDefault();
-            $('.gallery-image:hidden').slice(0, 1).slideDown();
-            if ($('.gallery-image:hidden').length === 0) {
-                $('#loadmore').hide();
-            }
-        });
-    },
-});
+	sendAjax(".user_name#form-stacked-text", get_value);
 });
 
+function sendAjax(selector, username) {
+	jQuery.ajax({
+		url: `${base_url}find`,
+		method: "POST",
+		dataType: "json",
+		data: {
+			action: "get_tiktok_user",
+			user_name: username,
+			// user_email: email,
+		},
+		beforeSend: function() {
+			$(".loader_class").show();
+			$("#form-stacked-text"). attr('disabled','disabled');
+		},
+		success: function (data, status){
+			$(".loader_class").hide();
+			$("#form-stacked-text").removeAttr('disabled');
 
+			$(".load-gallery.custom_image_class").removeClass("shown");
+			$(selector).attr("disabled", false);
+			if (status === "success") {
+
+				if (data.success === true || data.success === 1) {
+					toaster.success("Tiktok Data Loaded Succesfully!");
+					$(".load-gallery.custom_image_class").attr("data-found", 1);
+					if (auto_services.includes(sType)) {
+						displayTiktokProfile(data.data);
+						$('.gallery-image').show();
+						return false;
+					} else {
+						$(".load-gallery.custom_image_class").append(data.html);
+						$('.gallery-image').show();
+						//fetchThumbnails(data.data);
+						return false;
+					}
+				} else {
+					$(".load-gallery.custom_image_class").attr("data-found", 0);
+					toaster.error(data.message);
+				}
+			}
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			$(".load-gallery.custom_image_class").removeClass("shown");
+			$(selector).attr("disabled", false);
+			toaster.error(errorThrown);
+		},
+	});
+}
 
 $(document).on('click', ".selected_div", function () {
     $(this).toggleClass("selected");

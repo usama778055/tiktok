@@ -110,7 +110,7 @@ function sendAjax(selector, username) {
 			$(".load-gallery.custom_image_class").removeClass("shown");
 			$(selector).attr("disabled", false);
 			if (status === "success") {
-
+				console.log(data);
 				if (data.success === true || data.success === 1) {
 					toaster.success("Tiktok Data Loaded Succesfully!");
 					$(".load-gallery.custom_image_class").attr("data-found", 1);

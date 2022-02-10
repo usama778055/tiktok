@@ -12,6 +12,7 @@ $(document).ready(function(e){
 			return false;
 		}
 		var selected = likesForm();
+		//console.log(selected);return ;
 		if (Object.keys(selected).length) {
 			data.selected_posts = selected;
 		}
@@ -78,7 +79,8 @@ $(document).ready(function(e){
 })
 
 function likesForm() {
-	var selectedElem = $(".userdatalikes").find(".selected");
+	var selectedElem = $(".gallery-image.selected").find(".selected");
+	console.log(selectedElem);return;
 	let slctdElemId, likes, imageSrc, postId;
 	var data = {};
 	if (Object.keys(selectedElem).length) {

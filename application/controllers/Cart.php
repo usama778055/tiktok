@@ -53,7 +53,7 @@ class Cart extends CI_Controller
 
     private function prepareProdData()
     {
-        echo "<pre>";print_r($this->postData);exit;
+       //echo "<pre>";print_r($this->session->all_userdata());exit;
     	$session = $_SESSION;
         if (!isset($session['package_detail'])) {
             return array();
@@ -72,13 +72,14 @@ class Cart extends CI_Controller
             'amount_payable' => $pckg['packagePrice'],
             'priceUnit' => $pckg['priceUnit'],
         );
-
+		//echo "<pre>";print_r($res);exit;
         $username_pkgs = ['followers', 'autolikes', 'autoviews'];
         $user_posts_pkgs = ['likes', 'views','comments'];
 
         if (in_array($pckg['serviceType'], $username_pkgs)) 
         {
-            $res['user_name'] = $session['user_name'];
+			echo "selected user pkg in";exit;
+        	$res['user_name'] = $session['user_name'];
             $res['item_type'] = 1;
             if (isset($this->postData['selected_posts'])) {
                 $res['selected_posts'] = $this->postData['selected_posts'];
@@ -86,11 +87,13 @@ class Cart extends CI_Controller
         }
         else if (in_array($pckg['serviceType'], $user_posts_pkgs))
         {
-            $is_auto = $this->is_auto_service("tiktok", $pckg["slug"]);
+            /*$is_auto = $this->is_auto_service("tiktok", $pckg["slug"]);
             if ($is_auto) {
                 $res['url'] = $this->postData['platforms_url'];
                 $res['item_type'] = 3;
-            } else if (isset($this->postData['selected_posts'])) {
+            } else */
+			if (isset($this->postData['selected_posts'])) {
+				echo "selected in";exit;
                 $selected_posts = $this->postData['selected_posts'];
                 $url = $selected_posts["url"];
                 $res['url'] = $url["post_id"];

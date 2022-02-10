@@ -173,10 +173,11 @@ $(document).on('click', ".selected_div", function () {
                 per_input += remaining;
             }
             $(post).find(".putquentity").text(per_input);
-            $(post).find(".putquentity").val(per_input);
+            $(post).find(".per_quantity").val(per_input);
+
         } else {
             $(post).find(".putquentity").text("");
-            $(post).find(".putquentity").val('');
+            $(post).find(".per_quantity").val('');
         }
 
     });

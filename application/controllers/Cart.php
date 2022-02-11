@@ -8,7 +8,7 @@ class Cart extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->library('instapi');
-        $this->load->library('instapi');
+		$this->load->model('Mob_admin');
         $this->postData = $this->cleanPostData();
         $this->cart_details = $this->session->userdata('cart') ?? array();
     }
@@ -20,9 +20,7 @@ class Cart extends CI_Controller
 
     public function add_to_cart()
     {
-
-    	//echo "<pre>";print_r($this->session->all_userdata());exit;
-        $prodData = $this->prepareProdData();
+		$prodData = $this->prepareProdData();
         $cart = array('success' => 0, 'message' => 'There is an error. Try again.');
         if (!empty($prodData)) {
             $_SESSION['cart']['items'][] = $prodData;
@@ -35,27 +33,10 @@ class Cart extends CI_Controller
         }
         exit(json_encode($cart));
 
-        // if($this->input->post('username'))
-        // {
-        //     //followers etc
-        //     $username = $this->input->post('username');
-        //     $user_data = $this->instapi->get_tiktok_user($username);
-        // }
-        // else if($this->input->post('userData'))
-        // {
-        //     //selected posts etc
-        //     $user_data = $this->instapi->get_tiktok_user($username);
-
-        // }
-        // $this->cart_details = ['someting'];
-        // print_r($user_data);
     }
 
     private function prepareProdData()
     {
-
-        // echo "<pre>";print_r($this->postData);exit;
-        //echo "<pre>";print_r($this->session->all_userdata());exit;
     	$session = $_SESSION;
         if (!isset($session['package_detail'])) {
             return array();
@@ -118,18 +99,16 @@ class Cart extends CI_Controller
 
     public function applyPromo($promoCode = '')
     {
-        if (isset($_SESSION['discount'])) {
+        //echo "promo here";exit;
+    	if (isset($_SESSION['discount'])) {
             unset($_SESSION['discount']);
         }
         $promo = ($promoCode == '') ? $this->postData['promo'] : $promoCode;
 
         $this->load->library('Promoinsta');
         $promoRes = $this->promoinsta->findPromo($promo);
-        if ($promoRes['success'] == 0) {
-            exit(json_encode($promoRes));
-        }
         $data = $this->calculateDiscount();
-        if (!empty($data)) {
+		if (!empty($data)) {
             $promoRes = array('success' => 1, 'data' => $data);
         }
         exit(json_encode($promoRes));

@@ -92,13 +92,29 @@
 					</div>
 				</div>
 				<div class="promo_input_div">
-					<input class="promo_code_input" type="text" name="" placeholder="Enter Your Coupon Code">
-					<button class="uk-button uk-button-default">apply coupon</button>
+					<input class="promo_code_input" type="text" id="discount_coupon" name="promo_name" placeholder="Enter Your Coupon Code">
+					<button class="uk-button uk-button-default" id="getpromo">apply coupon</button>
 				</div>
 				<div>
 					<div class="total-check">
 						<h4>Subtotal</h4>
 						<h4><?php echo $cartData["total_amount"]; ?></h4>
+					</div>
+				</div>
+				
+				<div class="promoDiscount uk-list" <?php echo isset($_SESSION['discount']['discount_percent']) && !empty($_SESSION['discount']['discount_percent']) ?  "style=display: block": 'style=display: none'; ?>>
+					<div class="invodis_h total">
+						<h4>Discounted (%)</h4>
+						<h4 class="invodis_v total"><?php echo isset($_SESSION['discount']['discount_percent']) && !empty($_SESSION['discount']['discount_percent']) ? $_SESSION['discount']['discount_percent'] : ''; ?></h4>
+					</div>
+				</div>
+				<div>
+					<div class="total-check">
+						<h4>Total</h4>
+						<?php
+						$discountAmount=isset($_SESSION['discount']['discount_price']) && !empty($_SESSION['discount']['discount_price']) ? $_SESSION['discount']['discount_price'] : 0 ; ?>
+
+						<h4 class="invototal_v"><?php echo $cartData["total_amount"] - $discountAmount ;?></h4>
 					</div>
 				</div>
 				<span class="total-sec-bar"></span>

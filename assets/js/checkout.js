@@ -20,7 +20,7 @@ $(document).ready(function (e) {
 				return false;
 			}
 			promo = promo.trim();
-			var url = base_url + "cart/";
+			var url = base_url + "checkout/";
 			var data = { act: "applypromo", promo: promo };
 			var functionName = "applyPromo";
 			ajax_send(url, data, functionName);

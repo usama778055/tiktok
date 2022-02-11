@@ -78,7 +78,7 @@ class Main extends CI_Controller
 
     public function purchase_package($quantity, $stype)
     {
-       // echo "<pre>";print_r($this->session->all_userdata());exit;
+        echo "<pre>";print_r($this->session->all_userdata());exit;
     	/*print_r($stype);*/
         $record_packages['user_data'] = $this->genral_model->get_stype_qun_data('serviceType',$stype,'packageQty' ,$quantity,'igservices');
         if(empty($record_packages['user_data'])){

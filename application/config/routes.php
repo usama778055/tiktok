@@ -81,5 +81,18 @@ $route['about-us'] = 'main/aboutus';
 $route['apply_copon'] = 'main/apply_coppen';
 $route['subcribe_for_news'] = 'main/subcribe_for_new';
 
+/*cart Stripe related urls */
+$route['setCartProductSetting'] = 'cart/setStripeCartSession';
+$route['sessionstripeCart'] = 'cart/sessionstripeCart';
+
+// Invoice Page after successfully completed order.
+$route['successpayment/(:num)'] = 'Order/successInvoice/$1';
+$route['multi_order_success/(:num)'] = 'Order/multiOrderSuccessInvoice/$1';
+////////tracking order////////////////////////////
+$route['tracking'] = 'Order/trackOrder';
+$route['tracking/(:num)'] = 'Order/trackOrder/$1';
+$route['track-order'] = 'Order/trackOldOrder';
+$route['track-order/(:num)'] = 'Order/trackOldOrder/$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

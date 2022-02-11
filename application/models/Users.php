@@ -107,5 +107,46 @@ class Users extends CI_Model
 		
 		return $this->db->get()->result();
 	}
+	public function get_stripe_data() {
+		$return = array('success' => 0);
+		$this->db->select('id, companyName, currency, stripePublishableKey, stripeSecretKey, sandbox');
+		$this->db->where('active',1);
+		$result = $this->db->get('stripesetting');
+		$row = $result->row();
+		$error = $this->db->error();
+		$errNo = $error['code'];
+
+		if ($errNo == 0 && $result->num_rows() > 0) {
+
+			$return = array('success' => 1, 'data' => $row);
+		}
+		return $return;
+	}
+	public function getStripeCustomer($email) {
+		$return = array('success' => 0);
+		$this->db->where('user_email', $email);
+		$this->db->select('customer_id');
+		$result = $this->db->get('stripe_transaction_data');
+		$row = $result->row();
+		$error = $this->db->error();
+		$errNo = $error['code'];
+
+		if ($errNo == 0 && $result->num_rows() > 0) {
+			$return = array('success' => 1, 'customer_id' => $row->customer_id);
+		}
+		return $return;
+	}
+	public function insertStripeData($data) {
+		$this->db->insert('stripe_transaction_data', $data);
+		$insertId = $this->db->insert_id();
+		$error = $this->db->error();
+		if ($error['code'] == 0) {
+			$return = array('success' => 1, 'data' => $insertId);
+		} else {
+			$return['error'] = $error['message'];
+		}
+
+		return $return;
+	}
 
 }

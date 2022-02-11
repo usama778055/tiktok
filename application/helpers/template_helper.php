@@ -1,77 +1,85 @@
 <?php
-//Dynamically add js and css files to footer page
+//Dynamically add Javascript files to footer page
+if (!function_exists('add_js')) {
+	function add_js($file = '')
+	{
+		$str = '';
+		$ci = &get_instance();
+		$header_js  = $ci->config->item('header_js');
 
-$all_js = array('custom.js');
+		if (empty($file)) {
+			return;
+		}
 
-function add_js($file = '')
-{
-  $str = '';
-
-  if (empty($file)) {
-    return;
-  }
-
-  if (is_array($file)) {
-    if (!is_array($file) && count($file) <= 0) {
-      return;
-    }
-    foreach ($file as $item) {
-      $header_js[] = $item;
-    }
-    $all_js = ;
-  } else {
-    $str = $file;
-    $header_js[] = $str;
-    $ci->config->set_item('header_js', $header_js);
-  }
+		if (is_array($file)) {
+			if (!is_array($file) && count($file) <= 0) {
+				return;
+			}
+			foreach ($file as $item) {
+				$header_js[] = $item;
+			}
+			$ci->config->set_item('header_js', $header_js);
+		} else {
+			$str = $file;
+			$header_js[] = $str;
+			$ci->config->set_item('header_js', $header_js);
+		}
+	}
 }
 
 //Dynamically add CSS files to header page
-function add_css($file = '')
-{
-  $str = '';
-  $ci = &get_instance();
-  $header_css = $ci->config->item('header_css');
+if (!function_exists('add_css')) {
+	function add_css($file = '')
+	{
+		$str = '';
+		$ci = &get_instance();
+		$header_css = $ci->config->item('header_css');
 
-  if (empty($file)) {
-    return;
-  }
+		if (empty($file)) {
+			return;
+		}
 
-  if (is_array($file)) {
-    if (!is_array($file) && count($file) <= 0) {
-      return;
-    }
-    foreach ($file as $item) {
-      $header_css[] = $item;
-    }
-    $ci->config->set_item('header_css', $header_css);
-  } else {
-    $str = $file;
-    $header_css[] = $str;
-    $ci->config->set_item('header_css', $header_css);
-  }
+		if (is_array($file)) {
+			if (!is_array($file) && count($file) <= 0) {
+				return;
+			}
+			foreach ($file as $item) {
+				$header_css[] = $item;
+			}
+			$ci->config->set_item('header_css', $header_css);
+		} else {
+			$str = $file;
+			$header_css[] = $str;
+			$ci->config->set_item('header_css', $header_css);
+		}
+	}
 }
 
+if (!function_exists('put_dynamic_js')) {
+	function put_dynamic_js()
+	{
+		$str = '';
+		$ci = &get_instance();
+		$header_js  = $ci->config->item('header_js');
 
-function put_dynamic_js()
-{
-  $str = '';
-  $all_js  = array('custom.js');
+		foreach ($header_js as $item) {
+			$str .= '<script type="text/javascript" src="' . base_url() . 'assets/js/' . $item . '"></script>' . "\n";
+		}
 
-  foreach ($all_js as $single_js) {
-    $str .= '<script type="text/javascript" src="' . base_url() . 'assets/js/' . $single_js . '"></script>' . "\n";
-  }
-
-  return $str;
+		return $str;
+	}
 }
 
-function put_dynamic_css()
-{
-  $str = '';
-  $all_css = array('main.css');
+if (!function_exists('put_dynamic_css')) {
+	function put_dynamic_css()
+	{
+		$str = '';
+		$ci = &get_instance();
+		$header_css = $ci->config->item('header_css');
 
-  foreach ($header_css as $item) {
-    $str .= '<link rel="stylesheet" href="' . base_url() . 'assets/css/' . $item . '" type="text/css" />' . "\n";
-  }
-  return $str;
+		foreach ($header_css as $item) {
+			$str .= '<link rel="stylesheet" href="' . base_url() . 'assets/css/' . $item . '" type="text/css" />' . "\n";
+		}
+		return $str;
+	}
 }

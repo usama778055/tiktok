@@ -118,15 +118,21 @@
 					</div>
 				</div>
 				<span class="total-sec-bar"></span>
-				<a href="">Pay</a>
+
 			</div>
 			<div class="checkout_email">
 				<label class="email_text" for="user_checkout_email">Your Checkout Email</label>
-				<input class="promo_code_input" type="text" name="" placeholder="Enter Your Email">
+				<input class="promo_code_input" id="user_checkout_email" type="text" name="" placeholder="Enter Your Email">
+				<input type="hidden" id="stripe_public_key" value="<?php echo $stripe_key ?>">
+			</div>
+			<div>
+				<button id="payButton" type="submit">Pay Now</button>
 			</div>
 		</div>
 	<?php } ?> 
 </div>
 </div>
 <?php $this->load->view('layouts/footer') ?>
+<script src="https://js.stripe.com/v3/?advancedFraudSignals=true"></script>
 <script type="text/javascript" src="<?= base_url('assets/js/checkout.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('assets/js/stripe/StripeCartCheckout.js') ?>"></script>

@@ -1,9 +1,9 @@
 // Header
 const auto_services = [
-	"followers",
-	"autolikes",
-	"autoviews",
-	"livestream",
+"followers",
+"autolikes",
+"autoviews",
+"livestream",
 ];
 $(function() {
     $(window).on("scroll", function() {
@@ -86,7 +86,7 @@ $( "#form-stacked-text" ).change(function() {
     UIkit.notification({message: 'Field empty', pos: 'top-right',status:'danger'});
     return false;
 }
-	sendAjax(".user_name#form-stacked-text", get_value);
+sendAjax(".user_name#form-stacked-text", get_value);
 });
 
 function sendAjax(selector, username) {
@@ -102,27 +102,27 @@ function sendAjax(selector, username) {
 		},
 		beforeSend: function() {
             $(".load-gallery.custom_image_class").html("");
-			$(".loader_class").show();
-			$("#form-stacked-text"). attr('disabled','disabled');
+            $(".loader_class").show();
+            $("#form-stacked-text"). attr('disabled','disabled');
 
-		},
-		success: function (data, status){
-			$(".loader_class").hide();
-			$("#form-stacked-text").removeAttr('disabled');
+        },
+        success: function (data, status){
+           $(".loader_class").hide();
+           $("#form-stacked-text").removeAttr('disabled');
 
-			$(".load-gallery.custom_image_class").removeClass("shown");
-			$(selector).attr("disabled", false);
-			if (status === "success") {
-				if (data.success === true || data.success === 1) {
-					toaster.success("Tiktok Data Loaded Succesfully!");
-					$(".load-gallery.custom_image_class").attr("data-found", 1);
-					if (auto_services.includes(sType)) {
-						displayTiktokProfile(data.data);
-						$('.gallery-image').show();
-						return false;
-					} else {
-						$(".load-gallery.custom_image_class").html(data.html);
-						$('.gallery-image').show();
+           $(".load-gallery.custom_image_class").removeClass("shown");
+           $(selector).attr("disabled", false);
+           if (status === "success") {
+            if (data.success === true || data.success === 1) {
+             toaster.success("Tiktok Data Loaded Succesfully!");
+             $(".load-gallery.custom_image_class").attr("data-found", 1);
+             if (auto_services.includes(sType)) {
+              displayTiktokProfile(data.data);
+              $('.gallery-image').show();
+              return false;
+          } else {
+              $(".load-gallery.custom_image_class").html(data.html);
+              $('.gallery-image').show();
 						//fetchThumbnails(data.data);
 						return false;
 					}
@@ -140,13 +140,14 @@ function sendAjax(selector, username) {
 	});
 }
 
+//comments
+
 $(document).on('click', ".selected_div", function () {
     $(this).toggleClass("selected");
     var length = $('.selected_div.selected').length;
     var commenttype =  $('.service_type').attr('id');
     var imagesrc =  $(this).children('img').attr('src');
-    var data_id =  $(this).find('p.putquentity').attr('data_id');
-    console.log(data_id);
+    var post_id =  $(this).find(".post_id").val();
     $select = $(this).attr("class");
     if (commenttype == 'comments') {
         var limit = 5;
@@ -156,8 +157,8 @@ $(document).on('click', ".selected_div", function () {
     }
 
     var packageQty = $('.js-example-basic-single').find(':selected').attr('data_id');
-    const quantity = packageQty / 1;
-    const service_limit = limit / 1;
+    const quantity = packageQty ;
+    const service_limit = limit ;
     let per_input = Math.floor(quantity / length);
     const remaining = quantity % length;
 
@@ -166,6 +167,11 @@ $(document).on('click', ".selected_div", function () {
         $(this).find(".putquentity").text('');
         return false;
     }
+    
+    if (sType == "comments") {
+        handleCommentsHtml(length, per_input,remaining);
+    }    
+    
     $(".selected_div").each((index, post) => {
 
         if ($(post).hasClass("selected")) {
@@ -181,43 +187,102 @@ $(document).on('click', ".selected_div", function () {
         }
 
     });
-    if ($(this).hasClass("selected")) {
-        if(commenttype == 'comments'){
-            var quenty = $('#quenty_'+data_id).text();
-            $.ajax({
-                method:"post",
-                url : base_url+"comments",
-                data : {image : imagesrc,
-                        length : data_id
-                    },
-                success : function(response){
-                    $('#add_comment').append(response);
-                    $(".comments_sec").each((index, post) => {
-                    $(post).find(".total_com").text(quenty);
-                    $(post).find(".comment_length").text(quenty);
-
-                });
-            }
-        });
-            
-        }
-    }
-    else{
-        $('#add_comment').children('#wrap_selected_items'+data_id).remove();
-    }
 });
 
 
-function myFunction() {
-  var load = $('.js-example-basic-single').val();
-  window.location.href = load;
-}
+function handleCommentsHtml(length, per_input,remaining=0) {
+        $(".add_comment").empty();
+        $(".selected_div").each((index, post) => {
+            if (index === length - 1) {
+                per_input += remaining;
+            }
+            if ($(post).hasClass("selected")) {
+                var html = commentsHtml(post, per_input, remaining);
+                if (html != "") {
+                    $(".add_comment").show();
+                    $(".add_comment").append(html);
+                }
+            }
+            else{
+               $(".add_comment").append(html); 
+            }
+        });
+        $(".com_area").ready(function () {
+            commentCount();
+        });
+    }
 
-$(function () {
+    function commentsHtml(post, qty,remaining) {
+        var postId = $(post).find(".post_id").val();
+        var bg_img = $(post).find("img").attr('src');
+        var html = "";
+        html +=
+            '<div class="comments_sec">' +
+            '<div class="post_area cmntcol">' +
+            '<div data-id="' +
+            postId +
+            '" style="background-image: url(' +
+            bg_img +
+            ')" class="selected_img"></div>' +
+            "</div>" +
+            '<div class="comments_field">' +
+            '<div class="wrap_rem_counts uk-grid"><div class="comments_field-hdr uk-panel"><span>' +
+            qty +
+            "</span> Comments (1 per line)</div>" +
+            '<div class="comments_field-ftr uk-panel">Quantity: <span class="count_' +
+            postId +
+            '">0</span> / <span class="total_com">' +
+            qty +
+            "</span></div></div>" +
+            '<textarea placeholder="Write your comments here..." rows="' +
+            qty +
+            '" cols="50" spellcheck="true" class="uk-textarea com_area com_' +
+            postId +
+            '" data-id="' +
+            postId +
+            '" com-limit="' +
+            qty +
+            '"></textarea>' +
+            "</div>" +
+            "</div>";
+        return html;
+    }
+    // Count comments (1 per line) on comments textarea
+    function commentCount() {
+        $(".com_area").keypress(function (event) {
+            var comElen = $(this);
+            var lines = comElen.val().split("\n");
+            var limit = comElen.attr("com-limit");
+            if (lines.length >= limit) {
+                if (event.which == "13") {
+                    event.preventDefault();
+                    toaster.error(
+                        "You can select minimum " + limit + " " + sType + " per post."
+                        );
+                }
+            }
+        });
+
+        $(".com_area").keyup(function (event) {
+            var comElen = $(this);
+            var lines = comElen.val().split("\n");
+            var postId = comElen.attr("data-id");
+            $(".count_" + postId).text(lines.length);
+        });
+    }
+
+    //end comments section
+
+    function myFunction() {
+      var load = $('.js-example-basic-single').val();
+      window.location.href = load;
+  }
+
+  $(function () {
    $('.blog-article').show();
 });
 
-$(document).on('click', "#loadmoreBlog", function (e) {
+  $(document).on('click', "#loadmoreBlog", function (e) {
     e.preventDefault();
     $slug = $(this).attr("data_id");
     $.ajax({
@@ -235,7 +300,7 @@ $(document).on('click', "#loadmoreBlog", function (e) {
 
 
 
-$(document).on('click', "#email_button", function () {
+  $(document).on('click', "#email_button", function () {
 
     var hasError = false;
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
@@ -274,7 +339,7 @@ $(document).on('click', "#email_button", function () {
 
 
 
-$(document).on('click', ".submit_apply_cop", function () {
+  $(document).on('click', ".submit_apply_cop", function () {
 
     $(".erroremail").hide();
     var hasError = false;
@@ -312,12 +377,12 @@ $(document).on('click', ".submit_apply_cop", function () {
     });
 });
 
-$(document).on('click', "#promo_div", function () {
+  $(document).on('click', "#promo_div", function () {
     $(".promo_input_div").slideToggle();
     
 });
 
-$(document).on('click', "#cart-remove-id", function () {
+  $(document).on('click', "#cart-remove-id", function () {
     $(".tr_container").remove();
     
 });

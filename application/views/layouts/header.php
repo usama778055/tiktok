@@ -30,6 +30,7 @@
                   <li><a href="<?php echo base_url('buy-tiktok-followers'); ?>">TikTok Followers</a></li>
                   <li><a href="<?php echo base_url('buy-tiktok-likes'); ?>">Buy TikTok Likes</a></li>
                   <li><a href="<?php echo base_url('buy-tiktok-views'); ?>">Buy TikTok Views</a></li>
+                  <li><a href="<?php echo base_url('buy-tiktok-comments'); ?>">Buy TikTok Comments</a></li>
                 </ul>
               </div>
             </li>

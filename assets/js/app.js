@@ -228,9 +228,10 @@ $(document).ready(function () {
 		$(".proposts").each((index, post) => {
 			if ($(post).hasClass("selected")) {
 				var html = commentsHtml(post, per_input);
+				console.log(html);
 				if (html != "") {
-					$(".wrap_selected_items").show();
-					$(".selected_items").append(html);
+					$(".add_comment").show();
+					$(".add_comment").append(html);
 				}
 			}
 		});
@@ -241,6 +242,7 @@ $(document).ready(function () {
 
 	function commentsHtml(post, qty) {
 		var postId = $(post).find(".post_id").val();
+		
 		var bg_img = $(post)
 			.css("background-image")
 			.replace(/^url\(['"](.+)['"]\)/, "$1");

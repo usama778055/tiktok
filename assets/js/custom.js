@@ -119,11 +119,13 @@ function sendAjax(selector, username) {
                     $(".user-img p").text(data.data.user.user_name);
 					$(".load-gallery.custom_image_class").attr("data-found", 1);
 					if (auto_services.includes(sType)) {
-						displayTiktokProfile(data.data);
-						$('.gallery-image').show();
+                        $(".load-gallery.custom_image_class").html(data.html);
+                        displayTiktokProfile(data.data);
+						// $('.gallery-image').show();
 						return false;
 					} else {
 						$(".load-gallery.custom_image_class").html(data.html);
+                        displayTiktokProfile(data.data);
 						$('.gallery-image').show();
 						//fetchThumbnails(data.data);
 						return false;
@@ -324,8 +326,43 @@ $(document).on('click', "#cart-remove-id", function () {
     
 });
 
+// Custom Toaster integrated with UKkit's Notification
+function notification(alert_class, msg) {
+    UIkit.notification({
+        message: msg,
+        status: alert_class,
+        pos: "top-right",
+        timeout: 3000,
+    });
+}
 
+function primary(message) {
+    notification("primary", message);
+}
+function success(message) {
+    notification("success", message);
+}
+function error(message) {
+    notification("danger", message);
+}
+function warning(message) {
+    notification("warning", message);
+}
+const toaster = {
+    primary: primary,
+    success: success,
+    error: error,
+    warning: warning,
+};
 
-
-
-
+const transformQuantity = (quantity) => {
+    if (quantity >= 1000000000) {
+        return `${(quantity / 1000000000).toFixed(2)}b`; //one billion
+    } else if (quantity >= 1000000) {
+        return `${(quantity / 1000000).toFixed(2)}m`; // one million
+    } else if (quantity >= 10000) {
+        return `${(quantity / 1000).toFixed(2)}k`; // one k
+    } else {
+        return quantity;
+    }
+};

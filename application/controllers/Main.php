@@ -91,9 +91,8 @@ class Main extends CI_Controller
         $this->load->view('package/purchase_package',$record_packages);
     }
 
-    public function get_tiktok_user($post){
-
-
+    public function get_tiktok_user($post)
+    {
 		$html="";
 		$this->load->library('findinstauser');
 		$user_data = $this->findinstauser->findUser($post);

@@ -107,8 +107,9 @@ function applyPromo(res) {
 		var prcnt = data.discountPercent;
 		var offAmount = data.discountPrice;
 		var discountedAmount = data.discount_pkgprice;
-		$(".invodis_h").html("Discount (" + prcnt + "%)");
-		$(".invodis_v").html("£ " + offAmount);
+		// $(".invodis_h").html("<h4>Discount (" + prcnt + "%)</h4>");
+		// $(".invodis_v").html("£ " + offAmount);
+		$(".invodis_v").html(`${prcnt}%`);
 		$(".invototal_v").html("£ " + discountedAmount);
 		$(".promoDiscount").show();
 		toaster.success("Promo successfully applied.");

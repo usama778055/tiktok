@@ -308,15 +308,18 @@ function isEmail(email) {
 	var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return regex.test(email);
 }
+
 function displayTiktokProfile(data) {
 	const user = data.user;
 	//showProfilePicture(user);
 	displayIgCounts(user);
 }
+
 function showProfilePicture(user) {
 	const profile_pic = user.profile_pic;
 	showImage("#ig_profile_thumb", "profile_img", profile_pic);
 }
+
 function displayIgCounts(user) {
 	const username = user.user_name,
 		fullname = user.full_name,

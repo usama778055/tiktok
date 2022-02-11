@@ -78,7 +78,7 @@ class Main extends CI_Controller
 
     public function purchase_package($quantity, $stype)
     {
-       // echo "<pre>";print_r($this->session->all_userdata());exit;
+        // echo "<pre>";print_r($this->session->all_userdata());exit;
     	/*print_r($stype);*/
         $record_packages['user_data'] = $this->genral_model->get_stype_qun_data('serviceType',$stype,'packageQty' ,$quantity,'igservices');
         if(empty($record_packages['user_data'])){
@@ -91,9 +91,8 @@ class Main extends CI_Controller
         $this->load->view('package/purchase_package',$record_packages);
     }
 
-    public function get_tiktok_user($post){
-
-
+    public function get_tiktok_user($post)
+    {
 		$html="";
 		$this->load->library('findinstauser');
 		$user_data = $this->findinstauser->findUser($post);

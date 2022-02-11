@@ -83,3 +83,7 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+defined('stripePublishableKey') OR define('stripePublishableKey', 'pk_test_8J9m8cSUoJ6EBJm14lYVMbMa');
+defined('stripeSecretKey') OR define('stripeSecretKey', 'sk_test_nFN6e7rfDdw4OmVLtabpIhI3');
+defined('SF_API_KEY')        or define('SF_API_KEY', 'u#3n2@r!');
+defined('SF_API_URL')        or define('SF_API_URL', "https://devapi.digitalaimz.com/"); // no errors

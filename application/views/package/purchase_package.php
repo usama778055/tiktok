@@ -65,8 +65,8 @@
 						<div class="user-img">
 							<img height=100 width=100 src="<?php echo base_url('assets/images/placeholder_person.png') ?>">
 							<div class="">
-								<h5>The Rock</h5>
-								<p>@therock</p>
+								<h5><?php echo isset($_SESSION['profile_data']['full_name']) && !empty($_SESSION['profile_data']['full_name']) ? $_SESSION['profile_data']['full_name'] : 'The Rock';?></h5>
+								<p>@<?php echo isset($_SESSION['profile_data']['user_name']) && !empty($_SESSION['profile_data']['user_name']) ? $_SESSION['profile_data']['user_name'] : 'therock';?></p>
 							</div>
 						</div>
 						<div class="order">
@@ -142,6 +142,5 @@
     user_email = '<?php echo (isset($_SESSION["user_email"])) ? $_SESSION["user_email"] : ""; ?>';
 </script>
 
-<script type="text/javascript" src="<?= base_url('assets/js/common.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('assets/js/app.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('assets/js/cart.js') ?>"></script>

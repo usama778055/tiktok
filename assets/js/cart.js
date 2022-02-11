@@ -185,7 +185,7 @@ function handleCart(res, redirectToCart) {
 		var link =
 			"<a class='uk-text-bold uk-text-uppercase uk-text-danger' href='" +
 			base_url +
-			"cart/'>View Cart</a>";
+			"checkout/'>View Cart</a>";
 		toaster.success(res.message + " " + link);
 	} else if (res.message) {
 		toaster.success(res.message);

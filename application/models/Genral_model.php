@@ -6,8 +6,6 @@ class Genral_model extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->database();
-		$this->user = $this->session->userdata('logged_in');
 	}
 
 	public function store($table, $data)

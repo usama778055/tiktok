@@ -1,3 +1,6 @@
+<?php
+$this->load->helper('cart');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,35 +48,53 @@
 
         <div class="uk-navbar shoping-cart">
           <ul class="uk-navbar-nav">
-            <li class="cartPopup"><a href="javascript:void(0)" onclick="cardfunction()"><img  class="popupbtn"  src="<?php echo base_url('assets/images/cart.svg') ?>" alt=""></a>
+            <li class="cartPopup">
+
+              <a href="javascript:void(0)" onclick="cardfunction()">
+      					<?php if (show_cart_count()) { ?>
+      					<span class="uk-badge" id="sf-cart-counts" data-count="<?php echo show_cart_count(); ?>" style="background-color:#FE2C55 !important;"><?php echo show_cart_count(); ?></span>
+      					<?php } ?>
+      					<img class="popupbtn" src="<?php echo base_url('assets/images/cart.svg') ?>" alt="">
+              </a>
               <div id="myPopup" class="popupbtn-content">
                 <div class="cart-modal">
                   <h3>Your Cart</h3>
                   <div class="custom-bar"></div>
-                  <div class="shopping-details">
-                    <?php if(!empty($user_data[0])){ ?>
-                      <table class="uk-table uk-table-striped">
-                        <thead>
-                          <tr class="shopping-detail-head">
-                            <th>Services</th>
-                            <th>Qty</th>
-                            <th>Price</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr class="shopping-detail-body">
-                            <td><?php if(!empty($user_data[0]->serviceType)){ echo 'TikTok'.$user_data[0]->serviceType; } ?></td>
-                            <td><?php if(!empty($user_data[0]->packageQty)){ echo $user_data[0]->packageQty; }  ?></td>
-                            <td><?php if(!empty($user_data[0]->packagePrice) && !empty($user_data[0]->packagePrice)){ echo $user_data[0]->priceUnit .' '. $user_data[0]->packagePrice; } ?></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    <?php } ?>
-                    <div class="cart-btn">
-                      <a href="<?= base_url() ?>">I want to shop more</a>
-                      <a class="payment-btn" href="<?= base_url('checkout') ?>">Proceed To Payment</a>
+                  <?php
+                  $cartData = (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) ? $_SESSION['cart'] : array();
+                  if(!empty($cartData['items'])){ ?>
+                    <div class="shopping-details">  
+                        <table class="uk-table uk-table-striped">
+                          <thead>
+                            <tr class="shopping-detail-head">
+                              <th>Services</th>
+                              <th>Qty</th>
+                              <th>Price</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php 
+                            foreach($cartData['items'] as $item) { ?>
+                              <tr class="shopping-detail-body">
+                                <td><?= $item['service_detail']['packageTitle'] ?></td>
+                                <td><?= $item['service_detail']['packageQty'] ?></td>
+                                <td><?= $item['priceUnit'].' '.$item['amount_payable'] ?></td>
+                              </tr>
+                            <?php } ?>
+                          </tbody>
+                        </table>
+
+                      <div class="cart-btn">
+                        <a href="<?= base_url() ?>">I want to shop more</a>
+                        <a class="payment-btn" href="<?= base_url('checkout') ?>">Proceed To Payment</a>
+                      </div>
                     </div>
-                  </div>
+                  <?php } 
+                  else { ?>
+                    <div class="cart-empty">
+                      <span>Cart is empty</span>
+                    <div>
+                  <?php } ?>
                 </div>
               </div>
             </li>

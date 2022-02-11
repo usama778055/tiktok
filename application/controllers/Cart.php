@@ -20,7 +20,7 @@ class Cart extends CI_Controller
 
     public function add_to_cart()
     {
-		$prodData = $this->prepareProdData();
+        $prodData = $this->prepareProdData();
         $cart = array('success' => 0, 'message' => 'There is an error. Try again.');
         if (!empty($prodData)) {
             $_SESSION['cart']['items'][] = $prodData;

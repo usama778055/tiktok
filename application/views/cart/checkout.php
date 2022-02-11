@@ -101,7 +101,7 @@
 						<h4><?php echo $cartData["total_amount"]; ?></h4>
 					</div>
 				</div>
-				
+
 				<div class="promoDiscount uk-list" <?php echo isset($_SESSION['discount']['discount_percent']) && !empty($_SESSION['discount']['discount_percent']) ?  "style=display: block": 'style=display: none'; ?>>
 					<div class="invodis_h total">
 						<h4>Discounted (%)</h4>

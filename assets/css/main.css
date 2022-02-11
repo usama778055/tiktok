@@ -39,7 +39,10 @@
   z-index: 1;
   right: 0px;
 }
-.cartshow {display: block;}
+.cartshow {
+  display: block;
+}
+
 .cart-modal{
   border-radius: 20px;
   background-color: #D5D5D5;
@@ -58,7 +61,7 @@
   position: absolute;
   top: -10px;
   z-index: 999;
-  left: 45%;
+  left: 82%;
 }
 .uk-table-striped tbody tr:nth-of-type(odd), .uk-table-striped>tr:nth-of-type(odd){
   background: #E5E5E5;
@@ -107,6 +110,15 @@
   color: #fff;
   transition: .2s;
 }
+
+.cart-empty span {
+  font-family: Lato-Bold;
+  display: block;
+  font-size: 16px;
+  margin-top: 14px;
+  text-align: center;
+}
+
 .payment-btn{
   background-color: #000 !important;
   border: 2px solid #000 !important;

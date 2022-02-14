@@ -65,7 +65,8 @@ $this->load->helper('cart');
                   <?php
                   $cartData = (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) ? $_SESSION['cart'] : array();
                   if(!empty($cartData['items'])){ ?>
-                    <div class="shopping-details">  
+                    <div class="shopping-details">
+                      <div class="uk-panel-scrollable"> 
                         <table class="uk-table uk-table-striped">
                           <thead>
                             <tr class="shopping-detail-head">
@@ -85,7 +86,7 @@ $this->load->helper('cart');
                             <?php } ?>
                           </tbody>
                         </table>
-
+                      </div>
                       <div class="cart-btn">
                         <a href="<?= base_url() ?>">I want to shop more</a>
                         <a class="payment-btn" href="<?= base_url('checkout') ?>">Proceed To Payment</a>

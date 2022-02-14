@@ -434,3 +434,66 @@ const transformQuantity = (quantity) => {
         return quantity;
     }
 };
+
+
+$( "#contact" ).click(function(event) {
+  event.preventDefault();
+  $.ajax({
+   url:base_url+"contact",
+   method:"POST",
+   data:$('#contact_form').serialize(),
+   dataType:"json",
+   beforeSend:function(){
+    $('#contact').attr('disabled', 'disabled');
+   },
+   success:function(data)
+   {
+    if(data.error)
+    {
+     if(data.name_error != '')
+     {
+      $('#name_error').html(data.name_error);
+     }
+     else
+     {
+      $('#name_error').html('');
+     }
+     if(data.email_error != '')
+     {
+      $('#email_error').html(data.email_error);
+     }
+     else
+     {
+      $('#email_error').html('');
+     }
+     if(data.subject_error != '')
+     {
+      $('#subject_error').html(data.subject_error);
+     }
+     else
+     {
+      $('#subject_error').html('');
+     }
+     if(data.message_error != '')
+     {
+      $('#message_error').html(data.message_error);
+     }
+     else
+     {
+      $('#message_error').html('');
+     }
+    }
+    if(data.success)
+    {
+     $('#success_message').html(data.success);
+     UIkit.notification('Thank you for Contact Us', {status:'success',pos: 'top-right'})
+     $('.all_error p').html('');
+     $('#contact_form')[0].reset();
+    }
+    $('#contact').attr('disabled', false);
+   }
+  })
+ });
+
+
+

@@ -230,9 +230,10 @@ class Main extends CI_Controller
 
     public function validation()
     {    
-        $this->form_validation->set_rules('name', 'Username', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'trim|required');
-        $this->form_validation->set_rules('message', 'Massage', 'required');
+        $this->load->helper('Security');
+        $this->form_validation->set_rules('name', 'Username', 'xss_clean|trim|required');
+        $this->form_validation->set_rules('email', 'Email', 'xss_clean|trim|required');
+        $this->form_validation->set_rules('message', 'Massage', 'xss_clean|strip_tags|required');
     }
 	private function cleanPostData()
 	{

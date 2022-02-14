@@ -206,7 +206,7 @@
 					<div>
 						<div class="uk-card feature-content">
 							<div class="feature-content-overlay">
-								<h3><?php echo '0'.$val['feature_id']; ?></h3>
+								<h3><?php echo '0'.$val['id']; ?></h3>
 								<h4><?php echo $val['feature_title']; ?></h4>
 								<p><?php echo $val['feature_body']; ?></p>
 							</div>

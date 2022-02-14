@@ -228,10 +228,9 @@ $(document).ready(function () {
 		$(".proposts").each((index, post) => {
 			if ($(post).hasClass("selected")) {
 				var html = commentsHtml(post, per_input);
-				console.log(html);
 				if (html != "") {
-					$(".add_comment").show();
-					$(".add_comment").append(html);
+					$(".wrap_selected_items").show();
+					$(".selected_items").append(html);
 				}
 			}
 		});
@@ -242,7 +241,6 @@ $(document).ready(function () {
 
 	function commentsHtml(post, qty) {
 		var postId = $(post).find(".post_id").val();
-		
 		var bg_img = $(post)
 			.css("background-image")
 			.replace(/^url\(['"](.+)['"]\)/, "$1");
@@ -308,18 +306,15 @@ function isEmail(email) {
 	var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return regex.test(email);
 }
-
 function displayTiktokProfile(data) {
 	const user = data.user;
 	//showProfilePicture(user);
 	displayIgCounts(user);
 }
-
 function showProfilePicture(user) {
 	const profile_pic = user.profile_pic;
 	showImage("#ig_profile_thumb", "profile_img", profile_pic);
 }
-
 function displayIgCounts(user) {
 	const username = user.user_name,
 		fullname = user.full_name,

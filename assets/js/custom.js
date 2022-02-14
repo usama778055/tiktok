@@ -163,21 +163,21 @@ $(document).on('click', ".selected_div", function () {
     }
 
     var packageQty = $('.js-example-basic-single').find(':selected').attr('data_id');
-    const quantity = packageQty ;
-    const service_limit = limit ;
+    const quantity = packageQty / 1;
+    const service_limit = limit / 1;
     let per_input = Math.floor(quantity / length);
     const remaining = quantity % length;
 
-    if (length > 1 && per_input < limit){
+    if (length > 1 && per_input < service_limit){
         $(this).removeClass("selected");
         $(this).find(".putquentity").text('');
         return false;
     }
     
-    if (sType == "comments") {
+    if (sType == "comments" && $(".add_comment").length > 0) {
         handleCommentsHtml(length, per_input,remaining);
     }    
-    
+    if (quantity > 0) {
     $(".selected_div").each((index, post) => {
 
         if ($(post).hasClass("selected")) {
@@ -189,10 +189,11 @@ $(document).on('click', ".selected_div", function () {
 
         } else {
             $(post).find(".putquentity").text("");
-            $(post).find(".per_quantity").val('');
+            $(post).find(".per_quantity").val(0);
         }
 
     });
+    }
 });
 
 

@@ -69,7 +69,7 @@ class Cart extends CI_Controller
                 $res['selected_posts'] = $this->postData['selected_posts'];
             }
         }
-        else if (in_array($pckg['serviceType'], $user_posts_pkgs))
+        if (in_array($pckg['serviceType'], $user_posts_pkgs))
         {
             /*$is_auto = $this->is_auto_service("tiktok", $pckg["slug"]);
             if ($is_auto) {
@@ -84,9 +84,9 @@ class Cart extends CI_Controller
                 $res['selected_posts'] = $selected_posts;
             }
         }
-        else if($pckg['serviceType'] === 'comments')
+        if($pckg['serviceType'] === 'comments')
         {
-
+        	$res['selected_posts'] = $this->prepareComments($pckg);
         }
 
         return $res;
@@ -189,6 +189,7 @@ class Cart extends CI_Controller
 
     public function checkout()
     {
+		// echo "<pre>";print_r($this->session->all_userdata());exit;
 		$this->load->helper('file');
     	if(isset($_GET['session']))
         {
@@ -464,6 +465,33 @@ class Cart extends CI_Controller
 		}
 		@write_file($logsPath . 'logs.php', '<h2>' . $heading . '</h2><p> ' . $string . "</p> \r\n", 'a');
 	}
+
+	public function prepareComments($pckg)
+    {
+        $commentsArray = $this->postData['com'];
+        $comments_data = array();
+        foreach ($commentsArray as $postId => $value) {
+            $commentString = "";
+            $sprt = "";
+            $post = array();
+            foreach ($value as $comment) {
+                $commentString .= $sprt . trim($comment['comment']);
+                $qty =  $comment['quantity'];
+                $link =  isset($comment['post_id']) ? $comment['post_id'] : "";
+                $sprt = "\n";
+            }
+            // $post['post_id'] = str_replace("box", "", $postId);
+            // $post['post_id'] = str_replace("box", "", $postId);
+            // if (strpos($pckg['packageTitle'], 'Instagram') !== false) {
+            // }
+            $post['post_comments'] = $commentString;
+            $post['quantity'] = $qty;
+            $post['post_id'] = $link;
+
+            $comments_data[] = $post;
+        }
+        return $comments_data;
+    }
 
 
 

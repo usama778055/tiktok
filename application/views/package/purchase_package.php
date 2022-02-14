@@ -53,7 +53,7 @@
 						</div>
 						<a id="loadmore" class="serv-btn" href="#"><span class="spanbtn">Load More</span></a>
 					</div>
-					<div class="add_comment" id="add_comment" style="display:none">
+					<div class="add_comment wrap_selected_items" id="add_comment" style="display:none">
 						
 					</div>
 				</div>

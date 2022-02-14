@@ -27,10 +27,11 @@ $(document).ready(function (e) {
 				}
 
 				var comments = getComments();
+				//console.log(comments);return;
 				if (Object.keys(comments).length) {
 					data.com = comments;
 				}
-
+				//console.log(data);return;
 			ajax_send(url, data, redirectToCart);
 			return false;
 		}
@@ -117,7 +118,7 @@ var checkError = function () {
 };
 
 function getComments() {
-	var selectedElem = $(".userdatalikes").find(".selected");
+	var selectedElem = $(".load-gallery").find(".selected");
 	var postId;
 	var data = {};
 	if (Object.keys(selectedElem).length) {
@@ -164,21 +165,24 @@ function handleCart(res, redirectToCart) {
 		if (redirectToCart || redirectToCart === true) {
 			window.location.href = base_url + "cart#cart_pay_form";
 		}
-		$(".userdatalikes").find(".selected").removeClass("selected");
+		$(".load-gallery").find(".selected").removeClass("selected");
 		if ($(".wrap_selected_items").length > 0) {
-			$(".wrap_selected_items").hide();
-			$(".selected_items").empty();
+			$(".wrap_selected_items").empty();
+			//$(".selected_items").empty();
 		}
-		$(".wrap-form-control")
+		/*$(".wrap-form-control")
 			.not(":first")
 			.remove()
 			.find(".service-link,.com_area")
 			.val("");
 		if ($(".service-link").length > 0) {
 			$(".service-link").val("");
-		}
+		}*/
 
-		var cart_count = $("#sf-cart-counts").attr("data-count") / 1;
+		var cart_count = $("#sf-cart-counts").show().attr("data-count");
+		if(typeof cart_count=="undefined"){cart_count=0;}
+		if(cart_count > 0){var cart_count = $("#sf-cart-counts").show().attr("data-count") / 1;}
+		//alert(cart_count);
 		const new_count = cart_count + 1;
 		$("#sf-cart-counts").show().attr("data-count", new_count).text(new_count);
 		$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -187,6 +191,9 @@ function handleCart(res, redirectToCart) {
 			base_url +
 			"checkout/'>View Cart</a>";
 		toaster.success(res.message + " " + link);
+		setTimeout(function (){
+			location.reload();
+		}, 3000);
 	} else if (res.message) {
 		toaster.success(res.message);
 	}

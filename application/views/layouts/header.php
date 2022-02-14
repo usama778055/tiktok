@@ -53,7 +53,9 @@ $this->load->helper('cart');
               <a href="javascript:void(0)" onclick="cardfunction()">
       					<?php if (show_cart_count()) { ?>
       					<span class="uk-badge" id="sf-cart-counts" data-count="<?php echo show_cart_count(); ?>" style="background-color:#FE2C55 !important;"><?php echo show_cart_count(); ?></span>
-      					<?php } ?>
+      					<?php } else { ?>
+							<span class="uk-badge" id="sf-cart-counts" data-count="" style="background-color:#FE2C55 !important; display:none;"></span>
+				  		<?php } ?>
       					<img class="popupbtn" src="<?php echo base_url('assets/images/cart.svg') ?>" alt="">
               </a>
               <div id="myPopup" class="popupbtn-content">

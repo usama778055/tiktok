@@ -189,7 +189,7 @@ class Cart extends CI_Controller
 
     public function checkout()
     {
-		// echo "<pre>";print_r($this->session->all_userdata());exit;
+		//echo "<pre>";print_r($this->session->all_userdata());exit;
 		$this->load->helper('file');
     	if(isset($_GET['session']))
         {

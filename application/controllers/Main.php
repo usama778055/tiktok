@@ -111,36 +111,7 @@ class Main extends CI_Controller
 			$resp["success"] = false;
 		}
 		exit(json_encode($resp));
-       /* $data['api_images'] = $packages['data']['post_links'];
-        $this->load->view('package/api_images_partial_view',$data);
-		if(!isset($_SESSION['user_name']) && empty($_SESSION['user_name']))
-		{
-			$this->session->set_userdata('user_name', $name);
-		}*/
 
-		/*
-		$this->load->library('findinstauser');
-		$user_data = $this->findinstauser->findUser($post);
-		$user_data = (object) $user_data;
-		if ($user_data->success == 1) {
-			$user_data = (object) $user_data->data;
-			$user = (object) $user_data->user;
-			$posts = $user_data->user_posts;
-			$data["user"] = $user;
-			$data["posts"] = $posts;
-			$html = $this->load->view('templates/app_profile', $data, TRUE);
-		}
-		$resp = array(
-			"html" => $html,
-			"data" => $data,
-			"success" => true,
-			"message" => ""
-		);
-		if (empty($html)) {
-			$resp["success"] = false;
-		}
-		exit(json_encode($resp));
-		*/
 
     }
 

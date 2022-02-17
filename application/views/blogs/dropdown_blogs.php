@@ -2,7 +2,7 @@
 $slug = array();
  foreach ($alldata as $value) {
 	$slug[] = $value->slug;
-	$body = $value->body;
+	$body = json_decode($value->body);
 	$body = htmlspecialchars_decode(stripslashes($body));
 	?>
 	<div class="blog-article">
@@ -21,7 +21,7 @@ $slug = array();
 				<div class="">
 					<div class="blog-text">
 						<div class="blog-published">
-							<a href="<?= base_url("category/{$value->cat_name}/1") ?>"><?php echo $value->cat_name; ?></a>
+							<a href="<?= base_url("category/{$value->name}/1") ?>"><?php echo $value->name; ?></a>
 							<p><?php echo date('F j, Y',strtotime($value->created_at)); ?></p>
 						</div>
 						<a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>"><h4><?php echo $value->title; ?></h4></a>

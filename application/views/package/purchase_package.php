@@ -19,7 +19,7 @@
 
 						<form class="" uk-grid>
 							<div class="uk-width-1-2@m">
-								<label class="uk-form-label" for="form-stacked-text">Your Tiktok User ID</label>
+								<label class="uk-form-label" for="form-stacked-text">Your Tiktok User Name</label>
 								<div class="uk-form-controls">
 									<input class="uk-input user_name" id="form-stacked-text" name="tiktok_username" type="text" placeholder="@therock">
 								</div>
@@ -51,7 +51,6 @@
 						<div class="load-gallery custom_image_class">
 							<div class="loader_class" uk-spinner="ratio: 4"></div>
 						</div>
-						<a id="loadmore" class="serv-btn" href="#"><span class="spanbtn">Load More</span></a>
 					</div>
 					<div class="add_comment wrap_selected_items" id="add_comment" style="display:none">
 						
@@ -77,7 +76,7 @@
 							<h5>Price</h5>
 							<p><?php echo $user_data[0]->priceUnit .' '. $user_data[0]->packagePrice ?></p>
 						</div>
-						<div class="promo-code">
+						<div class="promo-code" style="display:none;">
 							<h5>Have a promo code?</h5>
 							<input class="uk-input" id="form-stacked-text" type="text" placeholder="apply here">
 						</div>
@@ -103,43 +102,20 @@
 		<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 			<h6>Add on</h6>
 			<h4>Take a look at these amazing packages</h4>
-			<ul class="uk-slider-items uk-child-width-1-3@m uk-child-width-1-2@s uk-grid">
-				<?php foreach ($featured as $key => $value) {// code...
-					$parts = explode('.', $value->packagePrice);
-					?>
-					<li class="feed-box">
-						<div class="amazing-package">
-							<h5>Buy <?php echo $value->packageQty ?> Tiktok <?php echo $value->serviceType; ?></h5>
-							<small><?php echo $value->priceUnit.' '.$parts[0]; ?><sup><?php if(!empty($parts[1])){
-								echo $parts[1];
-							}
-							else{
-
-							}?></sup></small>
-							<ul class="uk-list">
-								<li>High Quality</li>
-								<li>Active and Real Users </li>
-								<li>Instant Delivery</li>
-								<li>24/7 Support</li>
-							</ul>
-							<a class="serv-btn" href="<?php echo base_url('buy-'.$value->packageQty.'-tiktok-'.$value->serviceType); ?>"><span class="spanbtn">Purchase</span></a>
-						</div>
-					</li>
-
-				<?php } ?>
-			</ul>
+			
 			
 		</div>
 	</div>
+	<?php $this->load->view('blogs/feature_blogs',$featured); ?>
 </div>
 <!-------------------------------------------------->
 
 <?php $this->load->view('layouts/footer'); ?>
 <script type="text/javascript">
-  const sType = "<?php echo $user_data[0]->serviceType; ?>",
-    packageQty = "<?php echo $user_data[0]->packageQty; ?>",
-    user_name = '<?php echo (isset($_SESSION["user_name"])) ? $_SESSION["user_name"] : ""; ?>',
-    user_email = '<?php echo (isset($_SESSION["user_email"])) ? $_SESSION["user_email"] : ""; ?>';
+	const sType = "<?php echo $user_data[0]->serviceType; ?>",
+	packageQty = "<?php echo $user_data[0]->packageQty; ?>",
+	user_name = '<?php echo (isset($_SESSION["user_name"])) ? $_SESSION["user_name"] : ""; ?>',
+	user_email = '<?php echo (isset($_SESSION["user_email"])) ? $_SESSION["user_email"] : ""; ?>';
 </script>
 
 <script type="text/javascript" src="<?= base_url('assets/js/app.js') ?>"></script>

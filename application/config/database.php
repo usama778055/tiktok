@@ -75,6 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+	/*'hostname' => 'cloud-629cb1.managed-vps.net',
+	'username' => 'tiktoklikes_user2',
+	'password' => 'Tiktok@like12',
+	'database' => 'tiktoklikes_app',*/
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',

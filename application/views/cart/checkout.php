@@ -91,9 +91,9 @@
 						</button>
 					</div>
 				</div>
-				<div class="promo_input_div">
-					<input class="promo_code_input" type="text" id="discount_coupon" name="promo_name" placeholder="Enter Your Coupon Code">
-					<button class="uk-button uk-button-default" id="getpromo">apply coupon</button>
+				<div class="promo_input_div ">
+					<input class="promo_code_input inline_input_bun width_promo_input uk-input" type="text" id="discount_coupon" name="promo_name" placeholder="Enter Your Coupon Code">
+					<button class="uk-button uk-button-default inline_input_bun" id="getpromo">apply coupon</button>
 				</div>
 				<div>
 					<div class="total-check">
@@ -120,14 +120,14 @@
 				<span class="total-sec-bar"></span>
 
 			</div>
-			<div class="checkout_email">
-				<label class="email_text" for="user_checkout_email">Your Checkout Email</label>
-				<input class="promo_code_input" id="user_checkout_email" type="text" name="" placeholder="Enter Your Email">
-				<input type="hidden" id="stripe_public_key" value="<?php echo $stripe_key ?>">
-			</div>
-			<div>
-				<button id="payButton" type="submit">Pay Now</button>
-			</div>
+			<div class="uk-margin checkout_email_container uk-inline" uk-margin>
+					<div class="checkout_email inline_input_div">
+						<label class="email_text" for="user_checkout_email">Your Checkout Email</label>
+						<input class="promo_code_input uk-input" id="user_checkout_email" type="text" name="" placeholder="Enter Your Email">
+						<input type="hidden" id="stripe_public_key" value="<?php echo $stripe_key ?>">
+					</div>
+					<button class="uk-button uk-button-default" id="payButton" type="submit">Pay Now</button>
+				</div>
 		</div>
 	<?php } ?> 
 </div>

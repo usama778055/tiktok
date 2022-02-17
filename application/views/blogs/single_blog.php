@@ -6,8 +6,8 @@
 <!------------------------------------------->
 
 <?php foreach ($data as $key => $value){
-
-	$body = htmlspecialchars_decode(stripslashes($value->body));
+	$body = json_decode($value->body);
+	$body = htmlspecialchars_decode(stripslashes($body));
 	$body_strip_slashes = stripslashes($body);
 	$body_span_stripped = strip_tags($body_strip_slashes, '<img><a><p><h1><h2><h3><h4><h5><h6><h3>');
 	$body_styles_stripped = preg_replace('/(dir=".*?")? (style=".*?")/i', '$1', $body_span_stripped);
@@ -36,7 +36,7 @@
 				<div class="uk-width-3-4@s uk-margin-auto">
 					<div class="single-blog-text">
 						<div class="blog-published">
-							<a href="<?= base_url("category/{$value->cat_name}/1") ?>"><?php echo $value->cat_name; ?></a>
+							<a href="<?= base_url("category/{$value->name}/1") ?>"><?php echo $value->name; ?></a>
 							<p><?php echo date('F j, Y',strtotime($value->created_at)); ?></p>
 						</div>
 						<small><?php echo $value->name; ?></small>
@@ -89,7 +89,7 @@
 					$slug = $val->slug;
 					$meta_des = $val->meta_description;
 					$status = $val->status;
-					$body = $val->body;
+					$body = json_decode($val->body);
 					$body = htmlspecialchars_decode(stripslashes($body));
 					$feature = $val->feature;
 					$post_image = $val->post_image;
@@ -109,7 +109,7 @@
 						</div>
 						<div class="blog-text">
 							<div class="blog-published">
-								<a href="<?= base_url("category/{$val->cat_name}/1") ?>"><?php echo $val->cat_name; ?></a>
+								<a href="<?= base_url("category/{$val->name}/1") ?>"><?php echo $val->name; ?></a>
 								<p><?php echo date('F j, Y',strtotime($val->created_at)); ?></p>
 							</div>
 							<a class="uk-link-heading" href="<?= base_url("blogs/{$val->slug}") ?>"><h4><?php echo $title; ?></h4></a>

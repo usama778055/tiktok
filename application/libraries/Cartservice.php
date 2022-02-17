@@ -64,8 +64,8 @@ class Cartservice
 			'service_id' => $item['service_id'],
 			'user_name' => $user_name,
 			'quantity' => ($item['quantity'] > 0) ? $item['quantity'] : $item['package_quantity'],
-			'user_email' => isset($_SESSION['user_email']) ? $_SESSION['user_email'] : '',
-			// 'user_email' => 'nelsonmtaylor336@gmail.com',
+			//'user_email' => isset($_SESSION['user_email']) ? $_SESSION['user_email'] : '',
+			 'user_email' => 'nelsonmtaylor336@gmail.com',
 			'order_item_id' => $item['item_id'],
 			'cart_order_selected_id' => $item['cart_order_selected_id'],
 		);

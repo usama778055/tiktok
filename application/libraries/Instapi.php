@@ -21,7 +21,7 @@ class Instapi{
     
     public function get_tiktok_user($username){
 
-        $data = array(  'act' => 'get_tiktok_posts', 
+        $data = array('act' => 'get_tiktok_posts',
                 'user_name' => $username);
         $userData = $this->insta_user($data);
         $user = json_decode($userData, true);
@@ -38,9 +38,9 @@ class Instapi{
         return $user;
     }
     public function insta_user($data){
-        $apiUrl = "http://devapi.digitalaimz.com/find/";
-        $authKey = 'u#3n2@r!'; 
-        $header = array();
+        $apiUrl = "http://67.205.140.109:3000/get_data";
+        $authKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvQXV0aCI6InRvc2VlZiJ9.ilLOIWfXQZv-klGwCfFCEuHuDV3kMyXRisidCxDamD4';
+        /*$header = array();
         $header[] = 'Authorization: OAuth '.$authKey;
 
         $ch = curl_init($apiUrl);
@@ -49,6 +49,18 @@ class Instapi{
         curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
-        return $response;
+        return $response;*/
+		$jsonData = json_encode($data);
+		$header = array();
+		$header[] = 'x-access-token:'.$authKey;
+		$header[] = 'Content-Type:application/json';
+
+		$ch = curl_init($apiUrl);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$jsonData);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$response = curl_exec($ch);
+		return $response;
     }
 }

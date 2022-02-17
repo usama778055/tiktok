@@ -54,7 +54,9 @@
 										<?php if (isset($post['post_comments'])) {
 											$comments = preg_split('/\r\n|\r|\n/', $post['post_comments']); ?>
 											<div class="row cartcmmmns">
-												<div class="heading">Comments: </div>
+												<div class="heading">Comments:
+													<a class="uk-text-light uk-text-primary" href=" https://www.tiktok.com/@<?php echo $_SESSION['profile_data']['user_name']?>/video/<?php echo $post['post_id']?>" target="_blank" uk-tooltip="<?= $post['post_id'] ?>;pos: top" title="" aria-expanded="false"> Link </a>
+												</div>
 												<?php foreach ($comments as $key => $comment) { ?>
 													<div class="value">
 														<?php echo '<b>' . ($key + 1) . '</b>' . '. ' . $comment; ?>
@@ -65,14 +67,14 @@
 										else { ?>
 											<div class="value">
 												<span class="uk-text-bold"><?php echo $quantity . ' ' . $service["serviceType"]; ?> For
-													<a class="uk-text-light uk-text-primary" href="<?= $postId ?>" target="_blank" uk-tooltip="<?= $postId ?>;pos: top" title="" aria-expanded="false"> Link </a>
+													<a class="uk-text-light uk-text-primary" href="https://www.tiktok.com/@<?php echo $_SESSION['profile_data']['user_name']?>/video/<?php echo $post['post_id']?>" target="_blank" uk-tooltip="<?= $postId ?>;pos: top" title="" aria-expanded="false"> Link </a>
 												</span>
 											</div>
 										<?php } ?>
 									<?php } ?>
 								<?php } 
 								else { ?>
-									 <a class="uk-text-light uk-text-primary" href="<?= $username ?>" target="_blank" uk-tooltip="<?= $username ?>;pos: top" title="" aria-expanded="false"> Link </a>
+									 <a class="uk-text-light uk-text-primary" href="https://www.tiktok.com/@<?php echo $username?>" target="_blank" uk-tooltip="<?= $username ?>;pos: top" title="" aria-expanded="false"> Link </a>
 								<?php } ?>
 							</td>
 							<td><button id="cart-remove" class="cart-remove" data-id="<?php echo $dataKey; ?>">×

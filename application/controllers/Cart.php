@@ -391,6 +391,7 @@ class Cart extends CI_Controller
 		$this->load->library('cartservice');
 		$this->cartservice->getSessionFromDB();
 		$final_result = $this->cartservice->prepareRequestOfCart();
+		//echo "<pre>";print_r($final_result);exit;
 		$response = $this->cartservice->multiRequests($final_result);
 		$data['updated_order'] = $response;
 		$this->updateOrderData($data);
@@ -436,11 +437,7 @@ class Cart extends CI_Controller
 		$orders = $response['updated_order'];
 		foreach ($orders as $order) {
 			$postDataArray = array('api_order_id' => $order['result']);
-			if (strpos($order["service_id"], 'fs') !== false) {
-				$where = array('id' => $order['cart_order_selected_id']);
-				$this->Mob_admin->updateOrderItemInfo('cart_free_services', $where, $postDataArray);
-			} else {
-				if ($order['cart_order_selected_id'] != '') {
+			    if ($order['cart_order_selected_id'] != '') {
 					$where = array('id' => $order['cart_order_selected_id']);
 					$this->Mob_admin->updateOrderItemInfo('cart_order_selected_post', $where, $postDataArray);
 					$_SESSION['selected_posts'] = true;
@@ -448,7 +445,7 @@ class Cart extends CI_Controller
 					$where = array('id' => $order['order_item_id']);
 					$this->Mob_admin->updateOrderItemInfo('cart_order_items', $where, $postDataArray);
 				}
-			}
+
 		}
 	}
 

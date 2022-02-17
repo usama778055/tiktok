@@ -16,13 +16,13 @@ class Cartservice
 		$this->path = "http://api.digitalaimz.com/request/";
 
 		// auto services array, e.g. autolikes
-		$this->service_ids['auto_services'] = array(8, 9, 24, 25);
+		$this->service_ids['auto_services'] = array(24, 25);
 		// insta services ids
 		//$this->service_ids['insta_services'] = array(1, 2, 3, 4, 10, 11, 12, 13, 14);
 		// followers services
-		$this->service_ids['follower_services'] = array(2, 10, 11, 16, 20, 21, 27, 28,);
+		$this->service_ids['follower_services'] = array(16);
 		// service ids other than instagram
-		$this->service_ids['other_services'] = array(16, 17, 18, 20, 21, 22, 23, 26, 27, 28, 29, 30);
+		$this->service_ids['other_services'] = array(17, 18, 23, 26);
 	}
 
 	public function getSessionFromDB()
@@ -110,7 +110,8 @@ class Cartservice
 
 		// if Other service e.g. tiktok, facebook etc.
 		else if (in_array($sid, $this->service_ids['other_services'])) {
-			$data['link'] = isset($item["post_id"]) ? $item["post_id"] : $item["user_name"];
+			//$data['link'] = isset($item["post_id"]) ? $item["post_id"] : $item["user_name"];
+			$data['link'] = isset($item["post_id"]) ? "https://www.tiktok.com/@".$_SESSION['profile_data']['user_name']."/video/".$item["post_id"] : "https://www.tiktok.com/@".$item["user_name"];
 		}
 		return $data;
 	}

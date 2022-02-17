@@ -63,7 +63,7 @@ class Findinstauser
         $user_data['followers'] = $user['followers'];
         $user_data['following'] = $user['following'];
         $user_data['likes'] = $user['likes'];
-		$user_data['profileImage'] = '';
+		$user_data['profileImage'] =$user['profile_image'];
 		$user_data['post_count'] = '';
         //$user_data['profile_id'] =  $user['user_id'];
 

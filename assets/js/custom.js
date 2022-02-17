@@ -118,7 +118,8 @@ function sendAjax(selector, username) {
 				if (data.success === true || data.success === 1) {
 					toaster.success("Tiktok Data Loaded Succesfully!");
                     $(".user-img h5").text(data.data.user.full_name);
-                    $(".user-img p").text(data.data.user.user_name);
+                    $(".user-img p").text('@'+data.data.user.user_name);
+					$("#profile_image_tiktok").attr("src", data.data.user.profile_image);
 					$(".load-gallery.custom_image_class").attr("data-found", 1);
 					if (auto_services.includes(sType)) {
                         $(".load-gallery.custom_image_class").html(data.html);

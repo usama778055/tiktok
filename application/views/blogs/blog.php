@@ -20,7 +20,7 @@
         {
           if($leng == 0)
           {
-            $body = $value->body;
+            $body = json_decode($value->body);
             $body = htmlspecialchars_decode(stripslashes($body));
       ?>
           <div class="uk-grid-collapse uk-child-width-expand@m uk-margin-large-top big-blog-article" uk-grid>
@@ -35,11 +35,11 @@
             <div>
               <div class="blog-content">
                 <div class="blog-published">
-                  <a href="<?= base_url("category/{$value->cat_name}/1") ?>"><?php echo $value->cat_name; ?> </a>
+                  <a href="<?= base_url("category/{$value->name}/1") ?>"><?php echo $value->name; ?> </a>
                   <p><?php echo date('F j, Y',strtotime($value->created_at)); ?></p>
                 </div>
                 <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>"><h4><?php echo $value->title; ?></h4></a>
-                <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>"><p><?php echo substr(strip_tags($body), 0, 80) . '...'?></p></a>
+                <a class="uk-link-heading" href="<?= base_url("blogs/{$value->slug}") ?>"><p><?php echo  substr(strip_tags($body), 0, 80) . '...'?></p></a>
                 <span><?php echo $value->name; ?></span>
               </div>
             </div>
@@ -55,7 +55,7 @@
             $slug = $data->slug;
             $meta_des = $data->meta_description;
             $status = $data->status;
-            $body = $data->body;
+            $body = json_decode($data->body);
             $body = htmlspecialchars_decode(stripslashes($body));
             $post_image = $data->post_image;
             $post_thumb = $data->post_thumbnail;
@@ -71,7 +71,7 @@
               </div>
               <div class="blog-text">
                 <div class="blog-published">
-                  <a href="<?= base_url("category/{$value->cat_name}/1") ?>"><?php echo $value->cat_name; ?></a>
+                  <a href="<?= base_url("category/{$value->name}/1") ?>"><?php echo $value->name; ?></a>
                   <p><?php echo date('F d, Y',strtotime($created_at)); ?></p>
                 </div>
                 <a class="uk-link-heading" href="<?= base_url("blogs/{$slug}") ?>"><h4><?php echo $title; ?></h4></a>

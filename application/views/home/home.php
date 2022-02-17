@@ -319,7 +319,7 @@
 							?>
 							
 							<div class="statisfied-sec-content">
-								<span><?php echo $val['cat_name']; ?></span>
+								<span><?php echo $val['name']; ?></span>
 								<h4><?php echo $val['service_title']; ?> <br>Services</h4>
 								<p><?php echo $val['service_body']; ?></p>
 								<a class="serv-btn" href="#"><span class="spanbtn">buy now</span></a>

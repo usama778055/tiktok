@@ -16,7 +16,7 @@ class Contact extends CI_Controller {
 		 $this->load->helper('Security');
         $this->form_validation->set_rules('name', 'Username', 'xss_clean|trim|required');
         $this->form_validation->set_rules('email', 'Email', 'xss_clean|trim|valid_email|required');
-        $this->form_validation->set_rules('message', 'Message check', 'xss_clean|strip_tags|required');
+        $this->form_validation->set_rules('message', 'Message check', 'xss_clean|strip_tags|required|alpha_numeric');
         if($this->form_validation->run())
 		  {
 		   	$this->load->model('genral_model');

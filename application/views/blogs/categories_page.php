@@ -23,7 +23,7 @@
       foreach ($result as $value) {
         if($leng == 0){
 
-          $body = $value->body;
+          $body = json_decode($value->body);
           $body = htmlspecialchars_decode(stripslashes($body));
           ?>
           <div class="uk-grid-collapse uk-child-width-expand@m uk-margin-large-top big-blog-article" uk-grid>
@@ -58,7 +58,7 @@
             $slug = $data->slug;
             $meta_des = $data->meta_description;
             $status = $data->status;
-            $body = $data->body;
+            $body = json_decode($data->body);
             $body = htmlspecialchars_decode(stripslashes($body));
             $post_image = $data->post_image;
             $post_thumb = $data->post_thumbnail;

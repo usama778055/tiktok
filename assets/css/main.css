@@ -1287,6 +1287,7 @@ z-index: 2;
 }
 .feed-sec-packages{
   background: rgb(0, 0, 0, .9);
+  padding-bottom: 0;
 }
 .feed-box{
   width: 33.333%;
@@ -1510,10 +1511,14 @@ color: #fff;
   margin-bottom: 10px;
 }
 
-.checkout_email .promo_code_input{
-  width: 70%;
-  margin: auto;
+.checkout_email_container #payButton{
+  vertical-align: bottom;
+  color: #fff;
 }
+.checkout_email_container .inline_input_div{
+  display: inline-block;
+}
+
 .total-check h4{
   color: #fff;
   font-family: Lato-Bold;
@@ -2465,12 +2470,13 @@ img.svg_stype{
 }
 .promo_code_input{
   background-color: #191919;
-    border: 1px solid#fff;
-    color: #fff;
-    padding: 7px 10px;
-    margin: 0px 20px;
-    border-radius: 4px;
-    height: 24px;
+}
+
+.promo_input_div .inline_input_bun{
+  display: inline-block;
+}
+.promo_input_div .width_promo_input{
+  width: 55%;
 }
 
 .promo_input_div button{

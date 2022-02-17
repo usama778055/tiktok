@@ -157,7 +157,7 @@ class Genral_model extends CI_Model
 		$this->db->from('posts');
 		$this->db->join('users', 'ON posts.user_id = users.id','left');
 		$this->db->join('categories', 'ON posts.category_id = categories.id','left');
-		$this->db->where('categories.cat_name =',$value);
+		$this->db->where('categories.name =',$value);
 		$this->db->limit($limit, $start);
 		
 		$query = $this->db->get();
@@ -218,7 +218,7 @@ class Genral_model extends CI_Model
 
 	public function get_records_order_by($table,$colum,$orderBY)
 	{
-		$this->db->select("$table.* , categories.name as cat_name");
+		$this->db->select("$table.* , categories.name as name");
 		$this->db->join("categories", $table . ".category_id = categories.id");
 		$this->db->order_by("$table.$colum", $orderBY);
 		$query = $this->db->get($table);

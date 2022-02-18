@@ -17,8 +17,6 @@ class Blog extends CI_Controller
     }
 
     public function index(){
-
-
     $data["latest"] = $this->genral_model->get_authors();
     $data["featured"] = $this->users->feature_blog();
     $data["alldata"] = $this->genral_model->minimum_data(); 

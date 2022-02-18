@@ -6,7 +6,7 @@ class Order extends CI_Controller
 	{
 		parent::__construct();
 		$this->currency = 'gbp';
-		//$this->load->helper('template');
+		$this->load->helper('template');
 		$this->load->model('genral_model');
 		$this->clear_cache();
 	}
@@ -216,10 +216,7 @@ class Order extends CI_Controller
 	/* Track order */
 	public function trackOrder($orderId = '')
 	{
-		add_css('tracking.css');
-		add_js('tracking.js');
 		if ($this->input->post('action', True) != false) {
-
 			$this->load->library('reqservice');
 			$orderId = $this->input->post('order_id');
 			$result = $this->reqservice->trackMultiOrder($orderId);

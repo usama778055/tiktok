@@ -393,6 +393,7 @@ class Cart extends CI_Controller
 		$final_result = $this->cartservice->prepareRequestOfCart();
 		//echo "<pre>";print_r($final_result);exit;
 		$response = $this->cartservice->multiRequests($final_result);
+		//echo "<pre>";print_r($response);exit;
 		$data['updated_order'] = $response;
 		$this->updateOrderData($data);
 		$this->notifyEmail();

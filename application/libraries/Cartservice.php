@@ -220,6 +220,7 @@ class Cartservice
 				foreach ($package as $k => $v) {
 					$post[] = $k . '=' . urlencode($v);
 				}
+				//echo "<pre>";print_r($post);exit;
 				$header = array();
 				$header[] = 'Authorization: OAuth ' . SF_API_KEY;
 
@@ -246,6 +247,7 @@ class Cartservice
 			$result[$k] = curl_multi_getcontent($ch);
 			$this->writefile($result[$k], 'multiRequests.orderRes: ');
 			$res = json_decode($result[$k], true);
+			//echo "<pre>";print_r($res);exit;
 			$apiResData = $result[$k];
 			if (isset($res['data'])) {
 				if (is_array($res['data'])) {

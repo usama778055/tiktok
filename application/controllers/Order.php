@@ -153,8 +153,8 @@ class Order extends CI_Controller
 			$cartData = (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) ? $_SESSION['cart'] : array();
 			$discount = isset($_SESSION['discount']) ? $_SESSION['discount'] : array();
 			$data = array('cartData' => $cartData, 'discount' => $discount, 'emailData' => $emailData);
-			//$this->load->library('mobemail');
-			//$this->mobemail->mobMultiSuccesOrderMail($data);
+			$this->load->library('mobemail');
+			$this->mobemail->mobMultiSuccesOrderMail($data);
 			$this->unsetSession();
 			$this->load->view('order-success', $data);
 		}

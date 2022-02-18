@@ -67,7 +67,7 @@ class Mobemail
 	public function mobMultiSuccesOrderMail($data = array())
 	{
 		// echo'<pre>';print_r($data);exit;
-		$body = $this->_CI->load->view('emails/mob_multiple_order_success_email_new.php', $data, TRUE);
+		$body = $this->_CI->load->view('emails/order_success_email.php', $data, TRUE);
 		$this->mail->to($_SESSION['user_email']);
 		$this->mail->subject('Order detail - Order# ' . $data['emailData']['orderId']);
 		$this->mail->message($body);

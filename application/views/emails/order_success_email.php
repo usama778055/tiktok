@@ -371,7 +371,7 @@ function numberToRoman($number)
     												text-decoration: none;" href="">Tiktoklikes</a></p>
 						</td>
 						<td class="table-container" width="200" valign="middle" align="right">
-							<img height="60" src="footer-logo.PNG">
+							<img height="60" src="<?php echo base_url(); ?>assets/images/footer-email-logo.PNG">
 						</td>
 					</tr>
 					</tbody>

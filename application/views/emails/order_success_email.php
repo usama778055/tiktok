@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <?php
 
 function numberToRoman($number)
@@ -20,53 +19,21 @@ function numberToRoman($number)
 }
 
 ?>
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="format-detection" content="telephone=no">
-	<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Montserrat:wght@200;300;400;500;600;700&family=Roboto&family=Source+Sans+Pro&display=swap" rel="stylesheet" />
-	<title>Tiktoklikes</title>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+	<title>Tiktok</title>
 	<style type="text/css">
-		table td {
-			/*border: 1px solid cyan;*/
-		}
-
-		body,
-		table,
-		td,
-		a {
-			-webkit-text-size-adjust: 100%;
-			-ms-text-size-adjust: 100%;
-		}
-
-		table,
-		td {
-			mso-table-lspace: 0pt;
-			mso-table-rspace: 0pt;
-		}
-
-		img {
-			-ms-interpolation-mode: bicubic;
-		}
-
-		img {
-			border: 0;
-			outline: none;
-			text-decoration: none;
-		}
-
-		table {
-			border-collapse: collapse !important;
-		}
-
-		body {
-			margin: 0 !important;
-			padding: 0 !important;
-			width: 100% !important;
-		}
-
+		table td { /*border: 1px solid cyan;*/ }
+		body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+		table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+		img { -ms-interpolation-mode: bicubic; }
+		img { border: 0; outline: none; text-decoration: none; }
+		table { border-collapse: collapse !important; }
+		body { margin: 0 !important; padding: 0 !important; width: 100% !important; }
 		/* iOS BLUE LINKS */
 		a[x-apple-data-detectors] {
 			color: inherit !important;
@@ -76,443 +43,347 @@ function numberToRoman($number)
 			font-weight: inherit !important;
 			line-height: inherit !important;
 		}
-
-		.custom-table-container .table-responsive {
+		.custom-table-container .table-responsive{
 			overflow-x: scroll;
 		}
-
-		.custom-table-container .width {
+		.custom-table-container .width{
 
 			width: 640px;
 		}
 
 		/* MEDIA QUERIES */
-		@media all and (max-width:639px) {
-			.table-container {
+		@media all and (max-width:639px){
+			.table-container{
 				width: 100%;
 			}
-
-			.td-container {
+			.td-container{
 				width: 50%;
 				/* text-align: center; */
 			}
-
-			.center {
+			.center{
 				text-align: center;
 			}
-
-			.table-responsive {
+			.table-responsive{
 				overflow-x: scroll;
 			}
-
-			.table-width {
+			.table-width{
 				width: 640px;
 			}
 		}
-
-		@media all and (max-width:576px) {
-			.footer {
+		@media all and (max-width:576px){
+			.footer{
 				display: flex;
-				flex-direction: column;
+				flex-direction: column-reverse;
 			}
-
-			.footer td,
-			.track-sec td {
+			.footer td{
 				text-align: center;
 				margin-top: 10px;
-			}
-
-			.footer .td-container,
-			.track-sec .td-container,
-			.services .td-container {
-				width: 100%;
-				/* text-align: center; */
-			}
-
-			.track-sec td a {
-				margin: 20px auto;
-			}
-
-			.track-sec,
-			.services tr {
-				display: flex;
-				flex-direction: column;
 			}
 		}
 	</style>
 </head>
-
 <body style="margin: 0; padding: 0;background-color: #f2f2f2;">
-	<center>
-		<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF">
-			<tbody>
-				<tr>
-					<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
-				</tr>
-				<tr>
-					<td valign="top" align="center">
-						<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0">
-							<tbody>
-								<tr>
-									<td valign="top" align="center"><img width="150" src="<?php echo base_url(); ?>assets/images/logo.png"></td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
-				</tr>
-			</tbody>
-		</table>
 
-		<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF">
-			<tbody>
-				<tr>
-					<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
-				</tr>
-				<tr>
-					<td valign="top" align="center">
-						<table class="table-container" width="600" cellspacing="0" cellpadding="0" border="0">
-							<tbody>
-								<tr class="track-sec">
-									<td class="td-container" width="300" valign="middle" align="left">
-										<?php $user_or_email = $emailData['user_name'] ?? $emailData['user_email'] ?>
-										<p style="line-height: 1.4;margin:0;font-family:'Poppins',sans-serif;font-size:16px;color:#302E2E;padding-bottom:20px">
-											Hi <a style="color: #FF7800;text-decoration: none;" href="mailto:<?= $user_or_email ?>">
-												<?= $user_or_email ?></a>
-											<br>Thank You For Your Purchase
-										</p>
-									</td>
-									<td class="td-container" width="300" valign="top" align="right">
-										<span><a style="color: #fff;
-												    background-color: #FF003D;
-												    text-decoration: none;
-												    font-size: 20px;
-												    font-family:'Poppins',sans-serif;
-												    padding: 6px 18px;
-												    margin-top: 10px;
-												    display: block;
-												    width: 120px;" href="<?php echo $emailData['trackOrderLink'] ?>" target="_blank">Track Order</a>
-										</span>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF">
-			<tbody>
-				<tr>
-					<td valign="top" align="center">
-						<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0">
-							<tbody>
-								<tr>
-									<td class="td-container" width="300" valign="top" align="center"><img src="<?php echo base_url(); ?>assets/images/socialfollower.gif <?php // base_url('assets/images/socialfollower.gif') 
-																																																																												?>"></td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
-				</tr>
-				<tr>
-					<td valign="top" align="center">
-						<table class="table-container" width="350" cellspacing="0" cellpadding="0" border="0">
-							<tbody>
-								<tr bgcolor="#E5E5E5">
-									<td class="td-container" width="150" valign="middle" align="left" style="padding: 10px 0;">
-										<p style="color: #FF7800;font-family:'Poppins',sans-serif;font-size:18px;margin: 0;padding-left: 16px;">Order Date:</p>
-									</td>
-									<td class="td-container" width="200" valign="middle" align="left" style="padding: 10px 0;">
-										<p style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;margin: 0;"><?php echo date("j F Y"); //$emailData['order_date']
-																																																					?></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="font-size:1px;line-height:4px" height="4">&nbsp;</td>
-								</tr>
-								<tr bgcolor="#E5E5E5">
-									<td class="td-container" width="150" valign="middle" align="left" style="padding: 10px 0;">
-										<p style="color: #FF7800;font-family:'Poppins',sans-serif;font-size:18px;margin: 0;padding-left: 16px;">Order ID:</p>
-									</td>
-									<td class="td-container" width="200" valign="middle" align="left" style="padding: 10px 0;">
-										<p style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;margin: 0;"><?php echo $emailData['orderId'] ?></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="font-size:1px;line-height:4px" height="4">&nbsp;</td>
-								</tr>
-								<tr bgcolor="#E5E5E5">
-									<td class="td-container" width="150" valign="middle" align="left" style="padding: 10px 0;">
-										<p style="color: #FF7800;font-family:'Poppins',sans-serif;font-size:18px;margin: 0;padding-left: 16px;">Email ID:</p>
-									</td>
-									<td class="td-container" width="200" valign="middle" align="left" style="padding: 10px 0;">
-										<p style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;margin: 0;"><?php echo $emailData['user_email'] ?></p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
-				</tr>
-			</tbody>
-		</table>
-
-
-		<div class="table-responsive">
-			<div class="table-width">
-				<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF">
+<center>
+	<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF">
+		<tbody>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr>
+			<td valign="top" align="center">
+				<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0">
 					<tbody>
-						<tr>
-							<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
-						</tr>
-						<tr>
-							<td valign="top" align="center">
-								<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0">
-									<thead>
-										<tr bgcolor="#302E2E" style="color: #fff;font-family:'Poppins',sans-serif;font-size:16px;">
-											<th class="td-container" width="170" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">Service</th>
-											<th class="td-container" width="370" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">Posts/Profile URL</th>
-											<th class="td-container" width="100" valign="middle" align="right" style="padding: 10px 20px 10px 0px;">Price</th>
-									</thead>
-									<tbody>
-										<?php
-										$details = $cartData['items'];
-										foreach ($details as $detail) {
-											$service = $detail['service_detail'];
-											$serviceType = $service['serviceType'];
-											$username = isset($detail['user_name']) ? $detail['user_name'] : "";
-											$url = isset($detail['url']) ? $detail['url'] : "";
-										?>
-											<tr bgcolor="#E5E5E5" style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;border-bottom: 1px solid #302E2E;">
-												<td class="td-container" width="170" valign="middle" align="left" style="padding: 10px;display: block;border-right: 1px solid #302E2E;">
-													<?php echo $detail['service_detail']['packageQty'] . ' ' . $detail['service_detail']['packageTitle'];
-													
-													if (isset($detail['free_services']) && !empty($detail['free_services'])) {
-														foreach ($detail['free_services'] as $free_service) { ?>
-															<br>
-															<span style="color:#ff005f;font-size: 12px;margin-left: 10px;">
-																<?= '+ ' . $free_service['quantity'] . ' free ' . $free_service['title'] . ' on ' ?>
-																<a style="color:#ff005f;" href="<?= $free_service['free_post_id'] ?>" target="_blank">
-																	<strong>Link</strong>
-																</a>
-															</span>
-													<?php }
-													} ?>
-												</td>
-												<td class="td-container" width="370" valign="middle" align="left" style="padding: 10px;border-right: 1px solid #302E2E;">
-													<?php if (!isset($detail['selected_posts'])) {
-														if (strpos($detail['service_detail']['packageTitle'], 'Instagram') !== false) { ?>
-															<a style="color: #FF003D;text-decoration: none;word-break: break-word;" href="<?php echo IG_URL . $username; ?>" target="_blank">
-																<?php echo IG_URL . $username; ?>
-															</a>
-														<?php } else { ?>
-															<a style="color: #FF003D;text-decoration: none;word-break: break-word;" href="<?php echo $url; ?>" target="_blank">
-																<?php echo $url; ?>
-															</a>
-														<?php } ?>
-													<?php
-													} else if (isset($detail['selected_posts'])) { ?>
-														<div class='selectedPost'>
-															<?php
-															$post_num = 1;
-															foreach ($detail['selected_posts'] as $key => $selected_post) {
-																$postId = isset($selected_post['post_id']) ? $selected_post['post_id'] : $key;
-																$postLink = isset($selected_post['post_id']) ? $selected_post['post_id'] : $key;
-																if (strpos($service['packageTitle'], 'Instagram') !== false) {
-																	$post_link = IG_URL . 'p/' . $postId;
-																} else if (strpos($service['packageTitle'], 'IGTV') !== false) {
-																	$post_link = IG_URL . 'tv/' . $postId;
-																} else {
-																	$post_link = $postLink;
-																}
-															?>
-																<div style="font-weight: 600;">
-																	<?= $selected_post['quantity'] . ' ' . $serviceType . ' on ' ?>
-																	<a href="<?= $post_link; ?>" style="color:#ff005f;" target="_blank">
-																		Link
-																	</a>
-																</div>
-																<?php
-																$comments = $selected_post['post_comments'] ?? false;
-																if ($comments == true) {
-																	$comments = preg_split('/\r\n|\r|\n/', $comments);
-																	foreach ($comments as $number => $comment) { ?>
-																		<div class="comments" style="margin-left: 5px;">
-																			<?php echo '<b>' . (numberToRoman($number + 1)) . '</b>' . '. ' . $comment; ?>
-																		</div>
-															<?php }
-																}
-															} ?>
-														</div>
-													<?php } ?>
-												</td>
-												<td class="td-container" width="100" valign="right" align="right" style="padding: 10px;font-weight: bold;">
-													<?= $detail['priceUnit'] . $detail['amount_payable']; ?>
-												</td>
-											</tr>
-										<?php } ?>
-										<?php if (!empty($discount)) {
-											$prcnt = (!empty($discount)) ? $discount['discount_percent'] : '';
-											$offAmount = (!empty($discount)) ? $discount['discount_price'] : '';
-											$discountedAmount = (!empty($discount)) ? $discount['discount_pkgprice'] : '';
-											$totalPrice = (!empty($discount)) ? $discountedAmount : $totalPrice;
-										?>
-											<tr>
-												<td class="td-container" width="170" valign="middle" align="left"></td>
-												<td class="td-container" width="300" valign="middle" align="left"></td>
-												<td class="td-container" width="170" valign="middle" align="right" style="padding: 16px 0;">
-													<p style="font-family:'Poppins',sans-serif;font-size:16px;
-											margin: 0 20px 0 0;
-										    padding: 10px 0;
-										    border-top: 1px solid #302E2E;
-										    border-bottom: 1px solid #302E2E;
-											font-weight: 600;">
-														Sub Total
-														<span style="margin-left: 70px;"><?= $emailData['currency'] . $cartData['total_amount']; ?></span>
-													</p>
-												</td>
-											</tr>
-											<tr>
-												<td class="td-container" width="170" valign="middle" align="left"></td>
-												<td class="td-container" width="300" valign="middle" align="left"></td>
-												<td class="td-container" width="170" valign="middle" align="right" style="padding: 16px 0;">
-													<p style="font-family:'Poppins',sans-serif;font-size:16px;
-											margin: 0 20px 0 0;
-										    padding: 10px 0;
-										    border-top: 1px solid #302E2E;
-										    border-bottom: 1px solid #302E2E;
-											font-weight: 600;">Discounted (<?php echo $prcnt; ?>%):<span style="margin-left: 70px;"><?= $emailData['currency'] . $offAmount; ?></span></p>
-												</td>
-											</tr>
-										<?php } ?>
-
-										<!-- For totals -->
-										<tr>
-											<td class="td-container" width="170" valign="middle" align="left"></td>
-											<td class="td-container" width="300" valign="middle" align="left"></td>
-											<td class="td-container" width="170" valign="middle" align="right" style="padding: 16px 0;">
-												<p style="font-family:'Poppins',sans-serif;font-size:16px;
-									margin: 0 20px 0 0;
-								    padding: 10px 0;
-								    border-top: 1px solid #302E2E;
-								    border-bottom: 1px solid #302E2E;
-									font-weight: 600;">Total<span style="margin-left: 70px;"><?= $emailData['currency'] . $emailData['price_paid']; ?></span></p>
-											</td>
-										</tr>
-										<!-- For totals -->
-
-									</tbody>
-								</table>
-							</td>
-						</tr>
+					<tr>
+						<td valign="top" align="center"><img src="<?php echo base_url(); ?>assets/images/logo.png"></td>
+					</tr>
 					</tbody>
 				</table>
-			</div>
+			</td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:10px" height="10">&nbsp;</td>
+		</tr>
+		<tr>
+			<td valign="top" align="center">
+				<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" style="background-image: url(<?php echo base_url()?>'assets/images/bkground.png');background-repeat: no-repeat;
+									    background-size: 100% 100%;
+									    min-height: 100px;"	>
+					<tbody>
+					<tr style="color: #fff;font-family: 'Lato', sans-serif;;font-size:20px;font-weight: 400;">
+						<td valign="middle" align="center"><p>Thank you for using Tiktoklikes</p></td>
+					</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#FCFCFC">
+		<tbody>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr>
+			<td valign="top" align="center">
+				<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0">
+					<tbody>
+					<tr style="color: #FE2C55;font-family: 'Lato', sans-serif;;font-size:18px;">
+						<td valign="middle" align="center"><p style="font-weight: 600;">Here Is Your Invoice Details</p></td>
+					</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr>
+			<td valign="top" align="center">
+				<table class="table-container" width="500" cellspacing="0" cellpadding="0" border="0">
+					<tbody>
+					<tr>
+						<td class="td-container center" width="350" valign="middle" align="left" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:14px;margin: 0;font-weight: 600;"><p>Invoice #<br><span style="font-weight: 400;"><?php echo $emailData['orderId'] ?></span></p></td>
+						<td class="td-container center" width="150" valign="middle" align="left" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:14px;margin: 0;font-weight: 600;"><p>Payment Date <br> <span style="font-weight: 400;"><?php echo date("j F Y");?></span></p></td>
+					</tr>
+					<tr>
+						<td style="font-size:10px;line-height:10px" height="10">&nbsp;</td>
+					</tr>
+					<tr>
+						<td class="td-container center" width="350" valign="middle" align="left" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:14px;margin: 0;font-weight: 600;"><p>Order ID:<br><span style="font-weight: 400;"><?php echo $emailData['orderId'] ?></span></p>
+						</td>
+						<td class="td-container center" width="150" valign="middle" align="left" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:14px;margin: 0;font-weight: 600;"><p>E-mail Address<br><span style="font-weight: 400;"><?php echo $emailData['user_email'] ?></span></p>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr style="color: #FE2C55;font-family: 'Lato', sans-serif;;font-size:18px;">
+			<td valign="middle" align="center"><p style="font-weight: 600;">Your Order Details</p></td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<div class="table-responsive">
+		<div class="table-width">
+			<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF">
+				<tbody>
+				<tr>
+					<td valign="top" align="center">
+						<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+							<tr bgcolor="#EDEFF1" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:16px;">
+								<th width="350" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">Product</th>
+								<th width="240" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">Selected Posts / URL</th>
+								<th width="50" valign="middle" align="right" style="padding: 10px 20px 10px 0px;">Amount</th>
+							</tr>
+							<?php
+							$details = $cartData['items'];
+							foreach ($details as $detail) {
+							$service = $detail['service_detail'];
+							$serviceType = $service['serviceType'];
+							$username = isset($detail['user_name']) ? $detail['user_name'] : "";
+							$url = isset($detail['url']) ? $detail['url'] : "";
+							?>
+							<tr bgcolor="#F5F6F7" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:14px;text-transform: capitalize;">
+								<td width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;"><?php echo $detail['service_detail']['packageQty'] . ' ' . $detail['service_detail']['packageTitle'];
+									?></td>
+								<td width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">
+									<?php if (!isset($detail['selected_posts'])) {?>
+									<a style="color: #FF003D;text-decoration: none;text-transform: lowercase;" target="_blank" href="<?php echo "https://www.tiktok.com/@" . $username; ?>"><?php echo "https://www.tiktok.com/@" . $username; ?></a>
+									<?php }else if(isset($detail['selected_posts'])){?>
+										<div class='selectedPost'>
+											<?php
+											$post_num = 1;
+											foreach ($detail['selected_posts'] as $key => $selected_post) {
+												//$postId = isset($selected_post['post_id']) ? $selected_post['post_id'] : $key;
+												$postLink = isset($selected_post['post_id']) ? $selected_post['post_id'] : $key;
+
+												?>
+												<div style="font-weight: 600;">
+													<?= $selected_post['quantity'] . ' ' . $serviceType . ' on ' ?>
+													<a href=" https://www.tiktok.com/@<?php echo $username?>/video/<?php echo $postLink?>" style="color:#ff005f;" target="_blank">
+														Link
+													</a>
+												</div>
+												<?php
+												$comments = $selected_post['post_comments'] ?? false;
+												if ($comments == true) {
+													$comments = preg_split('/\r\n|\r|\n/', $comments);
+													foreach ($comments as $number => $comment) { ?>
+														<div class="comments" style="margin-left: 5px;">
+															<?php echo '<b>' . (numberToRoman($number + 1)) . '</b>' . '. ' . $comment; ?>
+														</div>
+													<?php }
+												}
+											} ?>
+										</div>
+
+									<?php }?>
+								</td>
+
+								<td width="40" valign="middle" align="right" style="padding: 10px 50px 10px 0px;"><?= $detail['priceUnit'] . $detail['amount_payable']; ?></td>
+							</tr>
+							<?php } ?>
+							<?php  if(!empty($discount)){
+								$prcnt = (!empty($discount)) ? $discount['discount_percent'] : '';
+								$offAmount = (!empty($discount)) ? $discount['discount_price'] : '';
+								$discountedAmount = (!empty($discount)) ? $discount['discount_pkgprice'] : '';
+								$totalPrice = (!empty($discount)) ? $discountedAmount : $totalPrice;
+							?>
+							<tr bgcolor="#F5F6F7" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:14px;text-transform: capitalize;">
+								<td width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;"></td>
+								<td width="300" valign="middle" align="center" style="padding: 10px 0px 10px 20px;"><b>Sub Total:</b></td>
+								<td width="40" valign="middle" align="right" style="padding: 10px 50px 10px 0px;"><b><?= $emailData['currency'] . $cartData['total_amount']; ?></b></td>
+							</tr>
+							<tr bgcolor="#F5F6F7" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:14px;text-transform: capitalize;">
+								<td width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;"></td>
+								<td width="300" valign="middle" align="center" style="padding: 10px 0px 10px 20px;"><b>Discounted (<?php echo $prcnt; ?>%):</b></td>
+								<td width="40" valign="middle" align="right" style="padding: 10px 50px 10px 0px;"><b><?= $emailData['currency'] . $offAmount; ?></b></td>
+							</tr>
+							<?php  }?>
+							<tr bgcolor="#F5F6F7" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:14px;text-transform: capitalize;">
+								<td width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;"></td>
+								<td width="300" valign="middle" align="center" style="padding: 10px 0px 10px 20px;"><b>Total :</b></td>
+								<td width="40" valign="middle" align="right" style="padding: 10px 50px 10px 0px;"><b><?= $emailData['currency'] . $emailData['price_paid']; ?></b></td>
+							</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				</tbody>
+			</table>
 		</div>
+	</div>
 
-		<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF">
-			<tbody>
-				<tr>
-					<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
-				</tr>
-				<tr>
-					<td valign="top" align="center">
-						<table class="table-container services" width="640" cellspacing="0" cellpadding="0" border="0">
-							<tbody>
-								<tr style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;">
-									<th class="td-container" width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">Services You Might Also Like:</th>
-								</tr>
-								<tr style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;">
-									<td class="td-container" width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">
-										<a onmouseover="this.style.color='#FF003D'" onmouseout="this.style.color='#302E2E'" href="<?= base_url('buy-instagram-likes') ?>" style="color: #FF003D;text-transform: capitalize;text-decoration: none;">Buy Instagram Likes</a>
-									</td>
-									<td class="td-container" width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">
-										<a onmouseover="this.style.color='#FF003D'" onmouseout="this.style.color='#302E2E'" href="<?= base_url('buy-tiktok-likes') ?>" style="color: #FF003D;text-transform: capitalize;text-decoration: none;">Buy Tiktok Likes</a>
-									</td>
-								</tr>
-								<tr style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;">
-									<td class="td-container" width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">
-										<a onmouseover="this.style.color='#FF003D'" onmouseout="this.style.color='#302E2E'" href="<?= base_url('buy-youtube-subscribers') ?>" style="color: #FF003D;text-transform: capitalize;text-decoration: none;">Buy Youtube Subscribers</a>
-									</td>
-									<td class="td-container" width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">
-										<a onmouseover="this.style.color='#FF003D'" onmouseout="this.style.color='#302E2E'" href="<?= base_url('buy-instagram-femalefollowers') ?>" style="color: #FF003D;text-transform: capitalize;text-decoration: none;">Buy Instagram Female Followers</a>
-									</td>
-								</tr>
-								<tr style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;">
-									<td class="td-container" width="300" valign="middle" align="left" style="padding: 10px 0px 10px 20px;">
-										<a onmouseover="this.style.color='#FF003D'" onmouseout="this.style.color='#302E2E'" href="<?= base_url('buy-tiktok-autoviews') ?>" style="color: #FF003D;text-transform: capitalize;text-decoration: none;">Buy Tiktok Auto Views</a>
-									</td>
 
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-				<tr style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;">
-					<td valign="middle" align="center">
-						<p>This email is sent from <a style="color: #302E2E;font-weight: 600;
-					text-decoration: none;" href=""> sales@socialfollowers.uk</a></p>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+	<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF">
+		<tbody>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center">
+				<a href="<?php echo $emailData['trackOrderLink'] ?>" target="_blank" style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:14px;text-decoration: none;
+    								font-weight: 500;
+    								background-image: linear-gradient(to right, #00FFF8 , #FF00B4);
+								    border-radius: 40px;
+								    box-sizing: border-box;
+								    display: block;
+								    height: 45px;
+								    padding: 4px;
+								    position: relative;
+								    width: 170px;
+								    transition: .2s;
+								    z-index: 2;">
+								    <span onmouseover="this.style.color='#fff'; this.style.background='transparent'" onmouseout="this.style.color='#302E2E'; this.style.background='#fff'" style="align-items: center;
+									    background: #fff;
+									    border-radius: 40px;
+									    display: flex;
+									    justify-content: center;
+									    height: 100%;
+									    transition: background 0.5s ease;
+									    width: 100%;">Track My Order</span>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:15px;">
+			<td valign="middle" align="center"><p style="margin:0;">You are now eligible to apply for coupons</p></td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:10px" height="10">&nbsp;</td>
+		</tr>
+		<tr style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:13px;">
+			<td valign="middle" align="center"><p style="margin:0;">This email is sent from <a style="color: #FE2C55;font-weight: 600;
+    							text-decoration: none;" href=""> info@tiktoklikes.com</a></p></td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr style="color: #302E2E;font-family:'Poppins',sans-serif;font-size:16px;font-weight: 600;">
+			<td valign="middle" align="center"><p style="margin:0;">Similar Products Recommended for you.</p></td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr>
+			<td valign="top" align="center">
+				<table class="table-container" width="340" cellspacing="0" cellpadding="0" border="0">
+					<tbody>
+					<tr>
+						<td class="td-container center" width="220" valign="middle" align="left" style="font-family:'Lato',sans-serif;font-size:14px;margin: 0;font-weight: 600;"><a href="<?php echo base_url('buy-tiktok-likes'); ?>" style="margin: 0;color: #FE2C55;text-decoration: none;padding-left: 10px;">Buy Tiktok Likes</a></td>
+						<td class="td-container center" width="120" valign="middle" align="left" style="font-family:'Lato',sans-serif;font-size:14px;margin: 0;font-weight: 600;"><a href="<?php echo base_url('buy-tiktok-autolikes'); ?>" style="margin: 0;color: #FE2C55;text-decoration: none;padding-left: 10px;">Buy Auto Likes</a></td>
+					</tr>
+					<tr>
+						<td style="font-size:10px;line-height:10px" height="10">&nbsp;</td>
+					</tr>
+					<tr>
+						<td class="td-container center" width="220" valign="middle" align="left" style="font-family:'Lato',sans-serif;font-size:14px;margin: 0;font-weight: 600;"><a href="<?php echo base_url('buy-tiktok-autoviews'); ?>" style="margin: 0;color: #FE2C55;text-decoration: none;padding-left: 10px;">Buy Auto Views</a>
+						</td>
+						<td class="td-container center" width="120" valign="middle" align="left" style="font-family:'Lato',sans-serif;font-size:14px;margin: 0;font-weight: 600;"><a href="<?php echo base_url('buy-tiktok-followers'); ?>" style="margin: 0;color: #FE2C55;text-decoration: none;padding-left: 10px;">Tik Tok Followers</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		</tbody>
+	</table>
 
-		<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#434343">
-			<tbody>
-				<tr>
-					<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
-				</tr>
-				<tr>
-					<td valign="top" align="center">
-						<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0">
-							<tbody>
-								<tr>
-									<td valign="top" align="center"><img src="<?php echo base_url(); ?>assets/images/logo-white.png" width="150" height="50"></td>
-								</tr>
-								<tr style="color: #fff;font-family:'Poppins',sans-serif;font-size:16px;">
-									<td valign="top" align="center">
-										<p>This email is automated response. Please don't reply this email</p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0">
-							<tbody>
-								<tr class="footer" style="color: #fff;font-family:'Poppins',sans-serif;font-size:14px;">
-									<td class="td-container" width="300" valign="middle" align="left" style="padding-left: 20px;">
-										<a style="color: #fff;
-										text-decoration: none;padding: 0 6px;" href="<?= base_url('faq') ?>">FAQs</a>|<a style="color: #fff;
-										text-decoration: none;padding: 0 6px;" href="<?= base_url('about') ?>">About us</a>|<a style="color: #fff;
-										text-decoration: none;padding: 0 6px;" href="<?= base_url('terms-and-conditions') ?>">Term & Conditions</a>
-									</td>
-									<td class="td-container" width="300" valign="middle" align="right" style="padding-right: 20px;">
-										<p>Powered By <a href="<?= base_url() ?>" style="color: #FF7800;
-										text-decoration: none;"> Social Followers</a></p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</center>
+	<table class="table-container" width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#EDEFF1">
+		<tbody>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		<tr>
+			<td valign="top" align="center">
+				<table class="table-container" width="600" cellspacing="0" cellpadding="0" border="0">
+					<tbody>
+					<tr class="footer">
+						<td class="table-container" width="400" valign="middle" align="left" style="line-height: .8;">
+							<p style="color: #FE2C55;margin: 0;font-family:'Lato',sans-serif;font-size:14px;">
+								<a style="color: #FE2C55;
+    												text-decoration: none;padding: 0 6px 0 0;font-weight: 600;" href="">FAQ</a>|<a style="color: #FE2C55;
+    												text-decoration: none;padding: 0 6px;font-weight: 600;" href="">Contact us</a>|<a style="color: #FE2C55;
+    												text-decoration: none;padding: 0 6px;font-weight: 600;" href="">Term & Conditions</a>
+							</p>
+							<br>
+							<p style="color: #302E2E;margin: 0;font-family:'Lato',sans-serif;font-size:14px;">This is an automatically generated email. Please don't reply to it.</p>
+							<br>
+							<p style="color: #302E2E;margin: 0;font-family:'Lato',sans-serif;font-size:14px;line-height: .4;">Powered By: <a style="color: #302E2E;font-weight: 600;
+    												text-decoration: none;" href="">Tiktoklikes</a></p>
+						</td>
+						<td class="table-container" width="200" valign="middle" align="right">
+							<img height="60" src="footer-logo.PNG">
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="font-size:10px;line-height:20px" height="20">&nbsp;</td>
+		</tr>
+		</tbody>
+	</table>
+</center>
+
 </body>
-
 </html>

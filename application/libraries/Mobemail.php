@@ -19,23 +19,24 @@ class Mobemail
 	}
 	public function mailConfigSetting()
 	{
-		// $config = array(
-		//     'protocol' => 'sendmail',
-		//     'smtp_host' => 'mail.socialfollowers.uk',
-		//     'smtp_port' => 465,
-		//     'smtp_user' => 'info@socialfollowers.uk',
-		//     'smtp_pass' => 'Social@followers123',
-		//     'mailtype' => 'html',
-		//     'charset' => 'utf-8',
-		//     'wordwrap' => TRUE
-		// );
+		/*$config = array(
+		     'protocol' => 'sendmail',
+		     'smtp_host' => 'mail.socialfollowers.uk',
+		     'smtp_port' => 465,
+		     'smtp_user' => 'info@socialfollowers.uk',
+		     'smtp_pass' => 'Social@followers123',
+		     'mailtype' => 'html',
+		     'charset' => 'utf-8',
+		     'wordwrap' => TRUE
+		 );*/
+
 		$config = array(
 			'protocol' => 'smtp',
-			'smtp_host' => 'mail.socialfollowers.uk',
-			'smtp_port' => 587,
-			'smtp_user' => 'info@socialfollowers.uk',
-			'smtp_pass' => 'Social@followers123',
-			'smtp_crypto' => 'tls',
+			'smtp_host' => 'mail.tiktoklikes.co',
+			'smtp_port' => 465,
+			'smtp_user' => 'demo@tiktoklikes.co',
+			'smtp_pass' => 'Tiktokdemo@1234',
+			//'smtp_crypto' => 'tls',
 			'mailtype' => 'html',
 			'charset' => 'utf-8',
 			'wordwrap' => TRUE
@@ -44,8 +45,8 @@ class Mobemail
 		$this->_CI->load->library('email', $config);
 		$this->mail = $this->_CI->email;
 		$this->mail->set_newline("\r\n");
-		$this->mail->from('info@socialfollowers.uk', 'SocialFollowers.uk');
-		$this->mail->cc('info@socialfollowers.uk');
+		$this->mail->from('demo@tiktoklikes.co');
+		//$this->mail->cc('info@socialfollowers.uk');
 	}
 
 	/**
@@ -66,12 +67,12 @@ class Mobemail
 
 	public function mobMultiSuccesOrderMail($data = array())
 	{
-		// echo'<pre>';print_r($data);exit;
 		$body = $this->_CI->load->view('emails/order_success_email.php', $data, TRUE);
 		$this->mail->to($_SESSION['user_email']);
 		$this->mail->subject('Order detail - Order# ' . $data['emailData']['orderId']);
 		$this->mail->message($body);
 		return $this->mail->send();
+
 	}
 
 
@@ -82,10 +83,10 @@ class Mobemail
 	 */
 	public function testMobMail($data = array())
 	{
-		$this->mail->to("kashifraza8999@gmail.com");
-		$body = $this->_CI->load->view('emails/mob_multiple_order_success_email.php', $data, TRUE);
+		$this->mail->to("farazdigitalaimz@gmail.com");
+		//$body = $this->_CI->load->view('emails/mob_multiple_order_success_email.php', $data, TRUE);
 		$this->mail->subject('Test email from SocialFollowersUk');
-		$this->mail->message($body);
+		$this->mail->message("test email");
 		if (!$this->mail->send(false)) {
 			echo $this->mail->print_debugger();
 		}

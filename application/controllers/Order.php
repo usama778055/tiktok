@@ -148,8 +148,8 @@ class Order extends CI_Controller
 		if (empty($orderItemDetail)) {
 			header('location: ' . base_url('tracking/' . $order_id));
 		} else {
+
 			$emailData = $this->prepareMultiEmailData();
-			//echo "<pre>";print_r($emailData);exit;
 			$cartData = (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) ? $_SESSION['cart'] : array();
 			$discount = isset($_SESSION['discount']) ? $_SESSION['discount'] : array();
 			$data = array('cartData' => $cartData, 'discount' => $discount, 'emailData' => $emailData);
@@ -167,6 +167,7 @@ class Order extends CI_Controller
 		$emailData = array(
 			'orderId' => $_SESSION['new_order'],
 			'user_email' => $_SESSION['user_email'],
+			'user_name' => $_SESSION['user_name'],
 			'currency' =>  $currency,
 			'selected_posts' => isset($_SESSION['selected_posts']) ? $_SESSION['selected_posts'] : false,
 			'price_paid' => $_SESSION['price_paid'] ?? false,

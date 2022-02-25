@@ -191,9 +191,11 @@ function handleCart(res, redirectToCart) {
 			base_url +
 			"checkout/'>View Cart</a>";
 		toaster.success(res.message + " " + link);
-		setTimeout(function (){
+		/*setTimeout(function (){
 			location.reload();
-		}, 3000);
+		}, 3000);*/
+		$('#items_list_data').html('');
+		$('#items_list_data').html(res.html);
 	} else if (res.message) {
 		toaster.success(res.message);
 	}

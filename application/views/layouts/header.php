@@ -59,7 +59,7 @@ $this->load->helper('cart');
       					<img class="popupbtn" src="<?php echo base_url('assets/images/cart.svg') ?>" alt="">
               </a>
               <div id="myPopup" class="popupbtn-content">
-                <div class="cart-modal">
+                <div class="cart-modal" id="items_list_data">
                   <h3>Your Cart</h3>
                   <div class="custom-bar"></div>
                   <?php

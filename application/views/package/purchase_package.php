@@ -48,8 +48,9 @@
 						</form>
 					</div>
 					<div class="left-feed-botoom">
+						<div class="loader_class" uk-spinner="ratio: 4"></div>
 						<div class="load-gallery custom_image_class">
-							<div class="loader_class" uk-spinner="ratio: 4"></div>
+
 						</div>
 					</div>
 					<div class="add_comment wrap_selected_items" id="add_comment" style="display:none">

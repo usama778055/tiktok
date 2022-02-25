@@ -101,7 +101,7 @@ function sendAjax(selector, username) {
 			// user_email: email,
 		},
 		beforeSend: function() {
-            //$(".load-gallery.custom_image_class").html("");
+            $(".load-gallery.custom_image_class").html("");
             $(".loader_class").show();
             $("#form-stacked-text"). attr('disabled','disabled');
 

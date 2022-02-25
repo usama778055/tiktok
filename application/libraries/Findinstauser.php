@@ -15,7 +15,9 @@ class Findinstauser
     {
         $this->createUserSession();
         $userArray = $this->getUserData();
+        //echo "<pre>";print_r($userArray);exit;
         $profile_data = $this->prepageUserData($userArray);
+       // echo "<pre>";print_r($profile_data);exit;
         $this->_CI->session->set_userdata('profile_data', $profile_data);
         $result = array('success' => 1, 'data' => $userArray);
         return $result;
@@ -30,6 +32,7 @@ class Findinstauser
 		$package = $this->_CI->session->userdata('package_detail');
         $stype = $package->serviceType;
         $instaRes =$this->_CI->instapi->get_tiktok_user($user_name);
+       // echo "<pre>";print_r($instaRes);exit;
 		$user_data = $instaRes['data'];
 		//echo "<pre>";print_r($user_data);exit;
 		/*$instaProfile = (!is_array($user_data) || !isset($user_data['user'])) ?
@@ -77,16 +80,16 @@ class Findinstauser
         $pckg = $this->_CI->session->package_detail;
         $pckg = (object) $pckg;
         $user_name = $this->_CI->input->post('user_name', true);
-
-        $user_name = $this->_CI->security->xss_clean(trim($user_name));
+		$user_name = $this->_CI->security->xss_clean(trim($user_name));
         $error_message = ($user_name == '') ?
             'Try again with proper Username.' : (
                 (!preg_match("#^[a-zA-Z0-9_\.\]]+$#", $user_name)) ?
-                'Please enter valid instagram Instagram username.' : '');
+                'Please enter valid tiktok username.' : '');
         if ($error_message != '') {
             $error = array('success' => 0, 'message' => $error_message);
             exit(json_encode($error));
         }
+		//echo $user_name;exit;
         $orderId = time() . $pckg->service_id;
         $this->_CI->session->set_userdata('new_order', $orderId);
         $this->_CI->session->set_userdata('user_name', $user_name);

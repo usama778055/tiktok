@@ -190,7 +190,8 @@ function numberToRoman($number)
 							foreach ($details as $detail) {
 							$service = $detail['service_detail'];
 							$serviceType = $service['serviceType'];
-							$username = isset($detail['user_name']) ? $detail['user_name'] : "";
+							//$username = isset($detail['user_name']) ? $detail['user_name'] : "";
+							$username = (isset($detail['u_name'])) ? $detail['u_name'] : "";
 							$url = isset($detail['url']) ? $detail['url'] : "";
 							?>
 							<tr bgcolor="#F5F6F7" style="color: #302E2E;font-family:'Lato',sans-serif;font-size:14px;text-transform: capitalize;">
@@ -360,9 +361,9 @@ function numberToRoman($number)
 						<td class="table-container" width="400" valign="middle" align="left" style="line-height: .8;">
 							<p style="color: #FE2C55;margin: 0;font-family:'Lato',sans-serif;font-size:14px;">
 								<a style="color: #FE2C55;
-    												text-decoration: none;padding: 0 6px 0 0;font-weight: 600;" href="">FAQ</a>|<a style="color: #FE2C55;
-    												text-decoration: none;padding: 0 6px;font-weight: 600;" href="">Contact us</a>|<a style="color: #FE2C55;
-    												text-decoration: none;padding: 0 6px;font-weight: 600;" href="">Term & Conditions</a>
+    								text-decoration: none;padding: 0 6px 0 0;font-weight: 600;" href="">FAQ</a>|<a style="color: #FE2C55;
+    								text-decoration: none;padding: 0 6px;font-weight: 600;" href="">Contact us</a>|<a style="color: #FE2C55;
+    								text-decoration: none;padding: 0 6px;font-weight: 600;" href="">Term & Conditions</a>
 							</p>
 							<br>
 							<p style="color: #302E2E;margin: 0;font-family:'Lato',sans-serif;font-size:14px;">This is an automatically generated email. Please don't reply to it.</p>

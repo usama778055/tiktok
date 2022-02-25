@@ -1,7 +1,7 @@
 <?php
 defined("BASEPATH") or exit("No direct access allow");
 
-class Stripemanagercart
+class StripeManagerCart
 {
 	private $_CI;
 	public function __construct()

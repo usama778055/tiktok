@@ -35,7 +35,8 @@
 						$unitPrice = $cart_item['amount_payable'];
 						$totalPrice = $totalPrice + floatval($unitPrice);
 						$service = $cart_item['service_detail'];
-						$username = (isset($cart_item['user_name'])) ? $cart_item['user_name'] : "";
+						//$username = (isset($cart_item['user_name'])) ? $cart_item['user_name'] : "";
+						$username = (isset($cart_item['u_name'])) ? $cart_item['u_name'] : "";
 						$url = (isset($cart_item['url'])) ? $cart_item['url'] : "";
 						$thumbnail = isset($cart_item['thumbnail']) ? $cart_item['thumbnail'] : '';
 					?>
@@ -55,7 +56,7 @@
 											$comments = preg_split('/\r\n|\r|\n/', $post['post_comments']); ?>
 											<div class="row cartcmmmns">
 												<div class="heading">Comments:
-													<a class="uk-text-light uk-text-primary" href=" https://www.tiktok.com/@<?php echo $_SESSION['profile_data']['user_name']?>/video/<?php echo $post['post_id']?>" target="_blank" uk-tooltip="<?= $post['post_id'] ?>;pos: top" title="" aria-expanded="false"> Link </a>
+													<a class="uk-text-light uk-text-primary" href=" https://www.tiktok.com/@<?php echo $username?>/video/<?php echo $post['post_id']?>" target="_blank" uk-tooltip="<?= $post['post_id'] ?>;pos: top" title="" aria-expanded="false"> Link </a>
 												</div>
 												<?php foreach ($comments as $key => $comment) { ?>
 													<div class="value">
@@ -67,7 +68,7 @@
 										else { ?>
 											<div class="value">
 												<span class="uk-text-bold"><?php echo $quantity . ' ' . $service["serviceType"]; ?> For
-													<a class="uk-text-light uk-text-primary" href="https://www.tiktok.com/@<?php echo $_SESSION['profile_data']['user_name']?>/video/<?php echo $post['post_id']?>" target="_blank" uk-tooltip="<?= $postId ?>;pos: top" title="" aria-expanded="false"> Link </a>
+													<a class="uk-text-light uk-text-primary" href="https://www.tiktok.com/@<?php echo $username?>/video/<?php echo $post['post_id']?>" target="_blank" uk-tooltip="<?= $postId ?>;pos: top" title="" aria-expanded="false"> Link </a>
 												</span>
 											</div>
 										<?php } ?>

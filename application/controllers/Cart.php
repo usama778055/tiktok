@@ -10,7 +10,7 @@ class Cart extends CI_Controller
         $this->load->library('instapi');
 		$this->load->model('Mob_admin');
 		$this->load->model('Users');
-		$this->load->library('stripemanagerCart');
+		$this->load->library('StripeManagerCart');
         $this->postData = $this->cleanPostData();
         $this->cartDetail  = $this->session->userdata('cart') ?? array();
     }
@@ -22,16 +22,23 @@ class Cart extends CI_Controller
 
     public function add_to_cart()
     {
-        $prodData = $this->prepareProdData();
-        $cart = array('success' => 0, 'message' => 'There is an error. Try again.');
+
+    	$prodData = $this->prepareProdData();
+       // echo "<pre>";print_r($prodData);exit;
+    	$cart = array('success' => 0, 'message' => 'There is an error. Try again.');
         if (!empty($prodData)) {
+
             $_SESSION['cart']['items'][] = $prodData;
             $this->calTotalAmount();
             if (isset($_SESSION['discount']) && isset($_SESSION['discount']['promoCode'])) {
                 $promocode = $_SESSION['discount']['promoCode'];
                 $this->applyPromo($promocode);
             }
-            $cart = array('success' => 1, 'message' => 'Product is added to cart successfully.');
+            $data=[];
+			$html = $this->load->view('cart/cart_items_list',$data,true);
+           // var_dump($html);exit;
+            $cart = array('success' => 1, 'message' => 'Product is added to cart successfully.','html'=>$html);
+
         }
         exit(json_encode($cart));
 
@@ -56,6 +63,7 @@ class Cart extends CI_Controller
             ),
             'amount_payable' => $pckg['packagePrice'],
             'priceUnit' => $pckg['priceUnit'],
+            'u_name' => $_SESSION['user_name'],
         );
 		//echo "<pre>";print_r($res);exit;
         $username_pkgs = ['followers', 'autolikes', 'autoviews'];
@@ -208,6 +216,7 @@ class Cart extends CI_Controller
         // echo "<pre>";print_r($data);exit;
 
         $this->load->view('cart/checkout', $data);
+
     }
 	public function setStripeCartSession()
 	{
@@ -260,7 +269,7 @@ class Cart extends CI_Controller
 		foreach ($cart['items'] as $items) {
 			$orderItemDetail = array(
 				'order_id' => $_SESSION['new_order'],
-				'user_name' => isset($items['user_name']) ? $items['user_name'] : $items['url'],
+				'user_name' => isset($items['u_name']) ? $items['u_name'] : '',
 				'service_id' => $items['service_id'],
 				'service_type' => $items['service_detail']['serviceType'],
 				'package_id' => $items['service_detail']['packageId'],

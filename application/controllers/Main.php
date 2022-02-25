@@ -93,14 +93,29 @@ class Main extends CI_Controller
 
     public function get_tiktok_user($post)
     {
+    	//echo print_r($this->input->post('user_name'));exit;
 		$html="";
 		$this->load->library('findinstauser');
-		$user_data = $this->findinstauser->findUser($post);
-		//echo "<pre>";print_r($user_data);exit;
-		if ($user_data['success'] == 1) {
-			$data["user"] = $user_data['data'];
+		if(isset($_SESSION['user_name']) && ($this->input->post('user_name')==$_SESSION['user_name']))
+		{
+			$data["user"] = $_SESSION['user_api_info'];
 			$html = $this->load->view('package/api_images_partial_view', $data, TRUE);
 		}
+		else{
+			//echo "noooo";exit;
+			$user_data = $this->findinstauser->findUser($post);
+			if ($user_data['success'] == 1) {
+				$userInfo=$this->session->set_userdata('user_api_info',$user_data['data']);
+				$data["user"] = $user_data['data'];
+				$html = $this->load->view('package/api_images_partial_view', $data, TRUE);
+			}
+		}
+		/*$user_data = $this->findinstauser->findUser($post);
+		if ($user_data['success'] == 1) {
+			$userInfo=$this->session->set_userdata('user_api_info',$user_data['data']);
+			$data["user"] = $user_data['data'];
+			$html = $this->load->view('package/api_images_partial_view', $data, TRUE);
+		}*/
 		$resp = array(
 			"html" => $html,
 			"data" => $data,
@@ -214,4 +229,10 @@ class Main extends CI_Controller
 			}
 		}
 	}
+
+
+
+
+
+
 }

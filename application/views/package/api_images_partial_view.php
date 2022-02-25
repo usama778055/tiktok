@@ -32,7 +32,7 @@
 		        <div uk-spinner="ratio: 2" class="uk-icon uk-spinner" style="display: none"><svg width="60" height="60" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="#000" cx="15" cy="15" r="14" style="stroke-width: 0.5px;"></circle></svg>
 		        </div>
 		      </div>
-		      <div id="ig_profile_thumb" class="ig-pp"></div>
+		      <!--<div id="ig_profile_thumb" class="ig-pp"></div>-->
 		      <p id="ig-d-fullname" class="numpost uk-margin-remove uk-text-lead"><?php  echo $user['full_name']?></p>
 		      <p id="ig-d-username" class="ighndl uk-margin-remove uk-text-meta"><?php  echo $user['user_name']?></p>
 		    </div>
